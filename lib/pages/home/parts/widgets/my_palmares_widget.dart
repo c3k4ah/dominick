@@ -58,7 +58,7 @@ class MyPalmaresWidget extends StatelessWidget {
                     width: 70,
                     height: 70,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(15),
                       border: Border.all(
                         color: isSelected ? secondaryColor : tertioColor,
                         width: 5,
