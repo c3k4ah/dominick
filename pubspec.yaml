@@ -76,11 +76,16 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Resolve
+    - family: Mortend
       fonts:
-        - asset: assets/fonts/resolve_light.otf
-
-
+        - asset: assets/fonts/mortend/mortend_bold.otf
+        - asset: assets/fonts/mortend/mortend_bold.ttf
+    - family: FloPro
+      fonts:
+        - asset: assets/fonts/florida_project/FloProject_phase_one.otf
+        - asset: assets/fonts/florida_project/FloProject_phase_one.ttf
+        - asset: assets/fonts/florida_project/FloProject_phase_two.otf
+        - asset: assets/fonts/florida_project/FloProject_phase_two.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -60,14 +60,14 @@ class MyProjectWidget extends StatelessWidget {
                               style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 30,
-                                fontWeight: FontWeight.w900,
                               ),
                             ),
                             Text(
-                              'MY Portfolio',
+                              'My Portfolio',
                               style: TextStyle(
                                 color: tertioColor,
                                 fontSize: 15,
+                                fontFamily: 'Product Sans',
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -122,7 +122,6 @@ class MyProjectWidget extends StatelessWidget {
                             style: TextStyle(
                               color: whiteColor,
                               fontSize: 30,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
@@ -132,7 +131,7 @@ class MyProjectWidget extends StatelessWidget {
                             style: TextStyle(
                               color: whiteColor,
                               fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Product Sans',
                             ),
                           ),
                         ],

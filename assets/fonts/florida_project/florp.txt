@@ -1,0 +1,39 @@
+FLORIDA PROJECT v1.0; June 11, 2003
+Freeware typeface from Mickeyavenue.com
+
+Please include this file (florp.txt) and the license (license.txt) with any redistribution.
+
+FLORIDA PROJECT is an original font family based on the logotype for Walt Disney World circa 1971 - 1995. The condensed grotesk design was additionally influenced by typefaces such as Helvetica Inserat, Helvetica Compressed, Impact, Aurora, and Eurostile.
+
+FLORIDA PROJECT PHASE ONE contains a conventional set of capitals, lowercase, and most of the extended Latin character set (save for the alternates and dingbats listed below). The numerals match the size and weight of the lowercase. The punctuation is positioned to line up with the lowercase as well.
+
+FLORIDA PROJECT PHASE TWO contains some alternate capitals based on their lowercase counterparts. The numerals match the size and weight of the capitals, and the punctuation lines up with the capitals. The rest of the characters (lowercase, et al) are identical to Phase One.
+
+Each of the above fonts is included as Windows TrueType as well as the newer cross-platform OpenType format. Windows 2000/XP and Mac OS X support OpenType fonts natively. Earlier versions require Adobe Type Manager Light, a free download:
+http://www.adobe.com/products/atmlight/main.html
+
+FLORIDA PROJECT PRO (currently under development) contains all of the glyphs from Phase One and Phase Two in a single OpenType font. Alternate capitals and puncuation are toggled using the Small Caps feature. Alternate numerals are toggled using the Old Style Figures feature. (These functions only work in OpenType-aware applications that support the 'smcp and 'onum' features. If you have software that supports these features and would like to try a preview copy of Florida Project Pro, please send a request to the address at the end of this text.) 
+
+NOTE: The keyboard references in the following sections should work under Microsoft Windows. Hold down the Alt key while entering the four-digit number on your keyboard's numeric keypad.
+
+ALTERNATE CHARACTERS
+µ (mu, Alt+0181): alternate 'E'
+½ (one half, Alt+0189): oversize 'D'
+
+DINGBATS
+• (bullet, Alt+0149): small wireframe globe with ears
+± (plus minus, Alt+0177): large wireframe globe with ears
+¼ (one quarter, Alt+0188): Walt Disney World logotype version 1
+¾ (three quarters, Alt+0190): Walt Disney World logotype version 2
+¬ (logical not, Alt+0172): Reedy Creek Improvement District logo
+
+NUMERALS
+The numerals in both fonts are tabular (all the same width). Kerning pairs tighten up the spacing between '1' and the other digits. The Pro version contains a separate set of proportional numerals, along with the 'pnum' feature for switching from tabular to proportional figures (this only works in OpenType-aware applications that support the 'pnum' feature).
+
+CREDITS
+Justin Callaghan: Digitization and design, font construction
+Spencer Parks: Additional character references and design, font construction
+Tim McKenny (aka Kronos): Original logotype digitization
+
+CONTACT
+Email: justin@mickeyavenue.com

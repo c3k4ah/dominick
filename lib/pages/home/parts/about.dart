@@ -44,8 +44,8 @@ class AboutMePart extends StatelessWidget {
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           color: tertioColor,
-                          fontWeight: FontWeight.bold,
                           fontSize: 25,
+                          fontFamily: 'Product Sans',
                         ),
                       ),
                       Text(
@@ -53,7 +53,6 @@ class AboutMePart extends StatelessWidget {
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           color: whiteColor,
-                          fontWeight: FontWeight.w900,
                           fontSize: 80,
                         ),
                       ),

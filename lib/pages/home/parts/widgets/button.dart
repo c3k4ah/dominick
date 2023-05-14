@@ -95,7 +95,6 @@ class MyCustomBtt extends StatelessWidget {
                   style: TextStyle(
                     color: secondaryColor,
                     fontSize: 25,
-                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),

@@ -37,7 +37,6 @@ class MyHeaderPart extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: whiteColor,
-                  fontWeight: FontWeight.w700,
                   fontSize: 50,
                 ),
               ),
