@@ -80,6 +80,7 @@ class MyPalmaresWidget extends StatelessWidget {
                     height: 80,
                     width: 160,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
                           UniconsLine.location_point,
@@ -100,13 +101,14 @@ class MyPalmaresWidget extends StatelessWidget {
                     height: 80,
                     width: 200,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
-                          UniconsLine.code_branch,
+                          UniconsLine.estate,
                           color: isSelected ? secondaryColor : tertioColor,
                         ),
                         Text(
-                          "Dev mobile",
+                          "IBONIA",
                           style: TextStyle(
                             color: isSelected ? secondaryColor : whiteColor,
                             fontFamily: 'Product Sans',
