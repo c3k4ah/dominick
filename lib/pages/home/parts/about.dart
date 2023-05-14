@@ -62,7 +62,6 @@ class AboutMePart extends StatelessWidget {
                 ),
                 MyCustomBtt(
                   onTap: () {},
-                  width: 240,
                   size: const Size(240, 70),
                   text: 'Voir mon CV',
                   icon: UniconsLine.file_download,

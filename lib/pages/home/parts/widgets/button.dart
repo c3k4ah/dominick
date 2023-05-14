@@ -6,14 +6,13 @@ class MyCustomBtt extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final IconData icon;
-  final double width;
+
   final Size size;
   const MyCustomBtt({
     super.key,
     required this.onTap,
     required this.text,
     required this.icon,
-    required this.width,
     required this.size,
   });
 
@@ -87,7 +86,7 @@ class MyCustomBtt extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                width: width - 50,
+                width: size.width - 50,
                 color: Colors.transparent,
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(

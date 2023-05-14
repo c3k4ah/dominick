@@ -1,14 +1,8 @@
 import 'package:dominick/common/colors/colors.dart';
-import 'package:dominick/pages/home/parts/big_part.dart';
-import 'package:dominick/pages/home/parts/experience.dart';
-import 'package:dominick/pages/home/parts/header.dart';
-import 'package:dominick/pages/home/parts/palmares.dart';
-import 'package:dominick/pages/home/parts/project.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/utils/sizes/mediaquery.dart';
-import 'parts/about.dart';
-import 'parts/footer.dart';
+import 'parts/part.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

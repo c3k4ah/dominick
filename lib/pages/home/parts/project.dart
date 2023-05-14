@@ -1,4 +1,3 @@
-import 'package:dominick/common/colors/colors.dart';
 import 'package:dominick/common/utils/cursor_behavior/widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,19 +20,14 @@ class MyProjectPart extends StatelessWidget {
       ),
       height: size.height * .9,
       width: size.width,
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 2,
-          color: whiteColor,
-        ),
-      ),
       child: ScrollChild(
         child: ListView.builder(
-          itemCount: 3,
+          itemCount: 4,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return MyProjectWidget(
               size: size,
+              id: index + 1,
             );
           },
         ),
