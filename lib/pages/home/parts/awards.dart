@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
 
-class ExperiencePart extends StatelessWidget {
+class AwardPart extends StatelessWidget {
   final Size size;
-  const ExperiencePart({
+  const AwardPart({
     super.key,
     required this.size,
   });
@@ -20,13 +20,11 @@ class ExperiencePart extends StatelessWidget {
       height: size.height * .7,
       width: size.width,
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 2,
-          color: whiteColor,
+        color: secondaryColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
         ),
-      ),
-      child: Placeholder(
-        color: whiteColor,
       ),
     );
   }

@@ -1,6 +1,6 @@
 export 'about.dart';
-export 'big_part.dart';
-export 'experience.dart';
+export 'skills.dart';
+export 'awards.dart';
 export 'footer.dart';
 export 'header.dart';
 export 'palmares.dart';

@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     _size.height(context),
                   ),
                 ),
-                ExperiencePart(
+                AwardPart(
                   size: Size(
                     _size.width(context),
                     _size.height(context),
