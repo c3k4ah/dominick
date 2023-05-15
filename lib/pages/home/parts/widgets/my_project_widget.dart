@@ -45,50 +45,19 @@ class MyProjectWidget extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 80,
+                    height: 50,
                     width: size.width,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              addZero(id),
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 30,
-                              ),
-                            ),
-                            Text(
-                              'My Portfolio',
-                              style: TextStyle(
-                                color: tertioColor,
-                                fontSize: 15,
-                                fontFamily: 'Product Sans',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          height: 55,
-                          width: 55,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: primaryColor,
-                              width: 4,
-                            ),
-                          ),
-                          child: Center(
-                            child: Icon(
-                              UniconsLine.palette,
-                              color: whiteColor,
-                              size: 30,
-                            ),
+                        Text(
+                          'My Portfolio',
+                          style: TextStyle(
+                            color: tertioColor,
+                            fontSize: 20,
+                            fontFamily: 'Product Sans',
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
@@ -167,18 +136,50 @@ class MyProjectWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 30),
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: primaryColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: MyCustomBtt(
-                    onTap: () {},
-                    text: 'VOIR',
-                    icon: UniconsLine.play,
-                    size: const Size(150, 60),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: MyCustomBtt(
+                          onTap: () {},
+                          text: 'VOIR',
+                          icon: UniconsLine.play,
+                          size: const Size(150, 60),
+                        ),
+                      ),
+                      Container(
+                        height: 70,
+                        width: 60,
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              addZero(id),
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
