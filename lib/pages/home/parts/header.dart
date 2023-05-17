@@ -99,6 +99,7 @@ class MyHeaderPart extends StatelessWidget {
             child: Stack(
               alignment: AlignmentDirectional.center,
               children: [
+                // colorFilter: ColorFilter.mode(Colors.red, BlendMode.srcIn),
                 Container(
                   height: 60,
                   padding: EdgeInsets.zero,
@@ -107,11 +108,12 @@ class MyHeaderPart extends StatelessWidget {
                 Container(
                   height: 150,
                   padding: EdgeInsets.zero,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('/icon/logo_orange.png'),
-                      fit: BoxFit.contain,
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      secondaryColor,
+                      BlendMode.srcIn,
                     ),
+                    child: Image.asset('/icon/logo_blanc.png'),
                   ),
                 ),
               ],

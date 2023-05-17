@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     _size.height(context),
                   ),
                 ),
-                MyPalmaresPart(
+                MyParcoursPart(
                   size: Size(
                     _size.width(context),
                     _size.height(context),

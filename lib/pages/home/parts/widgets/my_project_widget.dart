@@ -3,6 +3,8 @@ import 'package:dominick/pages/home/parts/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
+import '../../../../common/utils/helpers/parsing.dart';
+
 class MyProjectWidget extends StatelessWidget {
   final Size size;
   final int id;
@@ -14,23 +16,13 @@ class MyProjectWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String addZero(int index) {
-      String numb = index.toString();
-      if (numb.length == 2) {
-        return numb;
-      } else if (numb.length == 1) {
-        return '0$numb';
-      }
-      return '';
-    }
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
           Expanded(
             child: Container(
-              width: size.width * .25,
+              width: 330,
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
                 vertical: 20,
@@ -112,12 +104,12 @@ class MyProjectWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: size.width * .25,
+            width: 330,
             height: 80,
             child: Stack(
               children: [
                 SizedBox(
-                  width: size.width * .25,
+                  width: 330,
                   child: Column(
                     children: [
                       Container(
@@ -170,7 +162,7 @@ class MyProjectWidget extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              addZero(id),
+                              addZero(id + 1),
                               style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 25,

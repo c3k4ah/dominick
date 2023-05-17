@@ -9,7 +9,7 @@ Color whiteColor = const Color(0xffFFFFFF);
 */
 
 //Green color
-Color primaryColor = const Color(0xff00509d);
-Color secondaryColor = const Color(0xff00296b);
-Color tertioColor = const Color(0xfffdc500);
+Color secondaryColor = const Color(0xff537EC5);
+Color primaryColor = const Color(0xff293A80);
+Color tertioColor = const Color(0xffFFE194);
 Color whiteColor = const Color(0xffFFFFFF);

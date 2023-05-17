@@ -27,7 +27,7 @@ class MyProjectPart extends StatelessWidget {
           itemBuilder: (context, index) {
             return MyProjectWidget(
               size: size,
-              id: index + 1,
+              id: index,
             );
           },
         ),

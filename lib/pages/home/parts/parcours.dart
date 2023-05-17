@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
-import 'widgets/my_palmares_widget.dart';
+import 'widgets/my_parcours_widget.dart';
 
-class MyPalmaresPart extends StatefulWidget {
+class MyParcoursPart extends StatefulWidget {
   final Size size;
-  const MyPalmaresPart({
+  const MyParcoursPart({
     super.key,
     required this.size,
   });
 
   @override
-  State<MyPalmaresPart> createState() => _MyPalmaresPartState();
+  State<MyParcoursPart> createState() => _MyPalmaresPartState();
 }
 
-class _MyPalmaresPartState extends State<MyPalmaresPart> {
+class _MyPalmaresPartState extends State<MyParcoursPart> {
   int selectedIndex = 100;
   @override
   Widget build(BuildContext context) {

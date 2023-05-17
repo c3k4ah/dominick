@@ -36,10 +36,16 @@ class MyCustomBtt extends StatelessWidget {
                   width: 50,
                   margin: const EdgeInsets.only(right: 3),
                   decoration: BoxDecoration(
-                    color: tertioColor,
+                    color: whiteColor,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8),
+                    ),
+                  ),
+                  child: Center(
+                    child: Container(
+                      height: 3,
+                      color: primaryColor,
                     ),
                   ),
                 ),
@@ -56,7 +62,7 @@ class MyCustomBtt extends StatelessWidget {
                           ),
                           Container(
                             width: 3,
-                            color: primaryColor,
+                            color: whiteColor,
                           ),
                           Container(
                             width: 13.5,

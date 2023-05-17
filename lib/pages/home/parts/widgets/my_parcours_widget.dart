@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
-
 import '../../../../common/colors/colors.dart';
 
 class MyPalmaresWidget extends StatelessWidget {
@@ -45,13 +44,16 @@ class MyPalmaresWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    '2023',
-                    style: TextStyle(
-                      color: isSelected ? secondaryColor : whiteColor,
-                      fontSize: 20,
-                      fontFamily: 'Product Sans',
-                      fontWeight: FontWeight.bold,
+                  RotatedBox(
+                    quarterTurns: 3,
+                    child: Text(
+                      '2023',
+                      style: TextStyle(
+                        color: isSelected ? secondaryColor : whiteColor,
+                        fontSize: 20,
+                        fontFamily: 'Product Sans',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Container(
@@ -125,11 +127,12 @@ class MyPalmaresWidget extends StatelessWidget {
           Container(
             width: 100,
             decoration: BoxDecoration(
-                color: isSelected ? tertioColor : primaryColor,
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                )),
+              color: isSelected ? tertioColor : primaryColor,
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+            ),
             child: Center(
               child: Icon(
                 UniconsLine.angle_right_b,
