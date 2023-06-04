@@ -2,7 +2,6 @@ import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/utils/sizes/pad_margin.dart';
-import '../../../data/social_media.dart';
 
 class MyHeaderPart extends StatelessWidget {
   const MyHeaderPart({
@@ -28,21 +27,21 @@ class MyHeaderPart extends StatelessWidget {
         ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           logo(),
-          Expanded(
-            child: SizedBox(
-              child: Text(
-                'PORTFOLIO',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: whiteColor,
-                  fontSize: 50,
-                ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 50),
+            child: Text(
+              'PORTFOLIO',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: whiteColor,
+                fontSize: 50,
               ),
             ),
           ),
-          SizedBox(
+          /* SizedBox(
             width: size.width * .2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +59,7 @@ class MyHeaderPart extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          ),*/
         ],
       ),
     );

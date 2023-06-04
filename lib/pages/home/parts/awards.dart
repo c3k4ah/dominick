@@ -5,6 +5,8 @@ import 'package:unicons/unicons.dart';
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/cursor_behavior/widget.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
+import '../../../data/palmares_data.dart';
+import '../../../models/time_line_model.dart';
 import 'widgets/my_awards_widget.dart';
 
 class AwardPart extends StatefulWidget {
@@ -19,9 +21,8 @@ class AwardPart extends StatefulWidget {
 }
 
 class _AwardPartState extends State<AwardPart> {
-  late ScrollController _scrollController;
   int selectedID = 0;
-  int getItemList = 5;
+  int getItemList = palmaresList.length;
   String titre = "", desc = "";
   void next() {
     if (selectedID < getItemList - 1) {
@@ -66,7 +67,6 @@ class _AwardPartState extends State<AwardPart> {
 
   @override
   void initState() {
-    _scrollController = ScrollController();
     super.initState();
   }
 
@@ -116,7 +116,7 @@ class _AwardPartState extends State<AwardPart> {
                       Text(
                         'Mes Récompenses',
                         style: TextStyle(
-                          color: tertioColor,
+                          color: whiteColor,
                           fontSize: 40,
                           fontWeight: FontWeight.normal,
                         ),
@@ -143,7 +143,7 @@ class _AwardPartState extends State<AwardPart> {
                                 child: Center(
                                   child: Icon(
                                     UniconsLine.angle_left_b,
-                                    color: tertioColor,
+                                    color: whiteColor,
                                     size: 30,
                                   ),
                                 ),
@@ -163,7 +163,7 @@ class _AwardPartState extends State<AwardPart> {
                                 child: Center(
                                   child: Icon(
                                     UniconsLine.angle_right_b,
-                                    color: tertioColor,
+                                    color: whiteColor,
                                     size: 30,
                                   ),
                                 ),
@@ -185,7 +185,9 @@ class _AwardPartState extends State<AwardPart> {
                         itemCount: getItemList,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
+                          TimeLineContentModel palmares = palmaresList[index];
                           return MyAwardsWidget(
+                            palmares: palmares,
                             id: index,
                             isHover: selectedID == index,
                           );

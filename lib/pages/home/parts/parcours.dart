@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
+import '../../../data/formations_data.dart';
+import '../../../models/formation_model.dart';
 import 'widgets/my_parcours_widget.dart';
 
 class MyParcoursPart extends StatefulWidget {
@@ -37,7 +39,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
               children: [
                 Text(
                   'Parcours',
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: whiteColor,
                     fontSize: 50,
@@ -101,9 +103,11 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
           Expanded(
             child: ScrollChild(
               child: ListView.builder(
-                itemCount: 5,
+                reverse: true,
+                itemCount: formationList.length,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
+                  FormationModel formation = formationList[index];
                   return MouseRegion(
                     onHover: (event) {
                       setState(() {
@@ -116,6 +120,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
                       });
                     },
                     child: MyPalmaresWidget(
+                      formation: formation,
                       isSelected: index == selectedIndex,
                       size: widget.size,
                     ),

@@ -1,29 +1,32 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:dominick/common/colors/colors.dart';
 import 'package:unicons/unicons.dart';
 
+import 'package:dominick/common/colors/colors.dart';
+
 import '../../../../common/utils/helpers/parsing.dart';
+import '../../../../models/time_line_model.dart';
 
 class MyAwardsWidget extends StatelessWidget {
   final bool isHover;
   final int id;
+  final TimeLineContentModel palmares;
   const MyAwardsWidget({
     Key? key,
     required this.isHover,
     required this.id,
+    required this.palmares,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Color hoverColor = isHover ? secondaryColor : tertioColor;
+    Color hoverColor = isHover ? secondaryColor : whiteColor;
     return Container(
       width: 300,
       //margin: const EdgeInsets.symmetric(horizontal: 8),
 
       decoration: BoxDecoration(
-        color: isHover ? tertioColor : Colors.transparent,
+        color: isHover ? whiteColor : Colors.transparent,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -50,11 +53,13 @@ class MyAwardsWidget extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         child: Text(
-                          "Hackathon",
+                          palmares.type,
                           textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                           style: TextStyle(
                             color: hoverColor,
-                            fontSize: 40,
+                            fontSize: 30,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
@@ -65,7 +70,7 @@ class MyAwardsWidget extends StatelessWidget {
                           color: hoverColor,
                         ),
                         trailing: Text(
-                          "1#",
+                          "${palmares.rank}#",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color: hoverColor,
@@ -80,7 +85,7 @@ class MyAwardsWidget extends StatelessWidget {
                           color: hoverColor,
                         ),
                         trailing: Text(
-                          "1.5M Ar",
+                          palmares.price,
                           textAlign: TextAlign.start,
                           style: TextStyle(
                             color: hoverColor,
@@ -92,8 +97,9 @@ class MyAwardsWidget extends StatelessWidget {
                       SizedBox(
                         width: 300,
                         child: Text(
-                          "ZahaGeek",
+                          palmares.title,
                           textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: hoverColor,
                             fontSize: 30,
@@ -106,13 +112,16 @@ class MyAwardsWidget extends StatelessWidget {
                 ),
                 Container(
                   width: 300,
+                  height: 100,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 10,
                   ),
                   child: Text(
-                    "Une plateforme développée par la team Angivy afin d’apporter une solution au numérique pour les enfants.",
+                    palmares.description,
                     textAlign: TextAlign.center,
+                    maxLines: 7,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: hoverColor,
                       fontSize: 15,
@@ -125,9 +134,9 @@ class MyAwardsWidget extends StatelessWidget {
             ),
           ),
           Text(
-            '2023',
+            palmares.date,
             style: TextStyle(
-              color: isHover ? secondaryColor : tertioColor,
+              color: isHover ? secondaryColor : whiteColor,
               fontSize: 40,
               fontWeight: FontWeight.normal,
             ),

@@ -11,8 +11,9 @@ List<SMediaModel> reseauxListe = [
     icon: Icon(
       UniconsLine.github,
       color: whiteColor,
+      size: 35,
     ),
-    bgColor: secondaryColor,
+    bgColor: Colors.black,
   ),
   SMediaModel(
     name: 'Facebook',
@@ -20,16 +21,38 @@ List<SMediaModel> reseauxListe = [
     icon: Icon(
       UniconsLine.facebook_f,
       color: whiteColor,
+      size: 35,
     ),
-    bgColor: secondaryColor,
+    bgColor: Colors.blue.shade700,
   ),
   SMediaModel(
-    name: 'Youtube',
+    name: 'Discord',
     link: 'link',
     icon: Icon(
-      UniconsLine.youtube,
+      UniconsLine.discord,
       color: whiteColor,
+      size: 35,
     ),
-    bgColor: secondaryColor,
+    bgColor: Colors.deepPurple,
+  ),
+  SMediaModel(
+    name: 'LinkedIn',
+    link: 'link',
+    icon: Icon(
+      UniconsLine.linkedin,
+      color: whiteColor,
+      size: 35,
+    ),
+    bgColor: Colors.blueAccent,
+  ),
+  SMediaModel(
+    name: 'Gmail',
+    link: 'link',
+    icon: Icon(
+      UniconsLine.google,
+      color: whiteColor,
+      size: 35,
+    ),
+    bgColor: Colors.amber.shade700,
   ),
 ];

@@ -5,7 +5,7 @@ import 'package:unicons/unicons.dart';
 
 import '../../../common/utils/sizes/pad_margin.dart';
 
-class AboutMePart extends StatelessWidget {
+class AboutMePart extends StatefulWidget {
   final Size size;
   const AboutMePart({
     super.key,
@@ -13,18 +13,26 @@ class AboutMePart extends StatelessWidget {
   });
 
   @override
+  State<AboutMePart> createState() => _AboutMePartState();
+}
+
+class _AboutMePartState extends State<AboutMePart> {
+  bool isHover = false;
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: bodyPadding,
         vertical: 20,
       ),
-      height: size.height * .8,
-      width: size.width,
+      height: widget.size.height * .8,
+      width: widget.size.width,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: size.width * .3,
+            width: widget.size.width * .3,
             margin: const EdgeInsets.only(
               right: 30,
               top: 20,
@@ -68,9 +76,28 @@ class AboutMePart extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: Placeholder(
-              color: whiteColor,
+          MouseRegion(
+            onEnter: (event) {
+              setState(() {
+                isHover = !isHover;
+              });
+            },
+            onExit: (event) {
+              setState(() {
+                isHover = !isHover;
+              });
+            },
+            child: Container(
+              width: widget.size.width * .45,
+              height: 450,
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: isHover
+                      ? const AssetImage('/images/preview.png')
+                      : const AssetImage('/images/preview_draw.png'),
+                ),
+              ),
             ),
           ),
         ],

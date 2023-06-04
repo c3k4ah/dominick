@@ -1,15 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
+
 import '../../../../common/colors/colors.dart';
+import '../../../../models/formation_model.dart';
 
 class MyPalmaresWidget extends StatelessWidget {
   final Size size;
   final bool isSelected;
+  final FormationModel formation;
   const MyPalmaresWidget({
-    super.key,
+    Key? key,
     required this.size,
     required this.isSelected,
-  });
+    required this.formation,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,7 @@ class MyPalmaresWidget extends StatelessWidget {
                   RotatedBox(
                     quarterTurns: 3,
                     child: Text(
-                      '2023',
+                      formation.date,
                       style: TextStyle(
                         color: isSelected ? secondaryColor : whiteColor,
                         fontSize: 20,
@@ -71,11 +76,14 @@ class MyPalmaresWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(
-                    "Stage d'apprentisage",
-                    style: TextStyle(
-                      color: isSelected ? secondaryColor : whiteColor,
-                      fontSize: 20,
+                  SizedBox(
+                    width: 160,
+                    child: Text(
+                      formation.title,
+                      style: TextStyle(
+                        color: isSelected ? secondaryColor : whiteColor,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -89,7 +97,7 @@ class MyPalmaresWidget extends StatelessWidget {
                           color: isSelected ? secondaryColor : tertioColor,
                         ),
                         Text(
-                          "Ankatso",
+                          formation.location,
                           style: TextStyle(
                             color: isSelected ? secondaryColor : whiteColor,
                             fontFamily: 'Product Sans',
@@ -110,7 +118,7 @@ class MyPalmaresWidget extends StatelessWidget {
                           color: isSelected ? secondaryColor : tertioColor,
                         ),
                         Text(
-                          "IBONIA",
+                          formation.institut,
                           style: TextStyle(
                             color: isSelected ? secondaryColor : whiteColor,
                             fontFamily: 'Product Sans',

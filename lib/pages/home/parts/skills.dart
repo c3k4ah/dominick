@@ -19,12 +19,7 @@ class MyBigPart extends StatelessWidget {
       ),
       height: size.height * .9,
       width: size.width,
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 2,
-          color: whiteColor,
-        ),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: Placeholder(
         color: whiteColor,
       ),
