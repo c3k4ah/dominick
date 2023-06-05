@@ -1,7 +1,7 @@
 import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/utils/sizes/mediaquery.dart';
+import '../../common/utils/sizes/sizes.dart';
 import 'parts/part.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ScreenSize _size = ScreenSize();
+  final CustomSize _size = CustomSize();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +26,10 @@ class _HomePageState extends State<HomePage> {
               MyHeaderPart(
                 size: Size(
                   _size.width(context),
-                  _size.height(context),
+                  100,
                 ),
               ),
-              AboutMePart(
+              /*  AboutMePart(
                 size: Size(
                   _size.width(context),
                   _size.height(context),
@@ -52,9 +52,10 @@ class _HomePageState extends State<HomePage> {
                       '( Projets en entreprises et en freelance ne sont pas inclus .)',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: whiteColor,
-                          fontSize: 10,
-                          fontFamily: 'Product Sans'),
+                        color: whiteColor,
+                        fontSize: 10,
+                        fontFamily: 'Product Sans',
+                      ),
                     ),
                   ],
                 ),
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   _size.width(context),
                   _size.height(context),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

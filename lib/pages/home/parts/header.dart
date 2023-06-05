@@ -12,7 +12,7 @@ class MyHeaderPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: size.height,
       width: size.width,
       margin: EdgeInsets.symmetric(
         horizontal: bodyPadding,
