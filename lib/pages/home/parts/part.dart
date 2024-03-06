@@ -5,3 +5,4 @@ export 'footer.dart';
 export 'header.dart';
 export 'parcours.dart';
 export 'project.dart';
+export 'cover_page.dart';

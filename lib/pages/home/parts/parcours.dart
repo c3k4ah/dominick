@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
+import '../../../data/experience_data.dart';
 import '../../../data/formations_data.dart';
 import '../../../models/formation_model.dart';
 import 'widgets/my_parcours_widget.dart';
+import 'widgets/parcour_switch.dart';
 
 class MyParcoursPart extends StatefulWidget {
   final Size size;
@@ -20,6 +22,7 @@ class MyParcoursPart extends StatefulWidget {
 
 class _MyPalmaresPartState extends State<MyParcoursPart> {
   int selectedIndex = 100;
+  bool isExp = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +30,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
         horizontal: bodyPadding,
         vertical: 20,
       ),
-      height: widget.size.height * .9,
+      height: widget.size.height,
       width: widget.size.width,
       child: Column(
         children: [
@@ -56,43 +59,23 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 150,
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: whiteColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Experiences',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: secondaryColor,
-                              fontSize: 20,
-                              fontFamily: 'Product Sans',
-                            ),
-                          ),
-                        ),
+                      ParcoursSwitch(
+                        text: 'Experiences',
+                        onTap: () {
+                          setState(() {
+                            isExp = false;
+                          });
+                        },
+                        isSelected: !isExp,
                       ),
-                      Container(
-                        width: 150,
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Formations',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: whiteColor,
-                              fontSize: 20,
-                              fontFamily: 'Product Sans',
-                            ),
-                          ),
-                        ),
+                      ParcoursSwitch(
+                        text: 'Formations',
+                        onTap: () {
+                          setState(() {
+                            isExp = true;
+                          });
+                        },
+                        isSelected: isExp,
                       ),
                     ],
                   ),
@@ -102,12 +85,12 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
           ),
           Expanded(
             child: ScrollChild(
-              child: ListView.builder(
-                reverse: true,
-                itemCount: formationList.length,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  FormationModel formation = formationList[index];
+              child: Column(
+                children: List.generate(
+                    isExp ? experienceList.length : formationList.length,
+                    (index) {
+                  FormationModel formation =
+                      isExp ? experienceList[index] : formationList[index];
                   return MouseRegion(
                     onHover: (event) {
                       setState(() {
@@ -125,7 +108,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
                       size: widget.size,
                     ),
                   );
-                },
+                }),
               ),
             ),
           )

@@ -1,16 +1,13 @@
-# dominick
+# PORTFOLIO
 
-A new Flutter project.
+Il s’agit d’un portfolio que j’ai avec <a href="https://flutter.dev/">Flutter</a> créé pour mettre en valeur mes compétences et mon expérience. 
 
-## Getting Started
+<!-- ## Sections
+- **Project Showcase** : The project includes a portfolio section that highlights some of the individual's most notable projects.
+- **Skills and Experience**: The project includes a section that outlines the individual's skills and experience, including technologies used, languages, and other relevant information.
+- **Contact Information**: The project includes a contact section that provides information on how to get in touch with the individual. -->
 
-This project is a starting point for a Flutter application.
+## Credits 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Design** : Pour la sctructure du design je me suis inspirer de <a href="https://dribbble.com/creativemints">Mike | Creative Mints</a>  mais j'ai modifié plusieurs widget.
+**Image** : Pour l'image dans la photo de couverture c'est le travaille de <a href="https://www.behance.net/49206073725fd">梁 白开</a>

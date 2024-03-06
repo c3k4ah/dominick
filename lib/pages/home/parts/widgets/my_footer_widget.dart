@@ -25,11 +25,10 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
   double radius = 15.0;
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
+    return Container(
       key: Key(widget.id.toString()),
-      height: widget.isSelected ? 100 : hgh,
-      width: widget.isSelected ? 100 : wth,
-      duration: const Duration(milliseconds: 400),
+      height: 70,
+      width: 70,
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: widget.social.bgColor,

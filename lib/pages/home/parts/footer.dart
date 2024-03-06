@@ -22,7 +22,7 @@ class _MyFooterPartState extends State<MyFooterPart> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 50),
-      height: widget.size.height * .5,
+      height: widget.size.height * .6,
       width: widget.size.width,
       child: Stack(
         children: [
@@ -142,8 +142,29 @@ class _MyFooterPartState extends State<MyFooterPart> {
               ),
               Expanded(
                 child: Container(
-                  color: secondaryColor,
-                ),
+                    padding: const EdgeInsets.all(20),
+                    color: secondaryColor,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Made with Love ❤️ and Flutter',
+                          style: TextStyle(
+                            color: whiteColor,
+                            fontSize: 15,
+                            fontFamily: 'Product Sans',
+                          ),
+                        ),
+                        Text(
+                          '© ${DateTime.now().year} DOMINICK . All rights reserved.',
+                          style: TextStyle(
+                            color: whiteColor,
+                            fontSize: 15,
+                            fontFamily: 'Product Sans',
+                          ),
+                        ),
+                      ],
+                    )),
               ),
             ],
           ),
