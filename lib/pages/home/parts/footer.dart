@@ -142,13 +142,13 @@ class _MyFooterPartState extends State<MyFooterPart> {
               ),
               Expanded(
                 child: Container(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
                     color: secondaryColor,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Made with Love ❤️ and Flutter',
+                          'Made with Flutter and Love ❤️.',
                           style: TextStyle(
                             color: whiteColor,
                             fontSize: 15,
