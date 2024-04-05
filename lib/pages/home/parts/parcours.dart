@@ -1,13 +1,10 @@
-import 'package:dominick/common/utils/cursor_behavior/widget.dart';
+import 'package:bamboo/bamboo.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/colors/colors.dart';
-import '../../../common/utils/sizes/pad_margin.dart';
 import '../../../data/experience_data.dart';
-import '../../../data/formations_data.dart';
 import '../../../models/formation_model.dart';
-import 'widgets/my_parcours_widget.dart';
-import 'widgets/parcour_switch.dart';
+import 'widgets/icon_and_title_widet.dart';
+import 'widgets/parcour_widget_animated.dart';
 
 class MyParcoursPart extends StatefulWidget {
   final Size size;
@@ -22,98 +19,77 @@ class MyParcoursPart extends StatefulWidget {
 
 class _MyPalmaresPartState extends State<MyParcoursPart> {
   int selectedIndex = 100;
-  bool isExp = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: bodyPadding,
+        horizontal: Bamboo.number(
+          context: context,
+          mobile: 10,
+          tablet: 50,
+          desktop: 50,
+          unit: Unit.px,
+        ),
         vertical: 20,
       ),
-      height: widget.size.height,
+      height: MediaQuery.sizeOf(context).height,
       width: widget.size.width,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            width: widget.size.width,
-            height: 150,
-            margin: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-              children: [
-                Text(
-                  'Parcours',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: whiteColor,
-                    fontSize: 50,
-                  ),
-                ),
-                Container(
-                  width: 350,
-                  height: 70,
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  decoration: BoxDecoration(
-                    color: secondaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ParcoursSwitch(
-                        text: 'Experiences',
-                        onTap: () {
-                          setState(() {
-                            isExp = false;
-                          });
-                        },
-                        isSelected: !isExp,
-                      ),
-                      ParcoursSwitch(
-                        text: 'Formations',
-                        onTap: () {
-                          setState(() {
-                            isExp = true;
-                          });
-                        },
-                        isSelected: isExp,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+          const BigTitileWidget(
+            title: 'Experiences pro',
+            svgIcon: 'mouse_icon',
           ),
           Expanded(
-            child: ScrollChild(
-              child: Column(
-                children: List.generate(
-                    isExp ? experienceList.length : formationList.length,
-                    (index) {
-                  FormationModel formation =
-                      isExp ? experienceList[index] : formationList[index];
-                  return MouseRegion(
-                    onHover: (event) {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                    onExit: (event) {
-                      setState(() {
-                        selectedIndex = 100;
-                      });
-                    },
-                    child: MyPalmaresWidget(
-                      formation: formation,
-                      isSelected: index == selectedIndex,
-                      size: widget.size,
-                    ),
-                  );
-                }),
-              ),
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) {
+                FormationModel formation = experienceList[index];
+                return MyPalmaresAnimatedWidget(
+                  formation: formation,
+                  // isSelected: index == selectedIndex,
+                  size: widget.size,
+                );
+              },
+              itemCount: experienceList.length,
             ),
-          )
+          ),
         ],
       ),
     );
   }
 }
+// Container(
+                //   width: 350,
+                //   height: 70,
+                //   padding: const EdgeInsets.symmetric(vertical: 8),
+                //   decoration: BoxDecoration(
+                //     color: secondaryColor,
+                //     borderRadius: BorderRadius.circular(10),
+                //   ),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       ParcoursSwitch(
+                //         text: 'Experiences',
+                //         onTap: () {
+                //           setState(() {
+                //             isExp = false;
+                //           });
+                //         },
+                //         isSelected: !isExp,
+                //       ),
+                //       ParcoursSwitch(
+                //         text: 'Formations',
+                //         onTap: () {
+                //           setState(() {
+                //             isExp = true;
+                //           });
+                //         },
+                //         isSelected: isExp,
+                //       ),
+                //     ],
+                //   ),
+                // ),

@@ -1,16 +1,33 @@
 class FormationModel {
   final String institut;
   final String location;
+
   final String title;
   final String date;
-  final String description;
+  final List<ProjectDescriptionModel> projects;
   final String urlImage;
   FormationModel({
     required this.institut,
     required this.location,
     required this.title,
     required this.date,
-    required this.description,
+    required this.projects,
     required this.urlImage,
+  });
+}
+
+class ProjectDescriptionModel {
+  final String title;
+  final List<String>? tasks;
+  final bool? isMobilePlatform;
+  final List<String>? skills;
+  final String? others;
+
+  ProjectDescriptionModel({
+    required this.title,
+    this.tasks,
+    this.skills,
+    this.others,
+    this.isMobilePlatform,
   });
 }

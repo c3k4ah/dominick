@@ -6,6 +6,7 @@ class MyCustomBtt extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final IconData icon;
+  final double? textSize;
 
   final Size size;
   const MyCustomBtt({
@@ -14,6 +15,7 @@ class MyCustomBtt extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.size,
+    this.textSize,
   });
 
   @override
@@ -100,7 +102,7 @@ class MyCustomBtt extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 25,
+                    fontSize: textSize ?? 25,
                   ),
                 ),
               ),

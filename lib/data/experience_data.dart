@@ -2,19 +2,108 @@ import '../models/formation_model.dart';
 
 List<FormationModel> experienceList = [
   FormationModel(
+    institut: "Freelance",
+    location: 'Remote',
+    title: "Développeur Flutter",
+    date: "----",
+    projects: [
+      ProjectDescriptionModel(
+        title: "Application de rencontre",
+        tasks: [
+          "Développement et Conception",
+          "Redaction des spécifications fonctionnelles",
+          "Intégration de l'API PocketBase",
+          "Adoption de la methode Agile",
+          "Intégration du design",
+        ],
+        skills: [
+          "Flutter",
+          "Clean Architecture",
+          "PocketBase framework",
+        ],
+        others: "Livraison d'une MVP chaque Sprint",
+      ),
+      ProjectDescriptionModel(
+        title: "Logiciel de bibliothèque numérique",
+        isMobilePlatform: false,
+        tasks: [
+          "Développement de l'application pour Windows",
+          "Intégration du design",
+        ],
+        skills: [
+          "Flutter",
+          "ObjectBox",
+        ],
+      ),
+      ProjectDescriptionModel(
+        title: "Application de gestion de ticket",
+        tasks: [
+          "Développement de l'application Android",
+          "Intégration de l'API",
+          "Création du Design",
+        ],
+        skills: [
+          "Flutter",
+          "Dart",
+          "Git",
+        ],
+      ),
+    ],
+    urlImage: '/images/sample.png',
+  ),
+  FormationModel(
     institut: "MyAgency",
     location: 'Anjanahary',
-    title: "Alternance",
-    date: "2023-",
-    description: "Develeppement d'application mobile",
+    title: "Développeur Flutter",
+    date: "2023",
+    projects: [
+      ProjectDescriptionModel(
+        title: "Développement d'une application de gestion de commande",
+        tasks: [
+          "Développement de l'application Android",
+          "Intégration de l'API",
+          "Mis en place d'un systeme de tracking",
+        ],
+        skills: [
+          "Flutter",
+          "Clean Architecture",
+        ],
+      ),
+      ProjectDescriptionModel(
+        title: "Application de collaboration et de gestion d'événements",
+        tasks: [
+          "Développement de l'application Android",
+          "Intégration du design",
+        ],
+        skills: [
+          "Flutter",
+          "Clean Architecture",
+          "Firebase",
+        ],
+      ),
+    ],
     urlImage: '/images/sample.png',
   ),
   FormationModel(
     institut: "AreaTech",
     location: 'Avaradoha',
-    title: "Alternance",
+    title: "Développeur Flutter",
     date: "2022",
-    description: "Develeppement d'application mobile",
+    projects: [
+      ProjectDescriptionModel(
+        title: "Application de reservation de voyage",
+        tasks: [
+          "Développement de l'application Android",
+          "Mis en place du back-end ",
+          "Intégration de l'API",
+          "Intégration du design",
+        ],
+        skills: [
+          "Flutter",
+          "FastAPI",
+        ],
+      ),
+    ],
     urlImage: '/images/sample.png',
   ),
   FormationModel(
@@ -22,8 +111,7 @@ List<FormationModel> experienceList = [
     location: 'Ankatso',
     title: "Stage de découverte",
     date: "2020",
-    description:
-        "Stage d’observation en entreprise, Assimilation du quotidien du métier de développeur.",
+    projects: [],
     urlImage: '/images/sample.png',
   ),
 ];

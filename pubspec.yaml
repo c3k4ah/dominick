@@ -38,6 +38,10 @@ dependencies:
   unicons: ^2.1.1
   scrollable_positioned_list: ^0.3.8
   device_preview: ^1.1.0
+  animated_background: ^2.0.0
+  bamboo: ^1.0.3
+  flutter_svg: ^2.0.10+1
+  expansion_tile_card: ^3.0.0
 
 
 dev_dependencies:
