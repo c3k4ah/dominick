@@ -28,7 +28,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
   double animatedTabletHeight = 150;
   double animatedDesktopHeight = 150;
   // late AnimationController _controller;
-  bool _isToggled = true;
+  bool _isToggled = false;
 
   void _toggleContainer() {
     setState(() {
@@ -170,7 +170,9 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
                   isSelected: _isToggled,
                   isExpanded: _isToggled,
                   onTap: () {
-                    _toggleContainer();
+                    if (widget.formation.projects.isNotEmpty) {
+                      _toggleContainer();
+                    }
                   },
                 ),
               ],
@@ -318,7 +320,6 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
     List<ProjectDescriptionModel> projects,
     double textSize,
   ) {
-    bool isMobile = textSize == 15;
     return Container(
       width: MediaQuery.sizeOf(context).width,
       height: Bamboo.number(
@@ -342,7 +343,6 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
         itemCount: projects.length,
         itemBuilder: (context, index) {
           ProjectDescriptionModel project = projects[index];
-          final numLines = '\n'.allMatches(project.title).length + 1;
 
           return Container(
             padding: const EdgeInsets.symmetric(
@@ -367,30 +367,17 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
                     width: MediaQuery.sizeOf(context).width,
                     child: Column(
                       children: [
-                        adaptiTextWidget(
-                          yourText: project.title,
-                          yourStyle: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Product Sans',
-                            fontWeight: FontWeight.bold,
-                            fontSize: textSize,
+                        adaptativeTextWidget(
+                          Text(
+                            project.title,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Product Sans',
+                              fontWeight: FontWeight.bold,
+                              fontSize: textSize,
+                            ),
                           ),
                         ),
-                        // SizedBox(
-                        //   width: double.infinity,
-                        //   height: (numLines == 1) ? 20 : 40,
-                        //   child: Text(
-                        //     project.title,
-                        //     maxLines: numLines,
-                        //     overflow: TextOverflow.ellipsis,
-                        //     style: TextStyle(
-                        //       color: Colors.black,
-                        //       fontFamily: 'Product Sans',
-                        //       fontWeight: FontWeight.bold,
-                        //       fontSize: textSize,
-                        //     ),
-                        //   ),
-                        // ),
                         const SizedBox(
                           height: 5,
                         ),
@@ -442,33 +429,35 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
     );
   }
 
-  Widget adaptiTextWidget({
-    required String yourText,
-    required TextStyle yourStyle,
-  }) {
-    return LayoutBuilder(builder: (context, size) {
-      final span = TextSpan(text: yourText, style: yourStyle);
-      final tp = TextPainter(
-        textDirection: TextDirection.ltr,
-        text: span,
-        maxLines: 1,
-      );
-      tp.layout(maxWidth: size.maxWidth);
-      Text text = Text(yourText, style: yourStyle);
-      if (tp.didExceedMaxLines) {
-        return SizedBox(
-          width: double.infinity,
-          height: 40,
-          child: text,
+  Widget adaptativeTextWidget(
+    Text myTextWidget,
+  ) {
+    return LayoutBuilder(
+      builder: (context, size) {
+        final span =
+            TextSpan(text: myTextWidget.data, style: myTextWidget.style);
+        final tp = TextPainter(
+          textDirection: TextDirection.ltr,
+          text: span,
+          maxLines: 1,
         );
-      } else {
-        return SizedBox(
-          width: double.infinity,
-          height: 20,
-          child: text,
-        );
-      }
-    });
+        tp.layout(maxWidth: size.maxWidth);
+
+        if (tp.didExceedMaxLines) {
+          return SizedBox(
+            width: double.infinity,
+            height: 40,
+            child: myTextWidget,
+          );
+        } else {
+          return SizedBox(
+            width: double.infinity,
+            height: 20,
+            child: myTextWidget,
+          );
+        }
+      },
+    );
   }
 
   Widget _builFormationLocationWidget({

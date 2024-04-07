@@ -1,6 +1,7 @@
 import 'package:animated_background/animated_background.dart';
-import 'package:bamboo/foundation/foundation.dart';
-import 'package:bamboo/services/responsive.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:bamboo/bamboo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
@@ -19,8 +20,17 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
     with TickerProviderStateMixin {
   @override
   void initState() {
+    assetsAudioPlayer.open(
+      Audio.file("assets/audios/wellcome_audio.mp3"),
+      autoStart: false,
+      loopMode: LoopMode.none,
+      playInBackground: PlayInBackground.disabledPause,
+    );
+
     super.initState();
   }
+
+  final assetsAudioPlayer = AssetsAudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +53,8 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
     double bodyheight = Bamboo.number(
       context: context,
       mobile: MediaQuery.sizeOf(context).height * .5,
-      tablet: MediaQuery.sizeOf(context).height * .7,
-      desktop: MediaQuery.sizeOf(context).height * .9,
+      tablet: MediaQuery.sizeOf(context).height * .6,
+      desktop: MediaQuery.sizeOf(context).height * .8,
       unit: Unit.px,
     );
     return Container(
@@ -77,7 +87,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
             color: Colors.black.withOpacity(.2),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Developpeur Flutter",
@@ -129,17 +139,82 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                   ),
                 ],
               ),
-              MyCustomBtt(
-                size: bttSize,
-                icon: UniconsLine.cloud_download,
-                text: 'Telecharger mon CV',
-                textSize: 15,
-                onTap: () {},
+              // BambooWidget(
+              //   mobile: Column(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: bttChildren(bttSize),
+              //   ),
+              //   tablet: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: bttChildren(bttSize),
+              //   ),
+              //   desktop: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: bttChildren(bttSize),
+              //   ),
+              //   large: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: bttChildren(bttSize),
+              //   ),
+              // ),
+              SizedBox(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildVerticalBoutton(),
+                    _buildVerticalBoutton(),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildVerticalBoutton() {
+    return Container(
+      height: 150,
+      width: 70,
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      color: Colors.white,
+    );
+  }
+
+  List<Widget> bttChildren(Size bttSize) {
+    return [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: MyCustomBtt(
+          size: bttSize,
+          icon: UniconsLine.cloud_download,
+          text: 'Telecharger mon CV',
+          textSize: 15,
+          onTap: () {},
+        ),
+      ),
+      StreamBuilder(
+        stream: assetsAudioPlayer.isPlaying,
+        initialData: false,
+        builder: (context, snapshot) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MyCustomBtt(
+              size: bttSize,
+              icon:
+                  snapshot.data == true ? UniconsLine.pause : UniconsLine.play,
+              text: 'Bref presentation',
+              textSize: 15,
+              onTap: () {
+                assetsAudioPlayer.playOrPause();
+              },
+            ),
+          );
+        },
+      ),
+    ];
   }
 }

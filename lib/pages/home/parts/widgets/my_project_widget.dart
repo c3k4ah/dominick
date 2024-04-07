@@ -155,7 +155,8 @@ class MyProjectWidget extends StatelessWidget {
   }
 
   Widget _buildProjectTitle({required BuildContext context}) {
-    return SizedBox(
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5),
       width: size.width,
       child: Text(
         projectModel.type,

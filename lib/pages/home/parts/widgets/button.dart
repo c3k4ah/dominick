@@ -1,3 +1,4 @@
+import 'package:bamboo/bamboo.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/colors/colors.dart';
@@ -20,11 +21,20 @@ class MyCustomBtt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size sizebtt = Size(
+      text.isEmpty ? 80 : 200,
+      Bamboo.number(
+        context: context,
+        mobile: 40,
+        desktop: 50,
+        unit: Unit.px,
+      ),
+    );
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: size.width,
-        height: size.height,
+        width: sizebtt.width,
+        height: sizebtt.height,
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(8),
