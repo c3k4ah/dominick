@@ -80,6 +80,7 @@ class _AwardPartState extends State<AwardPart> {
       ),
       height: widget.size.height * .7,
       width: widget.size.width,
+      color: primaryColor,
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [

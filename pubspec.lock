@@ -261,6 +261,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  opscroll_web:
+    dependency: "direct main"
+    description:
+      name: opscroll_web
+      sha256: c5917635a4249c55c425b3aa391554ef64204b950b07ac498a44cf00dba5b9d2
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.2"
   path:
     dependency: transitive
     description:
@@ -437,6 +445,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  simple_grid:
+    dependency: "direct main"
+    description:
+      name: simple_grid
+      sha256: e883ab9a4666c8c71e69915eb6ec371ef9cc9a2fd0fc2060459c5dea1997947c
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
   sky_engine:
     dependency: transitive
     description: flutter

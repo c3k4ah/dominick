@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class CustomSize {
   double width(BuildContext context) {
-    return MediaQuery.of(context).size.width;
+    return MediaQuery.sizeOf(context).width;
   }
 
   double height(BuildContext context) {
-    return MediaQuery.of(context).size.height;
+    return MediaQuery.sizeOf(context).height;
   }
 }
 
@@ -28,23 +28,44 @@ class Responsive extends StatelessWidget {
       MediaQuery.of(context).size.width <= 500;
 
   static bool isMobileLarge(BuildContext context) =>
-      MediaQuery.of(context).size.width <= 700;
+      MediaQuery.sizeOf(context).width <= 700;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 1024;
+      MediaQuery.sizeOf(context).width < 1024;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1024;
+      MediaQuery.sizeOf(context).width >= 1024;
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.sizeOf(context);
     if (size.width >= 1024) {
       return desktop;
     } else if (size.width >= 700 && tablet != null) {
       return tablet!;
     } else if (size.width >= 500 && mobileLarge != null) {
       return mobileLarge!;
+    } else {
+      return mobile;
+    }
+  }
+}
+
+class ResponsiveSize {
+  static double number({
+    required BuildContext context,
+    required double mobile,
+    required double tablet,
+    required double mobileLarge,
+    required double desktop,
+  }) {
+    final Size size = MediaQuery.sizeOf(context);
+    if (size.width >= 1024) {
+      return desktop;
+    } else if (size.width >= 700) {
+      return tablet;
+    } else if (size.width >= 500) {
+      return mobileLarge;
     } else {
       return mobile;
     }

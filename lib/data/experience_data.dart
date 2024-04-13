@@ -53,6 +53,7 @@ List<FormationModel> experienceList = [
   ),
   FormationModel(
     institut: "MyAgency",
+    urlImage: '/icon/myagency.png',
     location: 'Anjanahary',
     title: "Développeur Flutter",
     date: "2023",
@@ -82,10 +83,10 @@ List<FormationModel> experienceList = [
         ],
       ),
     ],
-    urlImage: '/images/sample.png',
   ),
   FormationModel(
     institut: "AreaTech",
+    urlImage: '/icon/area.png',
     location: 'Avaradoha',
     title: "Développeur Flutter",
     date: "2022",
@@ -104,14 +105,13 @@ List<FormationModel> experienceList = [
         ],
       ),
     ],
-    urlImage: '/images/sample.png',
   ),
   FormationModel(
     institut: "IBONIA",
+    urlImage: '/icon/ibonia.png',
     location: 'Ankatso',
     title: "Stage de découverte",
     date: "2020",
     projects: [],
-    urlImage: '/images/sample.png',
   ),
 ];

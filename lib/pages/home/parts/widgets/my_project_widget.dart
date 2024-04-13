@@ -126,27 +126,29 @@ class MyProjectWidget extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            projectModel.description,
-            maxLines: Bamboo.number(
-              context: context,
-              mobile: 2,
-              tablet: 3,
-              desktop: 3,
-              unit: Unit.px,
-            ),
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              color: whiteColor,
-              fontSize: Bamboo.number(
+          Expanded(
+            child: Text(
+              projectModel.description,
+              maxLines: Bamboo.number(
                 context: context,
-                mobile: 10,
-                tablet: 15,
-                desktop: 15,
+                mobile: 2,
+                tablet: 3,
+                desktop: 3,
                 unit: Unit.px,
               ),
-              fontFamily: 'Product Sans',
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                color: whiteColor,
+                fontSize: Bamboo.number(
+                  context: context,
+                  mobile: 10,
+                  tablet: 15,
+                  desktop: 15,
+                  unit: Unit.px,
+                ),
+                fontFamily: 'Product Sans',
+              ),
             ),
           ),
         ],

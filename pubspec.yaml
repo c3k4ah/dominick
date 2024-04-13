@@ -23,6 +23,8 @@ dependencies:
   assets_audio_player: ^3.1.1
   assets_audio_player_web: ^3.1.1
   scroll_vanisher: ^1.0.3
+  simple_grid: ^0.1.4
+  opscroll_web: ^0.3.2
 
 
 dev_dependencies:
@@ -38,8 +40,14 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
+    - assets/icon/
+
 
   fonts:
+    - family: Aura
+      fonts:
+        - asset: assets/fonts/at-aura.ttf
     - family: Mortend
       fonts:
         - asset: assets/fonts/mortend/mortend_bold.otf

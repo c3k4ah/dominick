@@ -125,9 +125,13 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
                           textSize: textSize,
                           isSelected: _isToggled,
                         ),
-                        _buildImagePart(
-                          imageSize: imageSize,
-                          isSelected: _isToggled,
+                        Expanded(
+                          flex: 1,
+                          child: _buildImagePart(
+                            imageSize: imageSize,
+                            isSelected: _isToggled,
+                            imgPath: widget.formation.urlImage,
+                          ),
                         ),
                         Expanded(
                           flex: 1,
@@ -553,22 +557,24 @@ class _MyPalmaresWidgetState extends State<MyPalmaresAnimatedWidget>
   Widget _buildImagePart({
     required double imageSize,
     required bool isSelected,
+    required String imgPath,
   }) {
     return Container(
-      width: imageSize,
-      height: imageSize,
+      width: 100,
+      height: 30,
       margin: const EdgeInsets.symmetric(
-        horizontal: 5,
+        horizontal: 20,
+        vertical: 10,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isSelected ? secondaryColor : tertioColor,
-          width: 5,
-        ),
-        image: const DecorationImage(
-          image: AssetImage('/images/sample.png'),
-          fit: BoxFit.cover,
+        // borderRadius: BorderRadius.circular(15),
+        // border: Border.all(
+        //   color: isSelected ? secondaryColor : tertioColor,
+        //   width: 5,
+        // ),
+        image: DecorationImage(
+          image: AssetImage(imgPath),
+          fit: BoxFit.scaleDown,
         ),
       ),
     );

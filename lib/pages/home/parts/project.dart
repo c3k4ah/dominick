@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:bamboo/bamboo.dart';
 import 'package:dominick/common/utils/cursor_behavior/widget.dart';
 import 'package:dominick/models/project_model.dart';

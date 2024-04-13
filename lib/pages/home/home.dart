@@ -1,9 +1,9 @@
 import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:scroll_vanisher/scroll_vanisher.dart';
 
 import '../../common/utils/sizes/sizes.dart';
 import 'parts/part.dart';
+import 'parts/widgets/app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,12 +19,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      appBar: ScrollVanisher(
+      appBar: AppBarWidget(
         controller: _scrollController,
-        replacement: const SizedBox(),
-        child: AppBar(
-          title: const Text('Scroll Vanisher'),
-        ),
       ),
       body: SizedBox(
         width: _size.width(context),
@@ -33,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           controller: _scrollController,
           child: Column(
             children: [
-              const CoverPhotoPart(),
+              // const CoverPhotoPart(),
               // MyProjectPart(
               //   size: Size(
               //     _size.width(context),
@@ -46,18 +42,13 @@ class _HomePageState extends State<HomePage> {
               //     _size.height(context),
               //   ),
               // ),
-              MyBigPart(
+              // MyBigPart(),
+              AwardPart(
                 size: Size(
                   _size.width(context),
                   _size.height(context),
                 ),
               ),
-              // AwardPart(
-              //   size: Size(
-              //     _size.width(context),
-              //     _size.height(context),
-              //   ),
-              // ),
               // MyFooterPart(
               //   size: Size(
               //     _size.width(context),
@@ -65,6 +56,20 @@ class _HomePageState extends State<HomePage> {
               //   ),
               // ),
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 50,
+        color: Colors.deepPurple,
+        child: Center(
+          child: Text(
+            'width: ${MediaQuery.sizeOf(context).width} px',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Poppins',
+            ),
           ),
         ),
       ),

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         //debugShowMaterialGrid: true,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
-          fontFamily: 'FloPro',
+          fontFamily: 'Aura',
           useMaterial3: true,
         ),
         home: const HomePage(),
