@@ -1,9 +1,7 @@
 import 'package:bamboo/services/services.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_grid/simple_grid.dart';
 
 import '../../../common/colors/colors.dart';
-import '../../../common/utils/sizes/pad_margin.dart';
 import '../../../common/utils/sizes/responsive.dart';
 import 'widgets/icon_and_title_widet.dart';
 
@@ -45,7 +43,7 @@ class MyBigPart extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: memberProfil(
-                          widgetSize: Size(size.width, 250),
+                          widgetSize: Size(size.width, 200),
                           context: context,
                           name: profil.name,
                           job: profil.job,
@@ -77,7 +75,7 @@ class MyBigPart extends StatelessWidget {
                 ),
                 mobileLarge: Row(
                   children: List.generate(
-                    profilInfos.length,
+                    2,
                     (index) {
                       ProfilInfo profil = profilInfos[index];
                       return Expanded(
@@ -123,16 +121,6 @@ class MyBigPart extends StatelessWidget {
     );
   }
 
-  SpGridItem gridItem(int xs, Widget child) {
-    return SpGridItem(
-      xs: xs,
-      // sm: 4,
-      // md: 7,
-      // lg: 3,
-      child: child,
-    );
-  }
-
   Widget memberProfil({
     required String name,
     required String job,
@@ -142,7 +130,7 @@ class MyBigPart extends StatelessWidget {
   }) {
     double imageSize = ResponsiveSize.number(
       context: context,
-      mobile: 200,
+      mobile: 170,
       tablet: 180,
       mobileLarge: 150,
       desktop: 200,
@@ -155,10 +143,11 @@ class MyBigPart extends StatelessWidget {
     );
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: Bamboo.number(
+        vertical: ResponsiveSize.number(
           context: context,
           mobile: 10,
           tablet: 20,
+          mobileLarge: 50,
           desktop: 20,
         ),
       ),
@@ -193,7 +182,7 @@ class MyBigPart extends StatelessWidget {
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(

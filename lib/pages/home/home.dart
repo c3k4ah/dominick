@@ -29,20 +29,20 @@ class _HomePageState extends State<HomePage> {
           controller: _scrollController,
           child: Column(
             children: [
-              // const CoverPhotoPart(),
-              // MyProjectPart(
-              //   size: Size(
-              //     _size.width(context),
-              //     _size.height(context),
-              //   ),
-              // ),
-              // MyParcoursPart(
-              //   size: Size(
-              //     _size.width(context),
-              //     _size.height(context),
-              //   ),
-              // ),
-              // MyBigPart(),
+              const CoverPhotoPart(),
+              MyProjectPart(
+                size: Size(
+                  _size.width(context),
+                  _size.height(context),
+                ),
+              ),
+              MyParcoursPart(
+                size: Size(
+                  _size.width(context),
+                  _size.height(context),
+                ),
+              ),
+              const MyBigPart(),
               AwardPart(
                 size: Size(
                   _size.width(context),

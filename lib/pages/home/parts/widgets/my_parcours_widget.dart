@@ -43,7 +43,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
       width: widget.size.width,
       height: Bamboo.number(
         context: context,
-        mobile: 70,
+        mobile: 80,
         tablet: 120,
         desktop: 120,
         unit: Unit.px,
@@ -53,7 +53,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
           context: context,
           mobile: 0,
           tablet: 20,
-          desktop: 50,
+          // desktop: 50,
           unit: Unit.px,
         ),
       ),

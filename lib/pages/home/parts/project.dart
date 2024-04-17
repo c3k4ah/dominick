@@ -22,7 +22,7 @@ class MyProjectPart extends StatelessWidget {
       200,
       Bamboo.number(
         context: context,
-        mobile: 40,
+        mobile: 100,
         desktop: 50,
         unit: Unit.px,
       ),

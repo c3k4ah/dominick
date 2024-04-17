@@ -1,3 +1,8 @@
+import 'dart:math';
+
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+import 'package:overlapped_carousel/overlapped_carousel.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
@@ -5,8 +10,10 @@ import 'package:unicons/unicons.dart';
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/cursor_behavior/widget.dart';
 import '../../../common/utils/sizes/pad_margin.dart';
+import '../../../common/utils/sizes/responsive.dart';
 import '../../../data/palmares_data.dart';
 import '../../../models/time_line_model.dart';
+import 'widgets/icon_and_title_widet.dart';
 import 'widgets/my_awards_widget.dart';
 
 class AwardPart extends StatefulWidget {
@@ -73,131 +80,172 @@ class _AwardPartState extends State<AwardPart> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(20).copyWith(
-        left: bodyPadding,
-        right: 0,
+    return Responsive(
+      mobile: _buildCarosel(),
+      tablet: _buildCarosel(),
+      mobileLarge: _buildCarosel(),
+      desktop: Container(
+        margin: const EdgeInsets.all(20).copyWith(
+          left: bodyPadding,
+          right: 0,
+        ),
+        height: widget.size.height * .7,
+        width: widget.size.width,
+        color: primaryColor,
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 50),
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                ),
+              ),
+            ),
+            _buildAwards(),
+          ],
+        ),
       ),
-      height: widget.size.height * .7,
-      width: widget.size.width,
-      color: primaryColor,
-      child: Stack(
-        alignment: AlignmentDirectional.center,
+    );
+  }
+
+  Widget _buildCarosel() {
+    return Column(
+      children: [
+        const BigTitileWidget(
+          title: 'Mes Récompenses',
+          svgIcon: 'cup',
+        ),
+        FlutterCarousel(
+          options: CarouselOptions(
+            viewportFraction: 0.7,
+            enlargeCenterPage: true,
+            height: 400.0,
+            showIndicator: false,
+            slideIndicator: const CircularSlideIndicator(),
+          ),
+          items: List.generate(
+            palmaresList.length,
+            (index) {
+              TimeLineContentModel palmares = palmaresList[index];
+              return MyAwardsCarSwipeWidget(
+                showShadow: false,
+                size: widget.size,
+                palmares: palmares,
+                id: index,
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAwards() {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+        ),
+      ),
+      child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 50),
-            decoration: BoxDecoration(
-              color: secondaryColor,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ),
+            width: 300,
+            color: Colors.transparent,
+            padding: const EdgeInsets.symmetric(
+              vertical: 50,
+              horizontal: 20,
             ),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ),
-            ),
-            child: Row(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 300,
-                  color: Colors.transparent,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 50,
-                    horizontal: 20,
+                Text(
+                  'Mes Récompenses',
+                  style: TextStyle(
+                    color: whiteColor,
+                    fontSize: 40,
+                    fontWeight: FontWeight.normal,
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Mes Récompenses',
-                        style: TextStyle(
-                          color: whiteColor,
-                          fontSize: 40,
-                          fontWeight: FontWeight.normal,
+                      SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: MaterialButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () => previous(),
+                          color: primaryColor,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              UniconsLine.angle_left_b,
+                              color: whiteColor,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 50,
-                          vertical: 20,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: MaterialButton(
-                                padding: EdgeInsets.zero,
-                                onPressed: () => previous(),
-                                color: primaryColor,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    UniconsLine.angle_left_b,
-                                    color: whiteColor,
-                                    size: 30,
-                                  ),
-                                ),
-                              ),
+                      SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: MaterialButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () => next(),
+                          color: primaryColor,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              UniconsLine.angle_right_b,
+                              color: whiteColor,
+                              size: 30,
                             ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: MaterialButton(
-                                padding: EdgeInsets.zero,
-                                onPressed: () => next(),
-                                color: primaryColor,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    UniconsLine.angle_right_b,
-                                    color: whiteColor,
-                                    size: 30,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
-                ),
-                Expanded(
-                  child: SizedBox(
-                    child: ScrollChild(
-                      child: ScrollablePositionedList.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemScrollController: itemScrollController,
-                        itemPositionsListener: itemPositionsListener,
-                        itemCount: getItemList,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          TimeLineContentModel palmares = palmaresList[index];
-                          return MyAwardsWidget(
-                            palmares: palmares,
-                            id: index,
-                            isHover: selectedID == index,
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                )
               ],
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              child: ScrollChild(
+                child: ScrollablePositionedList.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemScrollController: itemScrollController,
+                  itemPositionsListener: itemPositionsListener,
+                  itemCount: getItemList,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    TimeLineContentModel palmares = palmaresList[index];
+                    return MyAwardsWidget(
+                      palmares: palmares,
+                      id: index,
+                      isHover: selectedID == index,
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ],

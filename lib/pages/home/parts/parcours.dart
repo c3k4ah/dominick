@@ -1,9 +1,11 @@
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/experience_data.dart';
 import '../../../models/formation_model.dart';
 import 'widgets/icon_and_title_widet.dart';
+import 'widgets/my_parcours_widget.dart';
 import 'widgets/parcour_widget_animated.dart';
 
 class MyParcoursPart extends StatefulWidget {
@@ -27,13 +29,19 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
         horizontal: Bamboo.number(
           context: context,
           mobile: 10,
-          tablet: 50,
-          desktop: 50,
+          // tablet: 50,
+          // desktop: 50,
           unit: Unit.px,
         ),
         vertical: 20,
       ),
-      height: MediaQuery.sizeOf(context).height,
+      height: ResponsiveSize.number(
+        context: context,
+        mobile: MediaQuery.sizeOf(context).height * .5,
+        tablet: MediaQuery.sizeOf(context).height * .55,
+        mobileLarge: MediaQuery.sizeOf(context).height * .7,
+        desktop: MediaQuery.sizeOf(context).height,
+      ),
       width: widget.size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -47,10 +55,18 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 FormationModel formation = experienceList[index];
-                return MyPalmaresAnimatedWidget(
-                  formation: formation,
-                  // isSelected: index == selectedIndex,
-                  size: widget.size,
+                return MouseRegion(
+                  onHover: (event) {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  child: MyPalmaresWidget(
+                    isSelected: index == selectedIndex,
+                    formation: formation,
+                    // isSelected: index == selectedIndex,
+                    size: widget.size,
+                  ),
                 );
               },
               itemCount: experienceList.length,
