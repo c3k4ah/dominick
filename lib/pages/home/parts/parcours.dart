@@ -6,7 +6,6 @@ import '../../../data/experience_data.dart';
 import '../../../models/formation_model.dart';
 import 'widgets/icon_and_title_widet.dart';
 import 'widgets/my_parcours_widget.dart';
-import 'widgets/parcour_widget_animated.dart';
 
 class MyParcoursPart extends StatefulWidget {
   final Size size;

@@ -1,15 +1,10 @@
-import 'dart:math';
-
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
-import 'package:overlapped_carousel/overlapped_carousel.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/cursor_behavior/widget.dart';
-import '../../../common/utils/sizes/pad_margin.dart';
 import '../../../common/utils/sizes/responsive.dart';
 import '../../../data/palmares_data.dart';
 import '../../../models/time_line_model.dart';

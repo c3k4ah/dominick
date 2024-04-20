@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '';
 
 import 'package:dominick/common/colors/colors.dart';
 
@@ -146,7 +145,7 @@ class MyAwardsWidget extends StatelessWidget {
                       //     ),
                       //   ),
                       // ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       SizedBox(

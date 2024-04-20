@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:animated_background/animated_background.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+// import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:bamboo/bamboo.dart';
 import 'package:dominick/common/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
@@ -27,17 +27,17 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
       'https://drive.google.com/file/d/1BGDLwpPbIzZ1NiszZzQr65tP6qGjfNeQ/view?usp=drive_link';
   @override
   void initState() {
-    assetsAudioPlayer.open(
-      Audio.file("assets/audios/wellcome_audio.mp3"),
-      autoStart: false,
-      loopMode: LoopMode.none,
-      playInBackground: PlayInBackground.disabledPause,
-    );
+    // assetsAudioPlayer.open(
+    //   Audio.file("assets/audios/wellcome_audio.mp3"),
+    //   autoStart: false,
+    //   loopMode: LoopMode.none,
+    //   playInBackground: PlayInBackground.disabledPause,
+    // );
 
     super.initState();
   }
 
-  final assetsAudioPlayer = AssetsAudioPlayer();
+  // final assetsAudioPlayer = AssetsAudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -178,21 +178,21 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                         }
                       },
                     ),
-                    StreamBuilder(
-                      stream: assetsAudioPlayer.isPlaying,
-                      initialData: false,
-                      builder: (context, snapshot) {
-                        return _buildVerticalBoutton(
-                          context: context,
-                          icon: snapshot.data == true
-                              ? UniconsLine.pause
-                              : UniconsLine.play,
-                          onTap: () async {
-                            await assetsAudioPlayer.playOrPause();
-                          },
-                        );
-                      },
-                    ),
+                    // StreamBuilder(
+                    //   stream: assetsAudioPlayer.isPlaying,
+                    //   initialData: false,
+                    //   builder: (context, snapshot) {
+                    //     return _buildVerticalBoutton(
+                    //       context: context,
+                    //       icon: snapshot.data == true
+                    //           ? UniconsLine.pause
+                    //           : UniconsLine.play,
+                    //       onTap: () async {
+                    //         await assetsAudioPlayer.playOrPause();
+                    //       },
+                    //     );
+                    //   },
+                    // ),
                   ],
                 ),
               ),
@@ -324,25 +324,25 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
           onTap: () {},
         ),
       ),
-      StreamBuilder(
-        stream: assetsAudioPlayer.isPlaying,
-        initialData: false,
-        builder: (context, snapshot) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MyCustomBtt(
-              size: bttSize,
-              icon:
-                  snapshot.data == true ? UniconsLine.pause : UniconsLine.play,
-              text: 'Bref presentation',
-              textSize: 15,
-              onTap: () {
-                assetsAudioPlayer.playOrPause();
-              },
-            ),
-          );
-        },
-      ),
+      // StreamBuilder(
+      //   stream: assetsAudioPlayer.isPlaying,
+      //   initialData: false,
+      //   builder: (context, snapshot) {
+      //     return Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       child: MyCustomBtt(
+      //         size: bttSize,
+      //         icon:
+      //             snapshot.data == true ? UniconsLine.pause : UniconsLine.play,
+      //         text: 'Bref presentation',
+      //         textSize: 15,
+      //         onTap: () {
+      //           // assetsAudioPlayer.playOrPause();
+      //         },
+      //       ),
+      //     );
+      //   },
+      // ),
     ];
   }
 }

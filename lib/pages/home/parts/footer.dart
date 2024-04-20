@@ -3,7 +3,6 @@ import 'package:dominick/models/social_media_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
-import '../../../data/image_assets.dart';
 import '../../../data/social_media.dart';
 import 'widgets/my_footer_widget.dart';
 

@@ -20,8 +20,8 @@ dependencies:
   bamboo: ^1.0.3
   flutter_svg: ^2.0.10+1
   expansion_tile_card: ^3.0.0
-  assets_audio_player: ^3.1.1
-  assets_audio_player_web: ^3.1.1
+  # assets_audio_player: ^3.1.1
+  # assets_audio_player_web: ^3.1.1
   scroll_vanisher: ^1.0.3
   overlapped_carousel: ^1.0.2
   flutter_card_swiper: ^7.0.0
