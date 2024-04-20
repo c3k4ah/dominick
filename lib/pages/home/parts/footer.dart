@@ -1,7 +1,9 @@
+import 'package:dominick/common/utils/sizes/responsive.dart';
 import 'package:dominick/models/social_media_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
+import '../../../data/image_assets.dart';
 import '../../../data/social_media.dart';
 import 'widgets/my_footer_widget.dart';
 
@@ -22,7 +24,13 @@ class _MyFooterPartState extends State<MyFooterPart> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 50),
-      height: widget.size.height * .6,
+      height: ResponsiveSize.number(
+        context: context,
+        mobile: widget.size.height * .6,
+        tablet: widget.size.height * .6,
+        mobileLarge: widget.size.height * .6,
+        desktop: 400,
+      ),
       width: widget.size.width,
       child: Stack(
         children: [

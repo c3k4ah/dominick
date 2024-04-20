@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+ push:
+    branches:
+      - master
+
+jobs:
+ build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Dominick
+      uses: subosito/flutter-action@v1
+      with:
+        flutter-version: '3.16.5'
+
+    - name: Build Flutter Web
+      run: flutter build web
+
+    - name: Deploy to Netlify
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      with:
+        args: deploy --prod

@@ -1,4 +1,5 @@
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_vanisher/scroll_vanisher.dart';
 
@@ -47,7 +48,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'assets/icon/logo_blanc2.png',
+                imageAsset.cekahLogo,
                 width: 100,
               ),
             ),

@@ -7,6 +7,7 @@ class TimeLineContentModel {
   final String date;
   final String description;
   final String urlImage;
+  final String urlPost;
   TimeLineContentModel({
     required this.rank,
     required this.type,
@@ -15,5 +16,6 @@ class TimeLineContentModel {
     required this.date,
     required this.description,
     required this.urlImage,
+    required this.urlPost,
   });
 }

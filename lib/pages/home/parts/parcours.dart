@@ -40,7 +40,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
         mobile: MediaQuery.sizeOf(context).height * .5,
         tablet: MediaQuery.sizeOf(context).height * .55,
         mobileLarge: MediaQuery.sizeOf(context).height * .7,
-        desktop: MediaQuery.sizeOf(context).height,
+        desktop: 650,
       ),
       width: widget.size.width,
       child: Column(

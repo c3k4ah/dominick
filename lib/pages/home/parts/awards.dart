@@ -84,31 +84,38 @@ class _AwardPartState extends State<AwardPart> {
       mobile: _buildCarosel(),
       tablet: _buildCarosel(),
       mobileLarge: _buildCarosel(),
-      desktop: Container(
-        margin: const EdgeInsets.all(20).copyWith(
-          left: bodyPadding,
-          right: 0,
-        ),
-        height: widget.size.height * .7,
-        width: widget.size.width,
-        color: primaryColor,
-        child: Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 50),
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                ),
-              ),
-            ),
-            _buildAwards(),
-          ],
-        ),
-      ),
+      desktop: _buildCarosel(),
+      // desktop: Container(
+      //   margin: const EdgeInsets.all(20).copyWith(
+      //     left: bodyPadding,
+      //     right: 0,
+      //   ),
+      //   height: ResponsiveSize.number(
+      //     context: context,
+      //     mobile: widget.size.height * .7,
+      //     tablet: widget.size.height * .7,
+      //     mobileLarge: widget.size.height * .7,
+      //     desktop: 450,
+      //   ),
+      //   width: widget.size.width,
+      //   color: primaryColor,
+      //   child: Stack(
+      //     alignment: AlignmentDirectional.center,
+      //     children: [
+      //       Container(
+      //         margin: const EdgeInsets.symmetric(vertical: 50),
+      //         decoration: BoxDecoration(
+      //           color: secondaryColor,
+      //           borderRadius: const BorderRadius.only(
+      //             topLeft: Radius.circular(20),
+      //             bottomLeft: Radius.circular(20),
+      //           ),
+      //         ),
+      //       ),
+      //       _buildAwards(),
+      //     ],
+      //   ),
+      // ),
     );
   }
 
@@ -121,11 +128,23 @@ class _AwardPartState extends State<AwardPart> {
         ),
         FlutterCarousel(
           options: CarouselOptions(
-            viewportFraction: 0.7,
+            floatingIndicator: false,
+            enableInfiniteScroll: true,
+            viewportFraction: ResponsiveSize.number(
+              context: context,
+              mobile: 0.8,
+              tablet: 0.6,
+              mobileLarge: 0.7,
+              desktop: 0.45,
+            ),
             enlargeCenterPage: true,
             height: 400.0,
-            showIndicator: false,
-            slideIndicator: const CircularSlideIndicator(),
+            showIndicator: true,
+            slideIndicator: CircularSlideIndicator(
+              indicatorBackgroundColor: secondaryColor,
+              indicatorBorderColor: Colors.transparent,
+              indicatorRadius: 5,
+            ),
           ),
           items: List.generate(
             palmaresList.length,

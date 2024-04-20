@@ -44,7 +44,7 @@ class MyProjectPart extends StatelessWidget {
     return Column(
       children: [
         const BigTitileWidget(
-          title: 'Mes projets',
+          title: 'Mes réalisations',
           svgIcon: 'project',
         ),
         Container(

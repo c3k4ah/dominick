@@ -3,9 +3,12 @@
 import 'package:animated_background/animated_background.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/data/data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../common/colors/colors.dart';
 
@@ -20,6 +23,8 @@ class CoverPhotoPart extends StatefulWidget {
 
 class _CoverPhotoPartState extends State<CoverPhotoPart>
     with TickerProviderStateMixin {
+  String cvUrl =
+      'https://drive.google.com/file/d/1BGDLwpPbIzZ1NiszZzQr65tP6qGjfNeQ/view?usp=drive_link';
   @override
   void initState() {
     assetsAudioPlayer.open(
@@ -56,7 +61,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
       context: context,
       mobile: MediaQuery.sizeOf(context).height * .5,
       tablet: MediaQuery.sizeOf(context).height * .6,
-      desktop: MediaQuery.sizeOf(context).height * .8,
+      desktop: 600,
       unit: Unit.px,
     );
     return Container(
@@ -65,8 +70,8 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
       margin: const EdgeInsets.only(bottom: 50),
       decoration: BoxDecoration(
         color: secondaryColor,
-        image: const DecorationImage(
-          image: AssetImage('/images/angry.webp'),
+        image: DecorationImage(
+          image: AssetImage(imageAsset.covertPhoto1),
           fit: BoxFit.cover,
         ),
       ),
@@ -164,8 +169,30 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildVerticalBoutton(),
-                    _buildVerticalBoutton(),
+                    _buildVerticalBoutton(
+                      context: context,
+                      icon: UniconsLine.cloud_download,
+                      onTap: () async {
+                        if (!await launchUrl(Uri.parse(cvUrl))) {
+                          throw Exception('Could not launch');
+                        }
+                      },
+                    ),
+                    StreamBuilder(
+                      stream: assetsAudioPlayer.isPlaying,
+                      initialData: false,
+                      builder: (context, snapshot) {
+                        return _buildVerticalBoutton(
+                          context: context,
+                          icon: snapshot.data == true
+                              ? UniconsLine.pause
+                              : UniconsLine.play,
+                          onTap: () async {
+                            await assetsAudioPlayer.playOrPause();
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -176,13 +203,112 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
     );
   }
 
-  Widget _buildVerticalBoutton() {
+  Widget _buildVerticalBoutton({
+    required IconData icon,
+    required VoidCallback onTap,
+    required BuildContext context,
+  }) {
     return Container(
-      height: 150,
-      width: 70,
-      padding: const EdgeInsets.all(10),
+      height: ResponsiveSize.number(
+        context: context,
+        mobile: 70,
+        tablet: 70,
+        mobileLarge: 70,
+        desktop: 100,
+      ),
+      width: ResponsiveSize.number(
+        context: context,
+        mobile: 50,
+        tablet: 50,
+        mobileLarge: 50,
+        desktop: 70,
+      ),
+      // padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(horizontal: 15),
-      color: Colors.white,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50),
+          topRight: Radius.circular(50),
+        ),
+      ),
+      child: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              alignment: AlignmentDirectional.bottomCenter,
+              children: [
+                Container(
+                  height: ResponsiveSize.number(
+                    context: context,
+                    mobile: 30,
+                    tablet: 30,
+                    mobileLarge: 30,
+                    desktop: 50,
+                  ),
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: onTap,
+                  child: Container(
+                    height: ResponsiveSize.number(
+                      context: context,
+                      mobile: 30,
+                      tablet: 30,
+                      mobileLarge: 30,
+                      desktop: 40,
+                    ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        icon,
+                        color: whiteColor,
+                        size: ResponsiveSize.number(
+                          context: context,
+                          mobile: 16,
+                          tablet: 16,
+                          mobileLarge: 16,
+                          desktop: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              height: double.infinity,
+              width: ResponsiveSize.number(
+                context: context,
+                mobile: 2,
+                tablet: 2,
+                mobileLarge: 2,
+                desktop: 3,
+              ),
+              color: primaryColor,
+            ),
+          ),
+          // Icon(
+          //   UniconsLine.cloud_download,
+          //   color: primaryColor,
+          //   size: 30,
+          // ),
+          // const SizedBox(height: 10),
+        ],
+      ),
     );
   }
 

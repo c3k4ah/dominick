@@ -2,13 +2,17 @@ import 'package:bamboo/foundation/breakpoint.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
-
+import 'package:meta_seo/meta_seo.dart';
+import 'package:flutter/foundation.dart';
 import 'pages/home/home.dart';
 
 void main() {
+  if (kIsWeb) {
+    MetaSEO().config();
+  }
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => const MyApp(), // Wrap your app
     ),
   );

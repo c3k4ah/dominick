@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../common/colors/colors.dart';
 import '../../../common/utils/sizes/responsive.dart';
+import '../../../data/image_assets.dart';
 import 'widgets/icon_and_title_widet.dart';
 
 class MyBigPart extends StatelessWidget {
@@ -133,13 +134,13 @@ class MyBigPart extends StatelessWidget {
       mobile: 170,
       tablet: 180,
       mobileLarge: 150,
-      desktop: 200,
+      desktop: 250,
     );
     double textSize = Bamboo.number(
       context: context,
       mobile: 20,
       tablet: 20,
-      desktop: 20,
+      desktop: 25,
     );
     return Container(
       padding: EdgeInsets.symmetric(
@@ -236,17 +237,17 @@ List<ProfilInfo> profilInfos = [
   ProfilInfo(
     name: 'Dominick R.G',
     job: 'Développeur Flutter',
-    image: '/images/dev_project.jpg',
+    image: imageAsset.devProject,
   ),
   ProfilInfo(
     name: 'Grégoire Randriaamanatena',
     job: 'Chef de projet',
-    image: '/images/cher_project.jpg',
+    image: imageAsset.chefProject,
   ),
   ProfilInfo(
     name: 'Cekah Greg',
     job: 'Designer',
-    image: '/images/designer_project.jpeg',
+    image: imageAsset.designerProject,
   ),
 ];
 

@@ -1,4 +1,5 @@
 import '../models/formation_model.dart';
+import 'image_assets.dart';
 
 List<FormationModel> experienceList = [
   FormationModel(
@@ -49,11 +50,11 @@ List<FormationModel> experienceList = [
         ],
       ),
     ],
-    urlImage: '/images/sample.png',
+    urlImage: imageAsset.covertPhoto2,
   ),
   FormationModel(
     institut: "MyAgency",
-    urlImage: '/icon/myagency.png',
+    urlImage: imageAsset.myAgency,
     location: 'Anjanahary',
     title: "Développeur Flutter",
     date: "2023",
@@ -86,7 +87,7 @@ List<FormationModel> experienceList = [
   ),
   FormationModel(
     institut: "AreaTech",
-    urlImage: '/icon/area.png',
+    urlImage: imageAsset.areaTech,
     location: 'Avaradoha',
     title: "Développeur Flutter",
     date: "2022",
@@ -108,7 +109,7 @@ List<FormationModel> experienceList = [
   ),
   FormationModel(
     institut: "IBONIA",
-    urlImage: '/icon/ibonia.png',
+    urlImage: imageAsset.inonia,
     location: 'Ankatso',
     title: "Stage de découverte",
     date: "2020",

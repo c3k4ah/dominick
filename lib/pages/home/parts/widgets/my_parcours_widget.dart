@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
@@ -25,12 +27,21 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
   bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
-    double imageSize = Bamboo.number(
-      context: context,
-      mobile: 50,
-      tablet: 70,
-      desktop: 70,
-      unit: Unit.px,
+    Size imageSize = Size(
+      ResponsiveSize.number(
+        context: context,
+        mobile: 70,
+        tablet: 70,
+        mobileLarge: 70,
+        desktop: 120,
+      ),
+      ResponsiveSize.number(
+        context: context,
+        mobile: 70,
+        tablet: 70,
+        mobileLarge: 70,
+        desktop: 100,
+      ),
     );
     double textSize = Bamboo.number(
       context: context,
@@ -88,14 +99,28 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
                     textSize: textSize,
                     isSelected: widget.isSelected,
                   ),
-                  _buildImagePart(
-                    imageSize: imageSize,
+                  Expanded(
+                    child: _buildImagePart(
+                      imageSize: imageSize,
+                      image: widget.formation.urlImage,
+                    ),
                   ),
-                  _buildFormationTitle(
-                    textSize: textSize,
-                    isSelected: widget.isSelected,
-                    title: widget.formation.title,
-                    context: context,
+                  SizedBox(
+                    width: Bamboo.number(
+                      context: context,
+                      mobile: 10,
+                      tablet: 20,
+                      desktop: 20,
+                      unit: Unit.px,
+                    ),
+                  ),
+                  Expanded(
+                    child: _buildFormationTitle(
+                      textSize: textSize,
+                      isSelected: widget.isSelected,
+                      title: widget.formation.title,
+                      context: context,
+                    ),
                   ),
                   BambooHidden(
                     mobile: true,
@@ -333,23 +358,23 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
   }
 
   Widget _buildImagePart({
-    required double imageSize,
+    required Size imageSize,
+    required String image,
   }) {
     return Container(
-      width: imageSize,
-      height: imageSize,
+      width: imageSize.width,
+      height: imageSize.height,
       margin: const EdgeInsets.symmetric(
         horizontal: 5,
       ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: widget.isSelected ? secondaryColor : tertioColor,
-          width: 5,
-        ),
-        image: const DecorationImage(
-          image: AssetImage('/images/sample.png'),
-          fit: BoxFit.cover,
+      child: Center(
+        child: Image.asset(
+          image,
+          fit: BoxFit.fitWidth,
+          width: imageSize.width *
+              (widget.formation.institut.toLowerCase() == 'ibonia' ? 1 : .7),
+          colorBlendMode: BlendMode.srcIn,
+          color: widget.isSelected ? secondaryColor : whiteColor,
         ),
       ),
     );

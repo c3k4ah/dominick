@@ -1,4 +1,5 @@
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -38,7 +39,7 @@ class BigTitileWidget extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width,
             child: SvgPicture.asset(
-              '/icon/$svgIcon.svg',
+              '${imageAsset.directory}/icon/$svgIcon.svg',
               width: Bamboo.number(
                 context: context,
                 mobile: 30,

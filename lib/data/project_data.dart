@@ -1,4 +1,5 @@
 import '../models/project_model.dart';
+import 'image_assets.dart';
 
 List<ProjectModel> projectLIst = [
   ProjectModel(
@@ -6,7 +7,7 @@ List<ProjectModel> projectLIst = [
     title: 'GFS',
     description:
         "GFS est une application multiplateforme qui permet de facilement la gestion d'une maison/foyer",
-    urlImage: '/images/gfs.png',
+    urlImage: imageAsset.gfs,
     urlProject: 'https://github.com/iTeam-S/GFS',
   ),
   ProjectModel(
@@ -14,21 +15,21 @@ List<ProjectModel> projectLIst = [
     title: 'Buildeo',
     description:
         'Gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet.',
-    urlImage: '/images/buildeo.png',
+    urlImage: imageAsset.buildeo,
     urlProject: 'https://github.com/iTeam-S/Buildeo',
   ),
   ProjectModel(
     type: 'Mobile (Flutter)',
     title: 'Rakitra',
     description: "Application de gestion de budget hors ligne.",
-    urlImage: '/images/rakitra.png',
+    urlImage: imageAsset.rakitra,
     urlProject: 'https://github.com/c3k4ah/RAKITRA',
   ),
   ProjectModel(
     type: 'Mobile (Flutter)',
     title: 'Mozika',
     description: 'Lecteur de musique pour Android',
-    urlImage: '/images/mozika.png',
+    urlImage: imageAsset.mozika,
     urlProject: 'https://github.com/c3k4ah/mozika-2.0',
   ),
   ProjectModel(
@@ -36,7 +37,7 @@ List<ProjectModel> projectLIst = [
     title: 'Dekoa',
     description:
         'Une application mobile pour aider les clients à commander de la nourriture rapidement et efficacement en ligne ou directement sur place.',
-    urlImage: '/images/dekoa.png',
+    urlImage: imageAsset.dekoa,
     urlProject: '',
   ),
   ProjectModel(
@@ -44,7 +45,7 @@ List<ProjectModel> projectLIst = [
     title: 'AVG',
     description:
         'Accès sur les Lois Environnementales: Moderne bibiotheque numerique de loi.(en tant que front-end)',
-    urlImage: '/images/avg.png',
+    urlImage: imageAsset.avg,
     urlProject: '',
   ),
 ];
