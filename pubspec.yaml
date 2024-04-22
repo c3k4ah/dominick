@@ -49,6 +49,37 @@ flutter:
     - assets/icon/
     - assets/logo/
     - web/zoom.js
+    - assets/images/angry.webp
+    - assets/images/sample.png
+    - assets/icon/team.svg
+    - assets/icon/project.svg
+    - assets/icon/cup.svg
+    - assets/icon/calendar.svg
+    - assets/icon/mouse_icon.svg
+    - assets/logo/ibonia.png
+    - assets/logo/areaTech.png
+    - assets/logo/myagency.png
+    - assets/logo/google.png
+    - assets/logo/esti.png
+    - assets/logo/mybn.png
+    - assets/logo/mvola.png
+    - assets/logo/zahageek.png
+    - assets/logo/iteams.png
+    - assets/images/cekah.png
+    - assets/images/cher_project.jpg
+    - assets/images/designer_project.jpeg
+    - assets/images/dev_project.jpg
+    - assets/images/dekoa.png
+    - assets/images/mozika.png
+    - assets/images/rakitra.png
+    - assets/images/gfs.png
+    - assets/images/buildeo.png
+    - assets/images/avg.png
+    - assets/icon/team.svg
+    - assets/icon/project.svg
+    - assets/icon/cup.svg
+    - assets/icon/calendar.svg
+    - assets/icon/mouse_icon.svg
 
 
   fonts:
