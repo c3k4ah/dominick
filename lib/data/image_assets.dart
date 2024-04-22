@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 final ImageAssets imageAsset = ImageAssets();
 
 class ImageAssets {
-  String directory = !(kIsWeb) ? 'assets/' : '';
+  String directory = 'assets/assets'; //!(kIsWeb) ? 'assets/' : '';
 
   //logo
   String get inonia => '${directory}logo/ibonia.png';
