@@ -45,26 +45,26 @@ class _HomePageState extends State<HomePage> {
             controller: _scrollController,
             child: Column(
               children: [
-                const CoverPhotoPart(),
-                MyProjectPart(
-                  size: Size(
-                    _size.width(context),
-                    _size.height(context),
-                  ),
-                ),
-                MyParcoursPart(
-                  size: Size(
-                    _size.width(context),
-                    _size.height(context),
-                  ),
-                ),
-                const MyBigPart(),
-                AwardPart(
-                  size: Size(
-                    _size.width(context),
-                    _size.height(context),
-                  ),
-                ),
+                // const CoverPhotoPart(),
+                // MyProjectPart(
+                //   size: Size(
+                //     _size.width(context),
+                //     _size.height(context),
+                //   ),
+                // ),
+                // MyParcoursPart(
+                //   size: Size(
+                //     _size.width(context),
+                //     _size.height(context),
+                //   ),
+                // ),
+                // const MyBigPart(),
+                // AwardPart(
+                //   size: Size(
+                //     _size.width(context),
+                //     _size.height(context),
+                //   ),
+                // ),
                 MyFooterPart(
                   size: Size(
                     _size.width(context),
@@ -76,21 +76,33 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   height: 50,
-      //   color: Colors.deepPurple,
-      //   child: Center(
-      //     child: Text(
-      //       'width: ${MediaQuery.sizeOf(context).width} px',
-      //       style: const TextStyle(
-      //         color: Colors.white,
-      //         fontSize: 16,
-      //         fontFamily: 'Poppins',
-      //       ),
-      //     ),
-      //   ),
-      // ),
+      bottomNavigationBar: Container(
+        height: 50,
+        color: Colors.deepPurple,
+        child: Center(
+          child: Text(
+            'width: ${MediaQuery.sizeOf(context).width} px | ${getDevice(MediaQuery.sizeOf(context))}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Poppins',
+            ),
+          ),
+        ),
+      ),
     );
+  }
+}
+
+String getDevice(Size size) {
+  if (size.width >= 1024) {
+    return 'desktop';
+  } else if (size.width >= 700) {
+    return 'tablet';
+  } else if (size.width >= 500) {
+    return 'mobileLarge';
+  } else {
+    return 'mobile';
   }
 }
 

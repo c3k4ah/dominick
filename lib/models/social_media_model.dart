@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SMediaModel {
   final String name;
   final String link;
-  final Icon icon;
+  final IconData icon;
   final Color bgColor;
 
   SMediaModel({

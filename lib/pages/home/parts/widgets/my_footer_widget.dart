@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
+import 'package:dominick/common/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/colors/colors.dart';
@@ -20,25 +21,61 @@ class MyFooterWidget extends StatefulWidget {
 }
 
 class _MyFooterWidgetState extends State<MyFooterWidget> {
-  double hgh = 70;
-  double wth = 70;
-  double radius = 15.0;
   @override
   Widget build(BuildContext context) {
+    double bttsize = ResponsiveSize.number(
+      context: context,
+      mobile: 50,
+      tablet: 70,
+      mobileLarge: 70,
+      desktop: 70,
+    );
+
+    double radius = ResponsiveSize.number(
+      context: context,
+      mobile: 10,
+      tablet: 15.0,
+      mobileLarge: 15.0,
+      desktop: 15.0,
+    );
     return Container(
       key: Key(widget.id.toString()),
-      height: 70,
-      width: 70,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: widget.social.bgColor,
-        borderRadius: BorderRadius.circular(widget.isSelected ? 20 : radius),
-        border: Border.all(
-          color: widget.isSelected ? tertioColor : whiteColor,
-          width: 4,
+      height: bttsize,
+      width: bttsize,
+      margin: EdgeInsets.all(
+        ResponsiveSize.number(
+          context: context,
+          mobile: 10,
+          tablet: 10,
+          mobileLarge: 10,
+          desktop: 10,
         ),
       ),
-      child: widget.social.icon,
+      decoration: BoxDecoration(
+        color: widget.social.bgColor,
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(
+          color: whiteColor,
+          width: ResponsiveSize.number(
+            context: context,
+            mobile: 4,
+            tablet: 4,
+            mobileLarge: 4,
+            desktop: 4,
+          ),
+        ),
+      ),
+      child: Icon(
+        widget.social.icon,
+        color: whiteColor,
+        size: ResponsiveSize.number(
+          context: context,
+          mobile: 20,
+          tablet: 35,
+          mobileLarge: 35,
+          desktop: 35,
+        ),
+      ),
     );
   }
 }
