@@ -25,8 +25,8 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
   Widget build(BuildContext context) {
     double bttsize = ResponsiveSize.number(
       context: context,
-      mobile: 50,
-      tablet: 70,
+      mobile: 40,
+      tablet: 50,
       mobileLarge: 70,
       desktop: 70,
     );
@@ -34,7 +34,7 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
     double radius = ResponsiveSize.number(
       context: context,
       mobile: 10,
-      tablet: 15.0,
+      tablet: 10,
       mobileLarge: 15.0,
       desktop: 15.0,
     );
@@ -71,7 +71,7 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
         size: ResponsiveSize.number(
           context: context,
           mobile: 20,
-          tablet: 35,
+          tablet: 20,
           mobileLarge: 35,
           desktop: 35,
         ),

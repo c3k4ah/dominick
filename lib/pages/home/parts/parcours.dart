@@ -36,7 +36,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
       ),
       height: ResponsiveSize.number(
         context: context,
-        mobile: MediaQuery.sizeOf(context).height * .5,
+        mobile: 450,
         tablet: MediaQuery.sizeOf(context).height * .55,
         mobileLarge: MediaQuery.sizeOf(context).height * .7,
         desktop: 650,

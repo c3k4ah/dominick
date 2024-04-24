@@ -29,7 +29,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     Size imageSize = Size(
       ResponsiveSize.number(
         context: context,
-        mobile: 70,
+        mobile: 60,
         tablet: 70,
         mobileLarge: 70,
         desktop: 120,
@@ -44,7 +44,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     );
     double textSize = Bamboo.number(
       context: context,
-      mobile: 15,
+      mobile: 12,
       tablet: 20,
       desktop: 20,
       unit: Unit.px,
@@ -181,7 +181,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     return Container(
       width: Bamboo.number(
         context: context,
-        mobile: 50,
+        mobile: 30,
         tablet: 100,
         desktop: 100,
         unit: Unit.px,
@@ -310,12 +310,16 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
             ),
             color: isSelected ? secondaryColor : tertioColor,
           ),
-          Text(
-            location,
-            style: TextStyle(
-              color: isSelected ? secondaryColor : whiteColor,
-              fontFamily: 'Product Sans',
-              fontSize: textSize,
+          Expanded(
+            child: Text(
+              location,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: isSelected ? secondaryColor : whiteColor,
+                fontFamily: 'Product Sans',
+                fontSize: textSize,
+              ),
             ),
           ),
         ],

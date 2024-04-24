@@ -133,7 +133,13 @@ class _AwardPartState extends State<AwardPart> {
               desktop: 0.45,
             ),
             enlargeCenterPage: true,
-            height: 400.0,
+            height: ResponsiveSize.number(
+              context: context,
+              mobile: 300,
+              tablet: 400,
+              mobileLarge: 400,
+              desktop: 400,
+            ),
             showIndicator: true,
             slideIndicator: CircularSlideIndicator(
               indicatorBackgroundColor: secondaryColor,

@@ -5,6 +5,7 @@ import 'package:meta_seo/meta_seo.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../common/utils/sizes/sizes.dart';
+import 'parts/footer_v2.dart';
 import 'parts/part.dart';
 // ignore: unused_import
 import 'parts/widgets/app_bar.dart';
@@ -28,13 +29,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    seoConfig();
+    double textSize = ResponsiveSize.number(
+      context: context,
+      mobile: 10,
+      tablet: 17,
+      mobileLarge: 15,
+      desktop: 15,
+    );
     return Scaffold(
       // appBar: AppBarWidget(
       //   controller: _scrollController,
       // ),
       body: Container(
-        color: Colors.grey.shade900,
+        color: const Color.fromARGB(255, 211, 115, 90),
         child: Container(
           margin:
               EdgeInsets.symmetric(horizontal: getNecessaryPadding(context)),
@@ -65,33 +72,73 @@ class _HomePageState extends State<HomePage> {
                     _size.height(context),
                   ),
                 ),
-                MyFooterPart(
-                  size: Size(
-                    _size.width(context),
-                    _size.height(context),
+                const FooterPartV2(),
+                Container(
+                  height: ResponsiveSize.number(
+                    context: context,
+                    mobile: 50,
+                    tablet: 50,
+                    mobileLarge: 50,
+                    desktop: 50,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: ResponsiveSize.number(
+                      context: context,
+                      mobile: 10,
+                      tablet: 50,
+                      mobileLarge: 50,
+                      desktop: 50,
+                    ),
+                  ),
+                  color: whiteColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Made with Flutter and Love ❤️.',
+                        style: style(textSize),
+                      ),
+                      Text(
+                        '© ${DateTime.now().year} DOMINICK . All rights reserved.',
+                        style: style(textSize),
+                      ),
+                    ],
                   ),
                 ),
+                // MyFooterPart(
+                //   size: Size(
+                //     _size.width(context),
+                //     _size.height(context),
+                //   ),
+                // ),
               ],
             ),
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 50,
-        color: Colors.deepPurple,
-        child: Center(
-          child: Text(
-            'width: ${MediaQuery.sizeOf(context).width} px | ${getDevice(MediaQuery.sizeOf(context))}',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontFamily: 'Poppins',
-            ),
-          ),
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   height: 50,
+      //   color: Colors.deepPurple,
+      //   child: Center(
+      //     child: Text(
+      //       'width: ${MediaQuery.sizeOf(context).width} px | ${getDevice(MediaQuery.sizeOf(context))}',
+      //       style: const TextStyle(
+      //         color: Colors.white,
+      //         fontSize: 16,
+      //         fontFamily: 'Poppins',
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
+
+  TextStyle style(double textSize) => TextStyle(
+        color: secondaryColor,
+        fontSize: textSize,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Product Sans',
+      );
 }
 
 String getDevice(Size size) {

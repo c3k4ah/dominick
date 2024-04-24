@@ -15,6 +15,7 @@ class ImageAssets {
   String get mhackMvola => '${directory}logo/mvola.png';
   String get zahageek => '${directory}logo/zahageek.png';
   String get iteams => '${directory}logo/iteams.png';
+  String get freelance => '${directory}logo/freelance.png';
   //images
   String get covertPhoto1 => '${directory}images/angry.webp';
   String get covertPhoto2 => '${directory}images/sample.png';

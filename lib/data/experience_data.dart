@@ -50,7 +50,7 @@ List<FormationModel> experienceList = [
         ],
       ),
     ],
-    urlImage: imageAsset.covertPhoto2,
+    urlImage: imageAsset.freelance,
   ),
   FormationModel(
     institut: "MyAgency",
