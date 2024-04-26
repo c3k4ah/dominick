@@ -25,44 +25,32 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
   Widget build(BuildContext context) {
     double bttsize = ResponsiveSize.number(
       context: context,
+      small: 30,
       mobile: 40,
-      tablet: 50,
-      mobileLarge: 70,
-      desktop: 70,
+      tablet: 40,
+      mobileLarge: 40,
+      desktop: 40,
     );
 
     double radius = ResponsiveSize.number(
       context: context,
+      small: 8.0,
       mobile: 10,
       tablet: 10,
-      mobileLarge: 15.0,
-      desktop: 15.0,
+      mobileLarge: 10,
+      desktop: 10,
     );
     return Container(
       key: Key(widget.id.toString()),
       height: bttsize,
       width: bttsize,
-      margin: EdgeInsets.all(
-        ResponsiveSize.number(
-          context: context,
-          mobile: 10,
-          tablet: 10,
-          mobileLarge: 10,
-          desktop: 10,
-        ),
-      ),
+      margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: widget.social.bgColor,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: whiteColor,
-          width: ResponsiveSize.number(
-            context: context,
-            mobile: 4,
-            tablet: 4,
-            mobileLarge: 4,
-            desktop: 4,
-          ),
+          width: 2,
         ),
       ),
       child: Icon(
@@ -72,8 +60,8 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
           context: context,
           mobile: 20,
           tablet: 20,
-          mobileLarge: 35,
-          desktop: 35,
+          mobileLarge: 22,
+          desktop: 22,
         ),
       ),
     );

@@ -12,17 +12,22 @@ class CustomSize {
 
 class Responsive extends StatelessWidget {
   final Widget mobile;
+  final Widget? small;
   final Widget? mobileLarge;
   final Widget? tablet;
   final Widget desktop;
 
   const Responsive({
     Key? key,
+    this.small,
     required this.mobile,
     this.tablet,
     required this.desktop,
     this.mobileLarge,
   }) : super(key: key);
+
+  static bool isSmall(BuildContext context) =>
+      MediaQuery.of(context).size.width <= 300;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width <= 500;
@@ -45,6 +50,8 @@ class Responsive extends StatelessWidget {
       return tablet!;
     } else if (size.width >= 500 && mobileLarge != null) {
       return mobileLarge!;
+    } else if (small != null && size.width >= 300) {
+      return small!;
     } else {
       return mobile;
     }
@@ -54,6 +61,7 @@ class Responsive extends StatelessWidget {
 class ResponsiveSize {
   static double number({
     required BuildContext context,
+    double? small,
     required double mobile,
     required double tablet,
     required double mobileLarge,
@@ -66,6 +74,8 @@ class ResponsiveSize {
       return tablet;
     } else if (size.width >= 500) {
       return mobileLarge;
+    } else if (size.width >= 300) {
+      return small ?? mobile;
     } else {
       return mobile;
     }

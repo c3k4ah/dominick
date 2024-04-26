@@ -69,9 +69,13 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
       width: MediaQuery.sizeOf(context).width,
       margin: const EdgeInsets.only(bottom: 50),
       decoration: BoxDecoration(
-        color: secondaryColor,
+        color: primaryColor,
         image: DecorationImage(
           image: AssetImage(imageAsset.covertPhoto1),
+          colorFilter: ColorFilter.mode(
+            primaryColor,
+            BlendMode.hardLight,
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -96,12 +100,15 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              const SizedBox(
+                height: 10,
+              ),
               Text(
                 "Developpeur Flutter",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: tertioColor,
-                  fontSize: textSize - 10,
+                  fontSize: textSize - 5,
                   shadows: const [
                     Shadow(
                       color: Colors.black,

@@ -1,231 +1,133 @@
-import 'package:bamboo/services/services.dart';
+import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/colors/colors.dart';
+import 'package:dominick/common/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:responsive_grid/responsive_grid.dart';
 
-import '../../../common/colors/colors.dart';
-import '../../../common/utils/sizes/responsive.dart';
-import '../../../data/image_assets.dart';
 import 'widgets/icon_and_title_widet.dart';
 
-class MyBigPart extends StatelessWidget {
-  const MyBigPart({
-    super.key,
-  });
+class SkillsPart extends StatelessWidget {
+  const SkillsPart({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     return Container(
-      margin: const EdgeInsets.all(10),
-      // height: ResponsiveSize.number(
-      //   context: context,
-      //   mobile: size.height,
-      //   tablet: size.height * .7,
-      //   desktop: size.height * .7,
-      //   mobileLarge: size.height * .7,
-      // ),
-      width: MediaQuery.sizeOf(context).width,
-      // color: Colors.black,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const BigTitileWidget(
-              title: 'Notre équipe',
-              svgIcon: 'team',
-            ),
-            SizedBox(
-              // height: size.height * 0.7,
-              width: size.width,
-              child: Responsive(
-                mobile: Column(
-                  children: List.generate(
-                    profilInfos.length,
-                    (index) {
-                      ProfilInfo profil = profilInfos[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: memberProfil(
-                          widgetSize: Size(size.width, 200),
-                          context: context,
-                          name: profil.name,
-                          job: profil.job,
-                          image: profil.image,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                tablet: Row(
-                  children: List.generate(
-                    profilInfos.length,
-                    (index) {
-                      ProfilInfo profil = profilInfos[index];
-                      return Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: memberProfil(
-                            widgetSize: Size(size.width, 300),
-                            context: context,
-                            name: profil.name,
-                            job: profil.job,
-                            image: profil.image,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                mobileLarge: Row(
-                  children: List.generate(
-                    2,
-                    (index) {
-                      ProfilInfo profil = profilInfos[index];
-                      return Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: memberProfil(
-                            widgetSize: Size(size.width, 300),
-                            context: context,
-                            name: profil.name,
-                            job: profil.job,
-                            image: profil.image,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                desktop: Row(
-                  children: List.generate(
-                    profilInfos.length,
-                    (index) {
-                      ProfilInfo profil = profilInfos[index];
-                      return Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
-                          child: memberProfil(
-                            widgetSize: Size(size.width, 300),
-                            context: context,
-                            name: profil.name,
-                            job: profil.job,
-                            image: profil.image,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget memberProfil({
-    required String name,
-    required String job,
-    required String image,
-    required BuildContext context,
-    required Size widgetSize,
-  }) {
-    double imageSize = ResponsiveSize.number(
-      context: context,
-      mobile: 170,
-      tablet: 180,
-      mobileLarge: 150,
-      desktop: 250,
-    );
-    double textSize = Bamboo.number(
-      context: context,
-      mobile: 20,
-      tablet: 20,
-      desktop: 25,
-    );
-    return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: ResponsiveSize.number(
-          context: context,
-          mobile: 10,
-          tablet: 20,
-          mobileLarge: 50,
-          desktop: 20,
-        ),
-      ),
       margin: EdgeInsets.symmetric(
-        // horizontal: Bamboo.number(
-        //   context: context,
-        //   mobile: 5,
-        //   // tablet: 20,
-        //   // large: 20,
-        //   // desktop: 50,
-        // ),
-        vertical: Bamboo.number(
+        horizontal: Bamboo.number(
           context: context,
           mobile: 5,
-          tablet: 10,
+          desktop: 50,
+          unit: Unit.px,
+        ),
+        vertical: Bamboo.number(
+          context: context,
+          mobile: 10,
           desktop: 20,
+          unit: Unit.px,
         ),
       ),
-      height: widgetSize.height + (imageSize / 2),
-      width: widgetSize.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        // color: secondaryColor,
-        border: Border.all(
-          color: whiteColor,
-          width: Bamboo.number(
-            context: context,
-            mobile: 3,
-            tablet: 4,
-            desktop: 6,
-          ),
-        ),
+      height: ResponsiveSize.number(
+        context: context,
+        mobile: 450,
+        tablet: 700,
+        mobileLarge: 400,
+        desktop: 550,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: imageSize,
-            width: imageSize,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: tertioColor,
-                width: 6,
+          const BigTitileWidget(
+            title: 'Mes compétences',
+            svgIcon: 'brain',
+          ),
+          Expanded(
+            child: ResponsiveGridList(
+              squareCells: false,
+              scroll: true,
+              rowMainAxisAlignment: MainAxisAlignment.center,
+              desiredItemWidth: ResponsiveSize.number(
+                context: context,
+                mobile: 50,
+                tablet: 100,
+                mobileLarge: 150,
+                desktop: 150,
               ),
-              image: DecorationImage(
-                image: AssetImage(image),
-                fit: BoxFit.cover,
+              minSpacing: ResponsiveSize.number(
+                context: context,
+                mobile: 40,
+                tablet: 80,
+                mobileLarge: 80,
+                desktop: 50,
+              ),
+              children: List.generate(
+                skills.length,
+                (index) {
+                  Skill skill = skills[index];
+                  return Container(
+                    // alignment: const Alignment(0, 0),
+                    color: Colors.transparent,
+                    child: Column(
+                      children: [
+                        CircularPercentIndicator(
+                          radius: ResponsiveSize.number(
+                            context: context,
+                            mobile: 40.0,
+                            tablet: 60.0,
+                            mobileLarge: 60.0,
+                            desktop: 60.0,
+                          ),
+                          lineWidth: ResponsiveSize.number(
+                            context: context,
+                            mobile: 8.0,
+                            tablet: 8.0,
+                            mobileLarge: 8.0,
+                            desktop: 12.0,
+                          ),
+                          animateFromLastPercent: true,
+                          backgroundColor: secondaryColor,
+                          percent: skill.percentage,
+                          animation: true,
+                          center: Text(
+                            '${(skill.percentage * 100).toInt()}%',
+                            style: TextStyle(
+                              fontSize: ResponsiveSize.number(
+                                context: context,
+                                mobile: 12,
+                                tablet: 12,
+                                mobileLarge: 12,
+                                desktop: 15.0,
+                              ),
+                              fontFamily: 'Product Sans',
+                              fontWeight: FontWeight.bold,
+                              color: whiteColor,
+                            ),
+                          ),
+                          progressColor: tertioColor,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          skill.name,
+                          style: TextStyle(
+                            fontSize: ResponsiveSize.number(
+                              context: context,
+                              mobile: 13,
+                              tablet: 13,
+                              mobileLarge: 13,
+                              desktop: 15,
+                            ),
+                            color: whiteColor,
+                            fontFamily: 'Product Sans',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
-          ),
-          Column(
-            children: [
-              const SizedBox(height: 20),
-              Text(
-                name,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: textSize,
-                  color: whiteColor,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                job,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: textSize - 5,
-                  fontFamily: 'Product Sans',
-                  color: tertioColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
           ),
         ],
       ),
@@ -233,32 +135,22 @@ class MyBigPart extends StatelessWidget {
   }
 }
 
-List<ProfilInfo> profilInfos = [
-  ProfilInfo(
-    name: 'Dominick R.G',
-    job: 'Développeur Flutter',
-    image: imageAsset.devProject,
-  ),
-  ProfilInfo(
-    name: 'Grégoire Randriaamanatena',
-    job: 'Chef de projet',
-    image: imageAsset.chefProject,
-  ),
-  ProfilInfo(
-    name: 'Cekah Greg',
-    job: 'Designer',
-    image: imageAsset.designerProject,
-  ),
+List<Skill> skills = [
+  Skill(name: 'Dart', percentage: 0.75),
+  Skill(name: 'Flutter', percentage: 0.85),
+  // Skill(name: 'Flutter Bloc', percentage: 0.7),
+  Skill(name: 'Clean Archi', percentage: 0.9),
+  Skill(name: 'CI/CD', percentage: 0.4),
+  Skill(name: 'Firebase', percentage: 0.5),
+  Skill(name: 'Golang', percentage: 0.25),
 ];
 
-class ProfilInfo {
+class Skill {
   final String name;
-  final String job;
-  final String image;
+  final double percentage;
 
-  ProfilInfo({
+  Skill({
     required this.name,
-    required this.job,
-    required this.image,
+    required this.percentage,
   });
 }

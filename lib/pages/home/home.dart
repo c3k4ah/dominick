@@ -1,5 +1,4 @@
 import 'package:dominick/common/colors/colors.dart';
-import 'package:dominick/data/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:flutter/foundation.dart';
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       //   controller: _scrollController,
       // ),
       body: Container(
-        color: const Color.fromARGB(255, 211, 115, 90),
+        color: Colors.grey.shade900,
         child: Container(
           margin:
               EdgeInsets.symmetric(horizontal: getNecessaryPadding(context)),
@@ -59,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                     _size.height(context),
                   ),
                 ),
+                const SkillsPart(),
                 MyParcoursPart(
                   size: Size(
                     _size.width(context),
@@ -90,14 +90,17 @@ class _HomePageState extends State<HomePage> {
                       desktop: 50,
                     ),
                   ),
-                  color: whiteColor,
+                  color: secondaryColor,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Made with Flutter and Love ❤️.',
-                        style: style(textSize),
-                      ),
+                      if (MediaQuery.sizeOf(context).width > 380.0)
+                        Text(
+                          'Made with Flutter and Love ❤️.',
+                          style: style(textSize),
+                        ),
+                      if (MediaQuery.sizeOf(context).width > 380.0)
+                        const Spacer(),
                       Text(
                         '© ${DateTime.now().year} DOMINICK . All rights reserved.',
                         style: style(textSize),
@@ -116,25 +119,25 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      // bottomNavigationBar: Container(
-      //   height: 50,
-      //   color: Colors.deepPurple,
-      //   child: Center(
-      //     child: Text(
-      //       'width: ${MediaQuery.sizeOf(context).width} px | ${getDevice(MediaQuery.sizeOf(context))}',
-      //       style: const TextStyle(
-      //         color: Colors.white,
-      //         fontSize: 16,
-      //         fontFamily: 'Poppins',
-      //       ),
-      //     ),
-      //   ),
-      // ),
+      bottomNavigationBar: Container(
+        height: 50,
+        color: Colors.deepPurple,
+        child: Center(
+          child: Text(
+            'width: ${MediaQuery.sizeOf(context).width} px | ${getDevice(MediaQuery.sizeOf(context))}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'Poppins',
+            ),
+          ),
+        ),
+      ),
     );
   }
 
   TextStyle style(double textSize) => TextStyle(
-        color: secondaryColor,
+        color: whiteColor,
         fontSize: textSize,
         fontWeight: FontWeight.bold,
         fontFamily: 'Product Sans',

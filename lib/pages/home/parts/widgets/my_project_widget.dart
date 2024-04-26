@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dominick/common/colors/colors.dart';
@@ -20,12 +21,12 @@ class MyProjectWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cardWidht = Bamboo.number(
+    double cardWidht = ResponsiveSize.number(
       context: context,
-      mobile: 200,
+      mobile: 280,
       tablet: 330,
       desktop: 330,
-      unit: Unit.px,
+      mobileLarge: 330,
     );
     return Container(
       // width: Bamboo.number(
@@ -131,7 +132,7 @@ class MyProjectWidget extends StatelessWidget {
               projectModel.description,
               maxLines: Bamboo.number(
                 context: context,
-                mobile: 2,
+                mobile: 3,
                 tablet: 3,
                 desktop: 3,
                 unit: Unit.px,

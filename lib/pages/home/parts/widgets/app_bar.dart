@@ -21,6 +21,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     double textSize = Bamboo.number(
       context: context,
       mobile: 25,

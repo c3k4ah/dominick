@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dominick/common/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -231,6 +232,22 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size imageSize = Size(
+      ResponsiveSize.number(
+        context: context,
+        mobile: 130,
+        tablet: 200,
+        mobileLarge: 200,
+        desktop: 200,
+      ),
+      ResponsiveSize.number(
+        context: context,
+        mobile: 80,
+        tablet: 120,
+        mobileLarge: 120,
+        desktop: 120,
+      ),
+    );
     return Container(
       width: size.width,
       padding: const EdgeInsets.all(10),
@@ -251,8 +268,8 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            width: 200,
-            height: 120,
+            width: imageSize.width,
+            height: imageSize.height,
             child: Image.asset(
               palmares.urlImage,
               // fit: BoxFit.fitHeight,
@@ -260,6 +277,48 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
               color: secondaryColor,
             ),
           ),
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              ' ${palmares.type} (${palmares.date})',
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: TextStyle(
+                color: secondaryColor,
+                fontSize: ResponsiveSize.number(
+                  context: context,
+                  mobile: 30,
+                  tablet: 30,
+                  mobileLarge: 25,
+                  desktop: 30,
+                ),
+                fontFamily: 'Product Sans',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Text(
+                    palmares.description,
+                    textAlign: TextAlign.justify,
+                    maxLines: 5,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: secondaryColor,
+                      fontSize: 15,
+                      fontFamily: 'Product Sans',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
       // child: Column(

@@ -1,4 +1,5 @@
 import 'package:bamboo/bamboo.dart';
+import 'package:dominick/common/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,11 +17,12 @@ class BigTitileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double textSize = Bamboo.number(
+    double textSize = ResponsiveSize.number(
       context: context,
       mobile: 25,
-      desktop: 50,
-      unit: Unit.px,
+      desktop: 40,
+      mobileLarge: 40,
+      tablet: 40,
     );
     return SizedBox(
       // margin: const EdgeInsets.only(top: 50),

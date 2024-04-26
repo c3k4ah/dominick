@@ -36,7 +36,7 @@ class MyProjectPart extends StatelessWidget {
     );
     double bodyheight = Bamboo.number(
       context: context,
-      mobile: 300,
+      mobile: 380,
       tablet: 350,
       desktop: 500,
       unit: Unit.px,

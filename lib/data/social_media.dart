@@ -2,8 +2,6 @@ import 'package:dominick/models/social_media_model.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../common/colors/colors.dart';
-
 List<SMediaModel> reseauxListe = [
   SMediaModel(
     name: 'Github',
