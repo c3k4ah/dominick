@@ -3,7 +3,7 @@ import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_vanisher/scroll_vanisher.dart';
 
-import '../../../../common/colors/colors.dart';
+import '../../../../core/theme/app_color.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController controller;
@@ -143,7 +143,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 onPressed: () {},
                 icon: Icon(
                   Icons.menu,
-                  color: primaryColor,
+                  color: Theme.of(context).extension<AppColors>()!.primaryColor,
                 ),
               ),
             ),

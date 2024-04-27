@@ -1,10 +1,10 @@
-import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../common/utils/sizes/sizes.dart';
-import 'parts/footer_v2.dart';
+import '../../core/theme/app_color.dart';
+import '../../core/utils/sizes/sizes.dart';
+import 'parts/footer/footer_v2.dart';
 import 'parts/part.dart';
 // ignore: unused_import
 import 'parts/widgets/app_bar.dart';
@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     double textSize = ResponsiveSize.number(
       context: context,
       mobile: 10,
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
               EdgeInsets.symmetric(horizontal: getNecessaryPadding(context)),
           width: _size.width(context),
           height: _size.height(context),
-          color: primaryColor,
+          color: themeColor.primaryColor,
           child: SingleChildScrollView(
             controller: _scrollController,
             child: Column(
@@ -90,20 +91,22 @@ class _HomePageState extends State<HomePage> {
                       desktop: 50,
                     ),
                   ),
-                  color: secondaryColor,
+                  color: themeColor.secondaryColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (MediaQuery.sizeOf(context).width > 380.0)
                         Text(
                           'Made with Flutter and Love ❤️.',
-                          style: style(textSize),
+                          style: style(
+                              textSize, themeColor.whiteColor ?? Colors.white),
                         ),
                       if (MediaQuery.sizeOf(context).width > 380.0)
                         const Spacer(),
                       Text(
                         '© ${DateTime.now().year} DOMINICK . All rights reserved.',
-                        style: style(textSize),
+                        style: style(
+                            textSize, themeColor.whiteColor ?? Colors.white),
                       ),
                     ],
                   ),
@@ -136,8 +139,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  TextStyle style(double textSize) => TextStyle(
-        color: whiteColor,
+  TextStyle style(double textSize, Color color) => TextStyle(
+        color: color,
         fontSize: textSize,
         fontWeight: FontWeight.bold,
         fontFamily: 'Product Sans',

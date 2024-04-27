@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 
-import 'package:dominick/common/colors/colors.dart';
 import 'package:dominick/models/project_model.dart';
 
-import '../../../../common/utils/helpers/parsing.dart';
+import '../../../../core/theme/app_color.dart';
+import '../../../../core/utils/helpers/parsing.dart';
 
 class MyProjectWidget extends StatelessWidget {
   const MyProjectWidget({
@@ -81,13 +81,14 @@ class MyProjectWidget extends StatelessWidget {
   }
 
   Widget _buildProjectImage({required BuildContext context}) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       height: size.height * .4,
       width: size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: whiteColor,
+          color: themeColor.whiteColor ?? Colors.white,
           width: Bamboo.number(
             context: context,
             mobile: 2,
@@ -107,6 +108,7 @@ class MyProjectWidget extends StatelessWidget {
   Widget _buildProjectDescription({
     required BuildContext context,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       width: size.width,
       margin: const EdgeInsets.symmetric(vertical: 5),
@@ -117,7 +119,7 @@ class MyProjectWidget extends StatelessWidget {
           Text(
             projectModel.title,
             style: TextStyle(
-              color: whiteColor,
+              color: themeColor.whiteColor,
               fontSize: Bamboo.number(
                 context: context,
                 mobile: 15,
@@ -140,7 +142,7 @@ class MyProjectWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.start,
               style: TextStyle(
-                color: whiteColor,
+                color: themeColor.whiteColor,
                 fontSize: Bamboo.number(
                   context: context,
                   mobile: 10,
@@ -158,6 +160,7 @@ class MyProjectWidget extends StatelessWidget {
   }
 
   Widget _buildProjectTitle({required BuildContext context}) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5),
       width: size.width,
@@ -167,7 +170,7 @@ class MyProjectWidget extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         style: TextStyle(
-          color: tertioColor,
+          color: themeColor.tertioColor,
           fontSize: Bamboo.number(
             context: context,
             mobile: 15,
@@ -186,6 +189,7 @@ class MyProjectWidget extends StatelessWidget {
       {required BuildContext context,
       required double width,
       required List<Widget> children}) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       width: width,
       height: 350,
@@ -206,7 +210,7 @@ class MyProjectWidget extends StatelessWidget {
         ),
       ),
       decoration: BoxDecoration(
-        color: secondaryColor,
+        color: themeColor.secondaryColor,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),
           topRight: Radius.circular(15),
@@ -222,6 +226,7 @@ class MyProjectWidget extends StatelessWidget {
     required double width,
     required BuildContext context,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return SizedBox(
       width: width,
       height: Bamboo.number(
@@ -246,7 +251,7 @@ class MyProjectWidget extends StatelessWidget {
                     unit: Unit.px,
                   ),
                   decoration: BoxDecoration(
-                    color: secondaryColor,
+                    color: themeColor.secondaryColor,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15),
@@ -303,7 +308,7 @@ class MyProjectWidget extends StatelessWidget {
                     ),
                   ),
                   decoration: BoxDecoration(
-                    color: primaryColor,
+                    color: themeColor.primaryColor,
                     borderRadius: BorderRadius.circular(
                       Bamboo.number(
                         context: context,
@@ -316,7 +321,7 @@ class MyProjectWidget extends StatelessWidget {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: secondaryColor,
+                      color: themeColor.secondaryColor,
                       borderRadius: BorderRadius.circular(
                         Bamboo.number(
                           context: context,
@@ -331,7 +336,7 @@ class MyProjectWidget extends StatelessWidget {
                       child: Text(
                         addZero(id + 1),
                         style: TextStyle(
-                          color: whiteColor,
+                          color: themeColor.whiteColor,
                           fontSize: Bamboo.number(
                             context: context,
                             mobile: 15,

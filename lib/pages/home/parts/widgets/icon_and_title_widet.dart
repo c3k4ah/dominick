@@ -1,10 +1,10 @@
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../common/colors/colors.dart';
+import '../../../../core/theme/app_color.dart';
 
 class BigTitileWidget extends StatelessWidget {
   final String svgIcon;
@@ -17,6 +17,7 @@ class BigTitileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     double textSize = ResponsiveSize.number(
       context: context,
       mobile: 25,
@@ -50,7 +51,7 @@ class BigTitileWidget extends StatelessWidget {
                 unit: Unit.px,
               ),
               colorFilter: ColorFilter.mode(
-                whiteColor,
+                themeColor.whiteColor ?? Colors.white,
                 BlendMode.srcIn,
               ),
             ),
@@ -67,7 +68,7 @@ class BigTitileWidget extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: whiteColor,
+                color: themeColor.whiteColor,
                 fontSize: textSize,
               ),
             ),

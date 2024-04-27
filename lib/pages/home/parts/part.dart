@@ -1,9 +1,8 @@
-export 'about.dart';
-export 'teams.dart';
-export 'awards.dart';
-export 'footer.dart';
-export 'header.dart';
-export 'parcours.dart';
-export 'project.dart';
-export 'cover_page.dart';
-export 'skills.dart';
+export 'myteam/teams.dart';
+export 'awards/awards.dart';
+export 'footer/footer.dart';
+export 'header/header.dart';
+export 'experience/parcours.dart';
+export 'project/project.dart';
+export 'cover/cover_page.dart';
+export 'skills/skills.dart';

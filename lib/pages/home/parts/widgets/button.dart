@@ -1,7 +1,7 @@
 import 'package:bamboo/bamboo.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../common/colors/colors.dart';
+import '../../../../core/theme/app_color.dart';
 
 class MyCustomBtt extends StatelessWidget {
   final VoidCallback onTap;
@@ -21,6 +21,7 @@ class MyCustomBtt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     Size sizebtt = Size(
       text.isEmpty ? 80 : 200,
       Bamboo.number(
@@ -36,7 +37,7 @@ class MyCustomBtt extends StatelessWidget {
         width: sizebtt.width,
         height: sizebtt.height,
         decoration: BoxDecoration(
-          color: whiteColor,
+          color: themeColor.whiteColor,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
@@ -48,7 +49,7 @@ class MyCustomBtt extends StatelessWidget {
                   width: 50,
                   margin: const EdgeInsets.only(right: 3),
                   decoration: BoxDecoration(
-                    color: whiteColor,
+                    color: themeColor.whiteColor,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8),
@@ -57,7 +58,7 @@ class MyCustomBtt extends StatelessWidget {
                   child: Center(
                     child: Container(
                       height: 3,
-                      color: primaryColor,
+                      color: themeColor.primaryColor,
                     ),
                   ),
                 ),
@@ -74,11 +75,11 @@ class MyCustomBtt extends StatelessWidget {
                           ),
                           Container(
                             width: 3,
-                            color: whiteColor,
+                            color: themeColor.whiteColor,
                           ),
                           Container(
                             width: 13.5,
-                            color: whiteColor,
+                            color: themeColor.whiteColor,
                           ),
                         ],
                       ),
@@ -87,13 +88,13 @@ class MyCustomBtt extends StatelessWidget {
                       width: 30,
                       height: 30,
                       decoration: BoxDecoration(
-                        color: secondaryColor,
+                        color: themeColor.secondaryColor,
                         shape: BoxShape.circle,
                       ),
                       child: Center(
                         child: Icon(
                           icon,
-                          color: whiteColor,
+                          color: themeColor.whiteColor,
                           size: 20,
                         ),
                       ),
@@ -111,7 +112,7 @@ class MyCustomBtt extends StatelessWidget {
                   text,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: secondaryColor,
+                    color: themeColor.secondaryColor,
                     fontSize: textSize ?? 25,
                   ),
                 ),

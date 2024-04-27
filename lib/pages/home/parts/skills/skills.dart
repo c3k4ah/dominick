@@ -1,30 +1,33 @@
-import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/colors/colors.dart';
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
-import 'widgets/icon_and_title_widet.dart';
+import '../../../../core/theme/app_color.dart';
+import '../../../../models/skill_model.dart';
+import '../widgets/icon_and_title_widet.dart';
 
 class SkillsPart extends StatelessWidget {
   const SkillsPart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: Bamboo.number(
+        horizontal: ResponsiveSize.number(
           context: context,
           mobile: 5,
-          desktop: 50,
-          unit: Unit.px,
+          desktop: MediaQuery.sizeOf(context).width * .2,
+          mobileLarge: 50,
+          tablet: 40,
         ),
-        vertical: Bamboo.number(
+        vertical: ResponsiveSize.number(
           context: context,
           mobile: 10,
           desktop: 20,
-          unit: Unit.px,
+          mobileLarge: 50,
+          tablet: 40,
         ),
       ),
       height: ResponsiveSize.number(
@@ -62,7 +65,7 @@ class SkillsPart extends StatelessWidget {
               children: List.generate(
                 skills.length,
                 (index) {
-                  Skill skill = skills[index];
+                  SkillModel skill = skills[index];
                   return Container(
                     // alignment: const Alignment(0, 0),
                     color: Colors.transparent,
@@ -74,7 +77,7 @@ class SkillsPart extends StatelessWidget {
                             mobile: 40.0,
                             tablet: 60.0,
                             mobileLarge: 60.0,
-                            desktop: 60.0,
+                            desktop: 70.0,
                           ),
                           lineWidth: ResponsiveSize.number(
                             context: context,
@@ -84,7 +87,8 @@ class SkillsPart extends StatelessWidget {
                             desktop: 12.0,
                           ),
                           animateFromLastPercent: true,
-                          backgroundColor: secondaryColor,
+                          backgroundColor:
+                              themeColor.secondaryColor ?? Colors.black,
                           percent: skill.percentage,
                           animation: true,
                           center: Text(
@@ -99,10 +103,10 @@ class SkillsPart extends StatelessWidget {
                               ),
                               fontFamily: 'Product Sans',
                               fontWeight: FontWeight.bold,
-                              color: whiteColor,
+                              color: themeColor.whiteColor,
                             ),
                           ),
-                          progressColor: tertioColor,
+                          progressColor: themeColor.tertioColor,
                         ),
                         const SizedBox(
                           height: 10,
@@ -117,7 +121,7 @@ class SkillsPart extends StatelessWidget {
                               mobileLarge: 13,
                               desktop: 15,
                             ),
-                            color: whiteColor,
+                            color: themeColor.whiteColor,
                             fontFamily: 'Product Sans',
                             fontWeight: FontWeight.bold,
                           ),
@@ -135,22 +139,12 @@ class SkillsPart extends StatelessWidget {
   }
 }
 
-List<Skill> skills = [
-  Skill(name: 'Dart', percentage: 0.75),
-  Skill(name: 'Flutter', percentage: 0.85),
+List<SkillModel> skills = [
+  SkillModel(name: 'Dart', percentage: 0.75),
+  SkillModel(name: 'Flutter', percentage: 0.85),
   // Skill(name: 'Flutter Bloc', percentage: 0.7),
-  Skill(name: 'Clean Archi', percentage: 0.9),
-  Skill(name: 'CI/CD', percentage: 0.4),
-  Skill(name: 'Firebase', percentage: 0.5),
-  Skill(name: 'Golang', percentage: 0.25),
+  SkillModel(name: 'Clean Archi', percentage: 0.9),
+  SkillModel(name: 'CI/CD', percentage: 0.4),
+  SkillModel(name: 'Firebase', percentage: 0.5),
+  SkillModel(name: 'Golang', percentage: 0.25),
 ];
-
-class Skill {
-  final String name;
-  final double percentage;
-
-  Skill({
-    required this.name,
-    required this.percentage,
-  });
-}

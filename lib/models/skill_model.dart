@@ -1,10 +1,9 @@
 class SkillModel {
   final String name;
-  final String type;
-  final double level;
+  final double percentage;
+
   SkillModel({
     required this.name,
-    required this.type,
-    required this.level,
+    required this.percentage,
   });
 }

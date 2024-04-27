@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
-import 'package:dominick/common/utils/sizes/responsive.dart';
+import 'package:dominick/core/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../common/colors/colors.dart';
+import '../../../../core/theme/app_color.dart';
 import '../../../../models/social_media_model.dart';
 
 class MyFooterWidget extends StatefulWidget {
@@ -23,6 +23,7 @@ class MyFooterWidget extends StatefulWidget {
 class _MyFooterWidgetState extends State<MyFooterWidget> {
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     double bttsize = ResponsiveSize.number(
       context: context,
       small: 30,
@@ -49,13 +50,13 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
         color: widget.social.bgColor,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
-          color: whiteColor,
+          color: themeColor.whiteColor ?? Colors.white,
           width: 2,
         ),
       ),
       child: Icon(
         widget.social.icon,
-        color: whiteColor,
+        color: themeColor.whiteColor,
         size: ResponsiveSize.number(
           context: context,
           mobile: 20,

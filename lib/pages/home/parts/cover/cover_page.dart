@@ -3,16 +3,15 @@
 import 'package:animated_background/animated_background.dart';
 // import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../common/colors/colors.dart';
-
-import 'widgets/button.dart';
+import '../../../../core/theme/app_color.dart';
+import '../widgets/button.dart';
 
 class CoverPhotoPart extends StatefulWidget {
   const CoverPhotoPart({super.key});
@@ -41,6 +40,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     Size bttSize = Size(
       200,
       Bamboo.number(
@@ -69,11 +69,11 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
       width: MediaQuery.sizeOf(context).width,
       margin: const EdgeInsets.only(bottom: 50),
       decoration: BoxDecoration(
-        color: primaryColor,
+        color: themeColor.primaryColor,
         image: DecorationImage(
           image: AssetImage(imageAsset.covertPhoto1),
           colorFilter: ColorFilter.mode(
-            primaryColor,
+            themeColor.primaryColor ?? Colors.black,
             BlendMode.hardLight,
           ),
           fit: BoxFit.cover,
@@ -107,7 +107,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                 "Developpeur Flutter",
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  color: tertioColor,
+                  color: themeColor.tertioColor,
                   fontSize: textSize - 5,
                   shadows: const [
                     Shadow(
@@ -125,7 +125,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                     'DOMINICK',
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                      color: whiteColor,
+                      color: themeColor.whiteColor,
                       fontSize: textSize + 30,
                       shadows: const [
                         Shadow(
@@ -140,7 +140,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                     'Randriamanantena Grégoire',
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                      color: whiteColor,
+                      color: themeColor.whiteColor,
                       fontSize: textSize,
                       shadows: const [
                         Shadow(
@@ -215,6 +215,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
     required VoidCallback onTap,
     required BuildContext context,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       height: ResponsiveSize.number(
         context: context,
@@ -274,13 +275,13 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                     ),
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: primaryColor,
+                      color: themeColor.primaryColor,
                       shape: BoxShape.circle,
                     ),
                     child: Center(
                       child: Icon(
                         icon,
-                        color: whiteColor,
+                        color: themeColor.whiteColor,
                         size: ResponsiveSize.number(
                           context: context,
                           mobile: 16,
@@ -305,7 +306,7 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
                 mobileLarge: 2,
                 desktop: 3,
               ),
-              color: primaryColor,
+              color: themeColor.primaryColor,
             ),
           ),
           // Icon(

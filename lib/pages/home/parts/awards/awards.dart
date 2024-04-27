@@ -1,13 +1,12 @@
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/colors/colors.dart';
-import '../../../common/utils/sizes/responsive.dart';
-import '../../../data/palmares_data.dart';
-import '../../../models/time_line_model.dart';
-import 'widgets/icon_and_title_widet.dart';
-import 'widgets/my_awards_widget.dart';
+import '../../../../core/theme/app_color.dart';
+import '../../../../core/utils/sizes/responsive.dart';
+import '../../../../data/palmares_data.dart';
+import '../../../../models/time_line_model.dart';
+import '../widgets/icon_and_title_widet.dart';
+import '../widgets/my_awards_widget.dart';
 
 class AwardPart extends StatefulWidget {
   final Size size;
@@ -28,6 +27,7 @@ class _AwardPartState extends State<AwardPart> {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Column(
       children: [
         const BigTitileWidget(
@@ -55,7 +55,7 @@ class _AwardPartState extends State<AwardPart> {
             ),
             showIndicator: true,
             slideIndicator: CircularSlideIndicator(
-              indicatorBackgroundColor: secondaryColor,
+              indicatorBackgroundColor: themeColor.secondaryColor,
               indicatorBorderColor: Colors.transparent,
               indicatorRadius: 5,
             ),

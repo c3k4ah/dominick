@@ -1,11 +1,11 @@
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/sizes/responsive.dart';
+import 'package:dominick/core/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/experience_data.dart';
-import '../../../models/formation_model.dart';
-import 'widgets/icon_and_title_widet.dart';
-import 'widgets/my_parcours_widget.dart';
+import '../../../../data/experience_data.dart';
+import '../../../../models/formation_model.dart';
+import '../widgets/icon_and_title_widet.dart';
+import '../widgets/my_parcours_widget.dart';
 
 class MyParcoursPart extends StatefulWidget {
   final Size size;
@@ -76,35 +76,3 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
     );
   }
 }
-// Container(
-                //   width: 350,
-                //   height: 70,
-                //   padding: const EdgeInsets.symmetric(vertical: 8),
-                //   decoration: BoxDecoration(
-                //     color: secondaryColor,
-                //     borderRadius: BorderRadius.circular(10),
-                //   ),
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.center,
-                //     children: [
-                //       ParcoursSwitch(
-                //         text: 'Experiences',
-                //         onTap: () {
-                //           setState(() {
-                //             isExp = false;
-                //           });
-                //         },
-                //         isSelected: !isExp,
-                //       ),
-                //       ParcoursSwitch(
-                //         text: 'Formations',
-                //         onTap: () {
-                //           setState(() {
-                //             isExp = true;
-                //           });
-                //         },
-                //         isSelected: isExp,
-                //       ),
-                //     ],
-                //   ),
-                // ),

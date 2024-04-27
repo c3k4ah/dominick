@@ -1,13 +1,13 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/cursor_behavior/widget.dart';
+import 'package:dominick/core/utils/cursor_behavior/widget.dart';
 import 'package:dominick/models/project_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/data.dart';
-import 'widgets/icon_and_title_widet.dart';
-import 'widgets/my_project_widget.dart';
+import '../../../../data/data.dart';
+import '../widgets/icon_and_title_widet.dart';
+import '../widgets/my_project_widget.dart';
 
 class MyProjectPart extends StatelessWidget {
   final Size size;

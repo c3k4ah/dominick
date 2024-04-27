@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 //orange color
 // Color primaryColor = const Color(0xffFE5944);
@@ -13,10 +12,10 @@ import 'package:flutter/material.dart';
 // Color whiteColor = const Color(0xffFFFFFF);
 
 // //Dark color
-Color secondaryColor = const Color(0xff222831);
-Color primaryColor = const Color(0xff31363F);
-Color tertioColor = const Color(0xfff1c40f);
-Color whiteColor = const Color(0xffFFFFFF);
+// Color secondaryColor = const Color(0xff222831);
+// Color primaryColor = const Color(0xff31363F);
+// Color tertioColor = const Color(0xfff1c40f);
+// Color whiteColor = const Color(0xffFFFFFF);
 
 // //Green color
 // Color secondaryColor = const Color(0xff191A19);

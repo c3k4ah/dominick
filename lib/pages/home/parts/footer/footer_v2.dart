@@ -1,18 +1,19 @@
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../common/colors/colors.dart';
-import '../../../data/image_assets.dart';
-import '../../../data/social_media.dart';
-import '../../../models/social_media_model.dart';
-import 'widgets/my_footer_widget.dart';
+import '../../../../core/theme/app_color.dart';
+import '../../../../data/image_assets.dart';
+import '../../../../data/social_media.dart';
+import '../../../../models/social_media_model.dart';
+import '../widgets/my_footer_widget.dart';
 
 class FooterPartV2 extends StatelessWidget {
   const FooterPartV2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     double textSize = ResponsiveSize.number(
       context: context,
       small: 10,
@@ -20,13 +21,6 @@ class FooterPartV2 extends StatelessWidget {
       tablet: 20,
       mobileLarge: 15,
       desktop: 20,
-    );
-    double imageSize = ResponsiveSize.number(
-      context: context,
-      mobile: 100,
-      tablet: 150,
-      mobileLarge: 120,
-      desktop: 200,
     );
     return Container(
       margin: const EdgeInsets.only(top: 50),
@@ -47,7 +41,7 @@ class FooterPartV2 extends StatelessWidget {
         mobileLarge: MediaQuery.sizeOf(context).height * .6,
         desktop: 400,
       ),
-      color: secondaryColor,
+      color: themeColor.secondaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +70,7 @@ class FooterPartV2 extends StatelessWidget {
             ),
           ),
           VerticalDivider(
-            color: whiteColor,
+            color: themeColor.whiteColor,
             width: 2,
             thickness: 1,
           ),
@@ -101,7 +95,7 @@ class FooterPartV2 extends StatelessWidget {
                     child: Text(
                       'Mes coordonnées :',
                       style: TextStyle(
-                        color: whiteColor,
+                        color: themeColor.whiteColor,
                         fontSize: ResponsiveSize.number(
                           context: context,
                           mobile: 25,
@@ -168,6 +162,7 @@ class FooterPartV2 extends StatelessWidget {
     required double textSize,
     required BuildContext context,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5),
       // height: 50,
@@ -178,7 +173,7 @@ class FooterPartV2 extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: whiteColor,
+            color: themeColor.whiteColor,
             size: textSize,
           ),
           const SizedBox(width: 10),
@@ -190,7 +185,7 @@ class FooterPartV2 extends StatelessWidget {
               style: TextStyle(
                 fontSize: textSize - 3,
                 fontFamily: 'Product Sans',
-                color: whiteColor,
+                color: themeColor.whiteColor,
                 fontWeight: FontWeight.bold,
               ),
             ),

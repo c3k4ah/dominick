@@ -1,9 +1,9 @@
 import 'package:bamboo/foundation/breakpoint.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:dominick/common/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:flutter/foundation.dart';
+import 'core/theme/app_theme.dart';
 import 'pages/home/home.dart';
 
 void main() {
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    AppTheme appTheme = AppTheme(context);
     return BambooBreakPoint(
       mobile: 576,
       tablet: 768,
@@ -31,12 +32,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'DOMINICK',
         debugShowCheckedModeBanner: false,
-        //debugShowMaterialGrid: true,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
-          fontFamily: 'Aura',
-          useMaterial3: true,
-        ),
+        theme: appTheme.greenTheme,
         home: const HomePage(),
       ),
     );

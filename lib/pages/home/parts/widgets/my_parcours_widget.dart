@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bamboo/bamboo.dart';
-import 'package:dominick/common/utils/sizes/sizes.dart';
+import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
-import '../../../../common/colors/colors.dart';
+import '../../../../core/theme/app_color.dart';
 import '../../../../models/formation_model.dart';
 
 class MyPalmaresWidget extends StatefulWidget {
@@ -26,6 +26,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
   bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     Size imageSize = Size(
       ResponsiveSize.number(
         context: context,
@@ -69,15 +70,15 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
       ),
       decoration: widget.isSelected
           ? BoxDecoration(
-              color: whiteColor,
+              color: themeColor.whiteColor,
               borderRadius: BorderRadius.circular(10),
             )
           : BoxDecoration(
-              color: primaryColor,
+              color: themeColor.primaryColor,
               border: Border(
                 top: BorderSide(
                   width: 2,
-                  color: secondaryColor,
+                  color: themeColor.secondaryColor ?? Colors.black,
                 ),
               ),
             ),
@@ -160,12 +161,13 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required double textSize,
     required bool isSelected,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return RotatedBox(
       quarterTurns: 3,
       child: Text(
         widget.formation.date,
         style: TextStyle(
-          color: isSelected ? secondaryColor : whiteColor,
+          color: isSelected ? themeColor.secondaryColor : themeColor.whiteColor,
           fontSize: textSize,
           fontFamily: 'Product Sans',
           fontWeight: FontWeight.bold,
@@ -178,6 +180,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required BuildContext context,
     required bool isSelected,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       width: Bamboo.number(
         context: context,
@@ -187,7 +190,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
         unit: Unit.px,
       ),
       decoration: BoxDecoration(
-        color: isSelected ? tertioColor : primaryColor,
+        color: isSelected ? themeColor.tertioColor : themeColor.primaryColor,
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(10),
           bottomRight: Radius.circular(10),
@@ -203,7 +206,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
             desktop: 30,
             unit: Unit.px,
           ),
-          color: isSelected ? secondaryColor : whiteColor,
+          color: isSelected ? themeColor.secondaryColor : themeColor.whiteColor,
         ),
       ),
     );
@@ -215,6 +218,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required BuildContext context,
     required String institut,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       margin: EdgeInsets.only(
         right: Bamboo.number(
@@ -251,12 +255,15 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
               desktop: 30,
               unit: Unit.px,
             ),
-            color: isSelected ? secondaryColor : tertioColor,
+            color:
+                isSelected ? themeColor.secondaryColor : themeColor.tertioColor,
           ),
           Text(
             institut,
             style: TextStyle(
-              color: isSelected ? secondaryColor : whiteColor,
+              color: isSelected
+                  ? themeColor.secondaryColor
+                  : themeColor.whiteColor,
               fontFamily: 'Product Sans',
               fontSize: textSize,
             ),
@@ -272,6 +279,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required BuildContext context,
     required String location,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: Bamboo.number(
@@ -308,7 +316,8 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
               desktop: 30,
               unit: Unit.px,
             ),
-            color: isSelected ? secondaryColor : tertioColor,
+            color:
+                isSelected ? themeColor.secondaryColor : themeColor.tertioColor,
           ),
           Expanded(
             child: Text(
@@ -316,7 +325,9 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                color: isSelected ? secondaryColor : whiteColor,
+                color: isSelected
+                    ? themeColor.secondaryColor
+                    : themeColor.whiteColor,
                 fontFamily: 'Product Sans',
                 fontSize: textSize,
               ),
@@ -333,6 +344,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required String title,
     required BuildContext context,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: Bamboo.number(
@@ -353,7 +365,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
       child: Text(
         title,
         style: TextStyle(
-          color: isSelected ? secondaryColor : whiteColor,
+          color: isSelected ? themeColor.secondaryColor : themeColor.whiteColor,
           fontSize: textSize,
         ),
       ),
@@ -364,6 +376,7 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
     required Size imageSize,
     required String image,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     return Container(
       width: imageSize.width,
       height: imageSize.height,
@@ -377,7 +390,9 @@ class _MyPalmaresWidgetState extends State<MyPalmaresWidget> {
           width: imageSize.width *
               (widget.formation.institut.toLowerCase() == 'ibonia' ? 1 : .7),
           colorBlendMode: BlendMode.srcIn,
-          color: widget.isSelected ? secondaryColor : whiteColor,
+          color: widget.isSelected
+              ? themeColor.secondaryColor
+              : themeColor.whiteColor,
         ),
       ),
     );

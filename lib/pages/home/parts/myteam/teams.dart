@@ -1,10 +1,11 @@
 import 'package:bamboo/services/services.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/colors/colors.dart';
-import '../../../common/utils/sizes/responsive.dart';
-import '../../../data/image_assets.dart';
-import 'widgets/icon_and_title_widet.dart';
+import '../../../../core/theme/app_color.dart';
+import '../../../../core/utils/sizes/responsive.dart';
+import '../../../../data/image_assets.dart';
+import '../../../../models/profil_item_models.dart';
+import '../widgets/icon_and_title_widet.dart';
 
 class MyBigPart extends StatelessWidget {
   const MyBigPart({
@@ -129,6 +130,7 @@ class MyBigPart extends StatelessWidget {
     required BuildContext context,
     required Size widgetSize,
   }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
     double imageSize = ResponsiveSize.number(
       context: context,
       mobile: 150,
@@ -173,7 +175,7 @@ class MyBigPart extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         // color: secondaryColor,
         border: Border.all(
-          color: whiteColor,
+          color: themeColor.whiteColor ?? Colors.white,
           width: Bamboo.number(
             context: context,
             mobile: 3,
@@ -192,7 +194,7 @@ class MyBigPart extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: tertioColor,
+                color: themeColor.tertioColor ?? Colors.amber,
                 width: 6,
               ),
               image: DecorationImage(
@@ -211,7 +213,7 @@ class MyBigPart extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: textSize,
-                  color: whiteColor,
+                  color: themeColor.whiteColor,
                 ),
               ),
               const SizedBox(height: 10),
@@ -221,7 +223,7 @@ class MyBigPart extends StatelessWidget {
                 style: TextStyle(
                   fontSize: textSize - 5,
                   fontFamily: 'Product Sans',
-                  color: tertioColor,
+                  color: themeColor.tertioColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -250,15 +252,3 @@ List<ProfilInfo> profilInfos = [
     image: imageAsset.designerProject,
   ),
 ];
-
-class ProfilInfo {
-  final String name;
-  final String job;
-  final String image;
-
-  ProfilInfo({
-    required this.name,
-    required this.job,
-    required this.image,
-  });
-}
