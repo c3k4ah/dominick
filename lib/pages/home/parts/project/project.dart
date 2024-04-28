@@ -1,45 +1,47 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:bamboo/bamboo.dart';
 import 'package:dominick/core/utils/cursor_behavior/widget.dart';
 import 'package:dominick/models/project_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/sizes/responsive.dart';
 import '../../../../data/data.dart';
 import '../widgets/icon_and_title_widet.dart';
 import '../widgets/my_project_widget.dart';
 
 class MyProjectPart extends StatelessWidget {
-  final Size size;
+  // final Size size;
   const MyProjectPart({
     super.key,
-    required this.size,
+    // required this.size,
   });
 
   @override
   Widget build(BuildContext context) {
     Size bttSize = Size(
       200,
-      Bamboo.number(
+      ResponsiveSize.number(
         context: context,
         mobile: 100,
         desktop: 50,
-        unit: Unit.px,
+        mobileLarge: 50,
+        tablet: 50,
       ),
     );
 
-    double textSize = Bamboo.number(
+    double textSize = ResponsiveSize.number(
       context: context,
       mobile: 25,
       desktop: 50,
-      unit: Unit.px,
+      mobileLarge: 50,
+      tablet: 50,
     );
-    double bodyheight = Bamboo.number(
+    double bodyheight = ResponsiveSize.number(
       context: context,
       mobile: 380,
       tablet: 350,
       desktop: 500,
-      unit: Unit.px,
+      mobileLarge: 500,
     );
     return Column(
       children: [
@@ -49,21 +51,23 @@ class MyProjectPart extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.symmetric(
-            horizontal: Bamboo.number(
+            horizontal: ResponsiveSize.number(
               context: context,
               mobile: 5,
               desktop: 50,
-              unit: Unit.px,
+              mobileLarge: 50,
+              tablet: 10,
             ),
-            vertical: Bamboo.number(
+            vertical: ResponsiveSize.number(
               context: context,
               mobile: 10,
               desktop: 20,
-              unit: Unit.px,
+              mobileLarge: 20,
+              tablet: 10,
             ),
           ),
           height: bodyheight,
-          width: size.width,
+          width: MediaQuery.sizeOf(context).width,
           child: ScrollChild(
             child: ListView.builder(
               itemCount: projectLIst.length,
@@ -71,7 +75,6 @@ class MyProjectPart extends StatelessWidget {
               itemBuilder: (context, index) {
                 ProjectModel project = projectLIst[index];
                 return MyProjectWidget(
-                  size: size,
                   id: index,
                   projectModel: project,
                 );

@@ -1,4 +1,3 @@
-import 'package:bamboo/bamboo.dart';
 import 'package:dominick/core/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -7,31 +6,21 @@ import '../../../../models/formation_model.dart';
 import '../widgets/icon_and_title_widet.dart';
 import '../widgets/my_parcours_widget.dart';
 
-class MyParcoursPart extends StatefulWidget {
-  final Size size;
+class MyParcoursPart extends StatelessWidget {
   const MyParcoursPart({
     super.key,
-    required this.size,
   });
-
-  @override
-  State<MyParcoursPart> createState() => _MyPalmaresPartState();
-}
-
-class _MyPalmaresPartState extends State<MyParcoursPart> {
-  int selectedIndex = 100;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: Bamboo.number(
-          context: context,
-          mobile: 10,
-          // tablet: 50,
-          // desktop: 50,
-          unit: Unit.px,
-        ),
+        horizontal: ResponsiveSize.number(
+            context: context,
+            mobile: 10,
+            tablet: 0,
+            desktop: 0,
+            mobileLarge: 0),
         vertical: 20,
       ),
       height: ResponsiveSize.number(
@@ -41,7 +30,7 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
         mobileLarge: MediaQuery.sizeOf(context).height * .7,
         desktop: 650,
       ),
-      width: widget.size.width,
+      width: MediaQuery.sizeOf(context).width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -54,18 +43,11 @@ class _MyPalmaresPartState extends State<MyParcoursPart> {
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 FormationModel formation = experienceList[index];
-                return MouseRegion(
-                  onHover: (event) {
-                    setState(() {
-                      selectedIndex = index;
-                    });
-                  },
-                  child: MyPalmaresWidget(
-                    isSelected: index == selectedIndex,
-                    formation: formation,
-                    // isSelected: index == selectedIndex,
-                    size: widget.size,
-                  ),
+                return MyPalmaresWidget(
+                  isSelected: false,
+                  formation: formation,
+                  // isSelected: index == selectedIndex,
+                  size: MediaQuery.sizeOf(context),
                 );
               },
               itemCount: experienceList.length,

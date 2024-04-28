@@ -1,7 +1,7 @@
-import 'package:bamboo/bamboo.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_color.dart';
+import '../../../../core/utils/sizes/responsive.dart';
 
 class MyCustomBtt extends StatelessWidget {
   final VoidCallback onTap;
@@ -24,11 +24,12 @@ class MyCustomBtt extends StatelessWidget {
     final themeColor = Theme.of(context).extension<AppColors>()!;
     Size sizebtt = Size(
       text.isEmpty ? 80 : 200,
-      Bamboo.number(
+      ResponsiveSize.number(
         context: context,
         mobile: 40,
         desktop: 50,
-        unit: Unit.px,
+        mobileLarge: 50,
+        tablet: 40,
       ),
     );
     return InkWell(

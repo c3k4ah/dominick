@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_color.dart';
 import '../../../../models/social_media_model.dart';
 
-class MyFooterWidget extends StatefulWidget {
+class MyFooterWidget extends StatelessWidget {
   SMediaModel social;
   bool isSelected;
   int id;
@@ -16,11 +16,6 @@ class MyFooterWidget extends StatefulWidget {
     required this.id,
   }) : super(key: key);
 
-  @override
-  State<MyFooterWidget> createState() => _MyFooterWidgetState();
-}
-
-class _MyFooterWidgetState extends State<MyFooterWidget> {
   @override
   Widget build(BuildContext context) {
     final themeColor = Theme.of(context).extension<AppColors>()!;
@@ -42,12 +37,12 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
       desktop: 10,
     );
     return Container(
-      key: Key(widget.id.toString()),
+      key: Key(id.toString()),
       height: bttsize,
       width: bttsize,
       margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: widget.social.bgColor,
+        color: social.bgColor,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: themeColor.whiteColor ?? Colors.white,
@@ -55,7 +50,7 @@ class _MyFooterWidgetState extends State<MyFooterWidget> {
         ),
       ),
       child: Icon(
-        widget.social.icon,
+        social.icon,
         color: themeColor.whiteColor,
         size: ResponsiveSize.number(
           context: context,

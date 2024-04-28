@@ -1,12 +1,13 @@
 class FormationModel {
   final String institut;
   final String location;
-
+  final bool? isActive;
   final String title;
   final String date;
   final List<ProjectDescriptionModel> projects;
   final String urlImage;
   FormationModel({
+    this.isActive,
     required this.institut,
     required this.location,
     required this.title,

@@ -3,6 +3,7 @@ import 'image_assets.dart';
 
 List<FormationModel> experienceList = [
   FormationModel(
+    isActive: true,
     institut: "Freelance",
     location: 'Remote',
     title: "Développeur Flutter",
@@ -53,6 +54,7 @@ List<FormationModel> experienceList = [
     urlImage: imageAsset.freelance,
   ),
   FormationModel(
+    isActive: false,
     institut: "MyAgency",
     urlImage: imageAsset.myAgency,
     location: 'Anjanahary',
@@ -86,6 +88,7 @@ List<FormationModel> experienceList = [
     ],
   ),
   FormationModel(
+    isActive: false,
     institut: "AreaTech",
     urlImage: imageAsset.areaTech,
     location: 'Avaradoha',
@@ -108,6 +111,7 @@ List<FormationModel> experienceList = [
     ],
   ),
   FormationModel(
+    isActive: false,
     institut: "IBONIA",
     urlImage: imageAsset.inonia,
     location: 'Ankatso',

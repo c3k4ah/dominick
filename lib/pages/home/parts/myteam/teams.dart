@@ -1,4 +1,3 @@
-import 'package:bamboo/services/services.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_color.dart';
@@ -138,11 +137,12 @@ class MyBigPart extends StatelessWidget {
       mobileLarge: 150,
       desktop: 250,
     );
-    double textSize = Bamboo.number(
+    double textSize = ResponsiveSize.number(
       context: context,
       mobile: 20,
       tablet: 20,
       desktop: 25,
+      mobileLarge: 25,
     );
     return Container(
       padding: EdgeInsets.symmetric(
@@ -155,18 +155,12 @@ class MyBigPart extends StatelessWidget {
         ),
       ),
       margin: EdgeInsets.symmetric(
-        // horizontal: Bamboo.number(
-        //   context: context,
-        //   mobile: 5,
-        //   // tablet: 20,
-        //   // large: 20,
-        //   // desktop: 50,
-        // ),
-        vertical: Bamboo.number(
+        vertical: ResponsiveSize.number(
           context: context,
           mobile: 5,
           tablet: 10,
           desktop: 20,
+          mobileLarge: 20,
         ),
       ),
       height: widgetSize.height + (imageSize / 2.5),
@@ -176,11 +170,12 @@ class MyBigPart extends StatelessWidget {
         // color: secondaryColor,
         border: Border.all(
           color: themeColor.whiteColor ?? Colors.white,
-          width: Bamboo.number(
+          width: ResponsiveSize.number(
             context: context,
             mobile: 3,
             tablet: 4,
             desktop: 6,
+            mobileLarge: 6,
           ),
         ),
       ),

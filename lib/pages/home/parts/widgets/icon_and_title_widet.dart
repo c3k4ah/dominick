@@ -1,4 +1,3 @@
-import 'package:bamboo/bamboo.dart';
 import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +25,7 @@ class BigTitileWidget extends StatelessWidget {
       tablet: 40,
     );
     return SizedBox(
-      // margin: const EdgeInsets.only(top: 50),
-
       width: MediaQuery.sizeOf(context).width,
-      // height: Bamboo.number(
-      //   context: context,
-      //   mobile: 100,
-      //   tablet: 120,
-      //   desktop: 120,
-      //   unit: Unit.px,
-      // ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: svgIcon.isNotEmpty
@@ -47,12 +37,12 @@ class BigTitileWidget extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width,
               child: SvgPicture.asset(
                 '${imageAsset.directory}/icon/$svgIcon.svg',
-                width: Bamboo.number(
+                width: ResponsiveSize.number(
                   context: context,
                   mobile: 30,
                   tablet: 50,
                   desktop: 50,
-                  unit: Unit.px,
+                  mobileLarge: 50,
                 ),
                 colorFilter: ColorFilter.mode(
                   themeColor.whiteColor ?? Colors.white,
@@ -61,12 +51,12 @@ class BigTitileWidget extends StatelessWidget {
               ),
             ),
           SizedBox(
-            height: Bamboo.number(
+            height: ResponsiveSize.number(
               context: context,
               mobile: svgIcon.isNotEmpty ? 50 : 30,
               tablet: 50,
               desktop: 70,
-              unit: Unit.px,
+              mobileLarge: 70,
             ),
             child: Text(
               title,

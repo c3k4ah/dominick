@@ -1,8 +1,6 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:animated_background/animated_background.dart';
 // import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:bamboo/bamboo.dart';
 import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:dominick/data/data.dart';
 
@@ -13,56 +11,39 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/theme/app_color.dart';
 import '../widgets/button.dart';
 
-class CoverPhotoPart extends StatefulWidget {
+class CoverPhotoPart extends StatelessWidget {
   const CoverPhotoPart({super.key});
 
-  @override
-  State<CoverPhotoPart> createState() => _CoverPhotoPartState();
-}
-
-class _CoverPhotoPartState extends State<CoverPhotoPart>
-    with TickerProviderStateMixin {
-  String cvUrl =
+  static String cvUrl =
       'https://drive.google.com/file/d/1BGDLwpPbIzZ1NiszZzQr65tP6qGjfNeQ/view?usp=drive_link';
-  @override
-  void initState() {
-    // assetsAudioPlayer.open(
-    //   Audio.file("assets/audios/wellcome_audio.mp3"),
-    //   autoStart: false,
-    //   loopMode: LoopMode.none,
-    //   playInBackground: PlayInBackground.disabledPause,
-    // );
-
-    super.initState();
-  }
-
-  // final assetsAudioPlayer = AssetsAudioPlayer();
 
   @override
   Widget build(BuildContext context) {
     final themeColor = Theme.of(context).extension<AppColors>()!;
     Size bttSize = Size(
       200,
-      Bamboo.number(
+      ResponsiveSize.number(
         context: context,
         mobile: 40,
         desktop: 50,
-        unit: Unit.px,
+        tablet: 50,
+        mobileLarge: 50,
       ),
     );
 
-    double textSize = Bamboo.number(
+    double textSize = ResponsiveSize.number(
       context: context,
       mobile: 25,
       desktop: 50,
-      unit: Unit.px,
+      tablet: 50,
+      mobileLarge: 50,
     );
-    double bodyheight = Bamboo.number(
+    double bodyheight = ResponsiveSize.number(
       context: context,
       mobile: MediaQuery.sizeOf(context).height * .5,
       tablet: MediaQuery.sizeOf(context).height * .6,
       desktop: 600,
-      unit: Unit.px,
+      mobileLarge: 600,
     );
     return Container(
       height: bodyheight,
@@ -79,132 +60,119 @@ class _CoverPhotoPartState extends State<CoverPhotoPart>
           fit: BoxFit.cover,
         ),
       ),
-      child: AnimatedBackground(
-        behaviour: RandomParticleBehaviour(
-          options: const ParticleOptions(
-            baseColor: Colors.white,
-            spawnMinSpeed: 40,
-            spawnMaxSpeed: 70,
-            spawnMinRadius: 5,
-            spawnMaxRadius: 10,
-            particleCount: 100,
-          ),
+      child: Container(
+        height: MediaQuery.sizeOf(context).height,
+        width: MediaQuery.sizeOf(context).width,
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(.2),
         ),
-        vsync: this,
-        child: Container(
-          height: MediaQuery.sizeOf(context).height,
-          width: MediaQuery.sizeOf(context).width,
-          decoration: BoxDecoration(
-            color: Colors.black.withOpacity(.2),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Developpeur Flutter",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: themeColor.tertioColor,
-                  fontSize: textSize - 5,
-                  shadows: const [
-                    Shadow(
-                      color: Colors.black,
-                      blurRadius: 10,
-                      offset: Offset(5, 5),
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'DOMINICK',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      color: themeColor.whiteColor,
-                      fontSize: textSize + 30,
-                      shadows: const [
-                        Shadow(
-                          color: Colors.black,
-                          blurRadius: 10,
-                          offset: Offset(5, 5),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    'Randriamanantena Grégoire',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      color: themeColor.whiteColor,
-                      fontSize: textSize,
-                      shadows: const [
-                        Shadow(
-                          color: Colors.black,
-                          blurRadius: 10,
-                          offset: Offset(5, 5),
-                        ),
-                      ],
-                    ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Developpeur Flutter",
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                color: themeColor.tertioColor,
+                fontSize: textSize - 5,
+                shadows: const [
+                  Shadow(
+                    color: Colors.black,
+                    blurRadius: 10,
+                    offset: Offset(5, 5),
                   ),
                 ],
               ),
-              // BambooWidget(
-              //   mobile: Column(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: bttChildren(bttSize),
-              //   ),
-              //   tablet: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: bttChildren(bttSize),
-              //   ),
-              //   desktop: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: bttChildren(bttSize),
-              //   ),
-              //   large: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: bttChildren(bttSize),
-              //   ),
-              // ),
-              SizedBox(
-                width: double.infinity,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildVerticalBoutton(
-                      context: context,
-                      icon: UniconsLine.cloud_download,
-                      onTap: () async {
-                        if (!await launchUrl(Uri.parse(cvUrl))) {
-                          throw Exception('Could not launch');
-                        }
-                      },
-                    ),
-                    // StreamBuilder(
-                    //   stream: assetsAudioPlayer.isPlaying,
-                    //   initialData: false,
-                    //   builder: (context, snapshot) {
-                    //     return _buildVerticalBoutton(
-                    //       context: context,
-                    //       icon: snapshot.data == true
-                    //           ? UniconsLine.pause
-                    //           : UniconsLine.play,
-                    //       onTap: () async {
-                    //         await assetsAudioPlayer.playOrPause();
-                    //       },
-                    //     );
-                    //   },
-                    // ),
-                  ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'DOMINICK',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: themeColor.whiteColor,
+                    fontSize: textSize + 30,
+                    shadows: const [
+                      Shadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(5, 5),
+                      ),
+                    ],
+                  ),
                 ),
+                Text(
+                  'Randriamanantena Grégoire',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: themeColor.whiteColor,
+                    fontSize: textSize,
+                    shadows: const [
+                      Shadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(5, 5),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            // BambooWidget(
+            //   mobile: Column(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: bttChildren(bttSize),
+            //   ),
+            //   tablet: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: bttChildren(bttSize),
+            //   ),
+            //   desktop: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: bttChildren(bttSize),
+            //   ),
+            //   large: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: bttChildren(bttSize),
+            //   ),
+            // ),
+            SizedBox(
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildVerticalBoutton(
+                    context: context,
+                    icon: UniconsLine.cloud_download,
+                    onTap: () async {
+                      if (!await launchUrl(Uri.parse(cvUrl))) {
+                        throw Exception('Could not launch');
+                      }
+                    },
+                  ),
+                  // StreamBuilder(
+                  //   stream: assetsAudioPlayer.isPlaying,
+                  //   initialData: false,
+                  //   builder: (context, snapshot) {
+                  //     return _buildVerticalBoutton(
+                  //       context: context,
+                  //       icon: snapshot.data == true
+                  //           ? UniconsLine.pause
+                  //           : UniconsLine.play,
+                  //       onTap: () async {
+                  //         await assetsAudioPlayer.playOrPause();
+                  //       },
+                  //     );
+                  //   },
+                  // ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

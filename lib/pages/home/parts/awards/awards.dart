@@ -8,22 +8,12 @@ import '../../../../models/time_line_model.dart';
 import '../widgets/icon_and_title_widet.dart';
 import '../widgets/my_awards_widget.dart';
 
-class AwardPart extends StatefulWidget {
-  final Size size;
+class AwardPart extends StatelessWidget {
+  // final Size size;
   const AwardPart({
     super.key,
-    required this.size,
+    // required this.size,
   });
-
-  @override
-  State<AwardPart> createState() => _AwardPartState();
-}
-
-class _AwardPartState extends State<AwardPart> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +55,7 @@ class _AwardPartState extends State<AwardPart> {
             (index) {
               TimeLineContentModel palmares = palmaresList[index];
               return MyAwardsCarSwipeWidget(
-                showShadow: false,
-                size: widget.size,
+                size: MediaQuery.sizeOf(context),
                 palmares: palmares,
                 id: index,
               );
