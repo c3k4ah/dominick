@@ -6,6 +6,7 @@ import '../../../../core/theme/app_color.dart';
 import '../../../../data/image_assets.dart';
 import '../../../../data/social_media.dart';
 import '../../../../models/social_media_model.dart';
+import '../widgets/icon_and_title_widet.dart';
 import '../widgets/my_footer_widget.dart';
 
 class FooterPartV2 extends StatelessWidget {
@@ -16,8 +17,8 @@ class FooterPartV2 extends StatelessWidget {
     final themeColor = Theme.of(context).extension<AppColors>()!;
     double textSize = ResponsiveSize.number(
       context: context,
-      small: 10,
-      mobile: 12,
+      // small: 15,
+      mobile: 15,
       tablet: 20,
       mobileLarge: 15,
       desktop: 20,
@@ -36,6 +37,7 @@ class FooterPartV2 extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width,
       height: ResponsiveSize.number(
         context: context,
+        small: MediaQuery.sizeOf(context).height * .3,
         mobile: MediaQuery.sizeOf(context).height * .25,
         tablet: 340,
         mobileLarge: MediaQuery.sizeOf(context).height * .6,
@@ -46,33 +48,20 @@ class FooterPartV2 extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 2,
-            child: Container(
-              // height: imageSize,
-              margin: EdgeInsets.symmetric(
-                horizontal: ResponsiveSize.number(
-                  context: context,
-                  mobile: 20,
-                  tablet: 20,
-                  mobileLarge: 10,
-                  desktop: 30,
-                ),
-              ),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    imageAsset.cekahLogo,
-                  ),
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
+          Responsive(
+            mobile: const SizedBox(),
+            desktop: logoPart(
+              context: context,
+              themeColor: themeColor,
             ),
-          ),
-          VerticalDivider(
-            color: themeColor.whiteColor,
-            width: 2,
-            thickness: 1,
+            tablet: logoPart(
+              context: context,
+              themeColor: themeColor,
+            ),
+            mobileLarge: logoPart(
+              context: context,
+              themeColor: themeColor,
+            ),
           ),
           Expanded(
             flex: 4,
@@ -91,21 +80,9 @@ class FooterPartV2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    child: Text(
-                      'Mes coordonnées :',
-                      style: TextStyle(
-                        color: themeColor.whiteColor,
-                        fontSize: ResponsiveSize.number(
-                          context: context,
-                          mobile: 25,
-                          desktop: 40,
-                          mobileLarge: 40,
-                          tablet: 40,
-                        ),
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
+                  const BigTitileWidget(
+                    title: 'Mes coordonnées :',
+                    svgIcon: '',
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,6 +133,46 @@ class FooterPartV2 extends StatelessWidget {
     );
   }
 
+  Widget logoPart({
+    required BuildContext context,
+    required AppColors themeColor,
+  }) {
+    return Expanded(
+      flex: 2,
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              // height: imageSize,
+              margin: EdgeInsets.symmetric(
+                horizontal: ResponsiveSize.number(
+                  context: context,
+                  mobile: 20,
+                  tablet: 20,
+                  mobileLarge: 10,
+                  desktop: 30,
+                ),
+              ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    imageAsset.cekahLogo,
+                  ),
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            ),
+          ),
+          VerticalDivider(
+            color: themeColor.whiteColor,
+            width: 2,
+            thickness: 1,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget buildContactInfo({
     required IconData icon,
     required String text,
@@ -166,7 +183,13 @@ class FooterPartV2 extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5),
       // height: 50,
-      width: MediaQuery.sizeOf(context).width * .5,
+      width: ResponsiveSize.number(
+        context: context,
+        mobile: MediaQuery.sizeOf(context).width,
+        tablet: MediaQuery.sizeOf(context).width * .5,
+        mobileLarge: MediaQuery.sizeOf(context).height * .5,
+        desktop: MediaQuery.sizeOf(context).width * .5,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

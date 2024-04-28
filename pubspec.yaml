@@ -30,6 +30,8 @@ dependencies:
   meta_seo: ^3.0.9
   percent_indicator: ^4.2.3
   responsive_grid: ^2.4.4
+  theme_provider: ^0.6.0
+  flutter_speed_dial: ^7.0.0
 
 dependency_overrides:
   web: ^0.5.1

@@ -30,7 +30,7 @@ class MyBigPart extends StatelessWidget {
         child: Column(
           children: [
             const BigTitileWidget(
-              title: 'Notre équipe',
+              title: 'Mon équipe',
               svgIcon: 'team',
             ),
             SizedBox(

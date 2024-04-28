@@ -38,28 +38,32 @@ class BigTitileWidget extends StatelessWidget {
       // ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: svgIcon.isNotEmpty
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            child: SvgPicture.asset(
-              '${imageAsset.directory}/icon/$svgIcon.svg',
-              width: Bamboo.number(
-                context: context,
-                mobile: 30,
-                tablet: 50,
-                desktop: 50,
-                unit: Unit.px,
-              ),
-              colorFilter: ColorFilter.mode(
-                themeColor.whiteColor ?? Colors.white,
-                BlendMode.srcIn,
+          if (svgIcon.isNotEmpty)
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width,
+              child: SvgPicture.asset(
+                '${imageAsset.directory}/icon/$svgIcon.svg',
+                width: Bamboo.number(
+                  context: context,
+                  mobile: 30,
+                  tablet: 50,
+                  desktop: 50,
+                  unit: Unit.px,
+                ),
+                colorFilter: ColorFilter.mode(
+                  themeColor.whiteColor ?? Colors.white,
+                  BlendMode.srcIn,
+                ),
               ),
             ),
-          ),
           SizedBox(
             height: Bamboo.number(
               context: context,
-              mobile: 50,
+              mobile: svgIcon.isNotEmpty ? 50 : 30,
               tablet: 50,
               desktop: 70,
               unit: Unit.px,

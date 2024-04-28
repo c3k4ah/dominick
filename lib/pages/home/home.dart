@@ -8,6 +8,7 @@ import 'parts/footer/footer_v2.dart';
 import 'parts/part.dart';
 // ignore: unused_import
 import 'parts/widgets/app_bar.dart';
+import 'parts/widgets/floating_btt.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,6 +41,9 @@ class _HomePageState extends State<HomePage> {
       // appBar: AppBarWidget(
       //   controller: _scrollController,
       // ),
+      floatingActionButton: FloatingColorBtt(
+        controller: _scrollController,
+      ),
       body: Container(
         color: Colors.grey.shade900,
         child: Container(

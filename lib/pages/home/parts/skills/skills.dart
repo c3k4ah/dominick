@@ -17,11 +17,13 @@ class SkillsPart extends StatelessWidget {
       margin: EdgeInsets.symmetric(
         horizontal: ResponsiveSize.number(
           context: context,
-          mobile: 5,
-          desktop: MediaQuery.sizeOf(context).width * .2,
-          mobileLarge: 50,
-          tablet: 40,
+          small: 0,
+          mobile: MediaQuery.sizeOf(context).width * .1,
+          desktop: MediaQuery.sizeOf(context).width * .1,
+          mobileLarge: MediaQuery.sizeOf(context).width * .1,
+          tablet: MediaQuery.sizeOf(context).width * .1,
         ),
+        // horizontal: 0,
         vertical: ResponsiveSize.number(
           context: context,
           mobile: 10,
@@ -32,10 +34,11 @@ class SkillsPart extends StatelessWidget {
       ),
       height: ResponsiveSize.number(
         context: context,
-        mobile: 450,
-        tablet: 700,
+        // small: 710,
+        mobile: 610,
+        tablet: 550,
         mobileLarge: 400,
-        desktop: 550,
+        desktop: 630,
       ),
       child: Column(
         children: [
@@ -46,7 +49,7 @@ class SkillsPart extends StatelessWidget {
           Expanded(
             child: ResponsiveGridList(
               squareCells: false,
-              scroll: true,
+              scroll: false,
               rowMainAxisAlignment: MainAxisAlignment.center,
               desiredItemWidth: ResponsiveSize.number(
                 context: context,
@@ -116,7 +119,7 @@ class SkillsPart extends StatelessWidget {
                           style: TextStyle(
                             fontSize: ResponsiveSize.number(
                               context: context,
-                              mobile: 13,
+                              mobile: 12,
                               tablet: 13,
                               mobileLarge: 13,
                               desktop: 15,
@@ -142,9 +145,9 @@ class SkillsPart extends StatelessWidget {
 List<SkillModel> skills = [
   SkillModel(name: 'Dart', percentage: 0.75),
   SkillModel(name: 'Flutter', percentage: 0.85),
-  // Skill(name: 'Flutter Bloc', percentage: 0.7),
   SkillModel(name: 'Clean Archi', percentage: 0.9),
   SkillModel(name: 'CI/CD', percentage: 0.4),
+  SkillModel(name: 'PocketBase', percentage: 0.5),
   SkillModel(name: 'Firebase', percentage: 0.5),
   SkillModel(name: 'Golang', percentage: 0.25),
 ];

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'app_color.dart';
 
-class AppTheme {
+class ApplicationTheme {
   final BuildContext context;
-  AppTheme(this.context);
+  ApplicationTheme(this.context);
 
   AppColors colors(context) => Theme.of(context).extension<AppColors>()!;
 

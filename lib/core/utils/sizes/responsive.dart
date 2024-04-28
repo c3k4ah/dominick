@@ -74,8 +74,10 @@ class ResponsiveSize {
       return tablet;
     } else if (size.width >= 500) {
       return mobileLarge;
-    } else if (size.width >= 300) {
-      return small ?? mobile;
+    } else if (size.width >= 390) {
+      return mobile;
+    } else if (small != null && size.width >= 300) {
+      return small;
     } else {
       return mobile;
     }
