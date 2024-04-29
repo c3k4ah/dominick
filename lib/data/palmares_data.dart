@@ -10,7 +10,7 @@ List<TimeLineContentModel> palmaresList = [
     type: "Piscine d'integration",
     title: "ESTI",
     description:
-        "Création d'un logiciel Photobooth avec python, tkinter durant la piscine d’intégration ",
+        "Création d'un logiciel Photobooth avec python, tkinter durant la piscine d'intégration ",
     urlImage: imageAsset.esti,
     urlPost:
         'https://www.facebook.com/share/p/RigBued4TYWWfGRD/?mibextid=xfxF2i',
@@ -34,7 +34,7 @@ List<TimeLineContentModel> palmaresList = [
     type: 'Hackathon',
     title: "Devfest",
     description:
-        "Réalisation d'un projet de gestion de permis de construction, du public au responsable administratif, tout en une seule plateforme et en un seul projet. Obtention d'une incubation chez NextA",
+        "Réalisation d'un projet de gestion de permis de construction,tout en une seule plateforme et en un seul projet.",
     urlImage: imageAsset.devFest,
     urlPost: 'https://www.facebook.com/share/Tesoeg1DnwD7tb9M/?mibextid=oFDknk',
   ),
@@ -57,7 +57,7 @@ List<TimeLineContentModel> palmaresList = [
     type: 'Hackathon',
     title: "DEVFEST",
     description:
-        "Réalisation d'un application permettant de calibrer les déchets avant qu’ils soient pris et achetés par les récupérateurs de déchets vu la situation environnementale d’Antananarivo.",
+        "Réalisation d'un application permettant de calibrer les déchets d'Antananarivo.",
     urlImage: imageAsset.devFest,
     urlPost:
         'https://www.facebook.com/share/p/BRGbiDNcHj8MShok/?mibextid=oFDknk',
@@ -69,7 +69,7 @@ List<TimeLineContentModel> palmaresList = [
       type: 'Hackathon',
       title: "ZahaGeek",
       description:
-          "Une plateforme développée par la team Angivy afin d'apporter une solution au numérique pour les enfants. Disponible à la fois sur le Web et sur Mobile.",
+          "Une plateforme développée par la team Angivy afin d'apporter une solution au numérique pour les enfants.",
       urlImage: imageAsset.zahageek,
       urlPost:
           'https://www.facebook.com/share/p/nBXrwuy53QG5Y5hi/?mibextid=oFDknk'),

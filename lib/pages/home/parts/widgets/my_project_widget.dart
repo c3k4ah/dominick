@@ -3,9 +3,10 @@ import 'package:dominick/core/utils/sizes/sizes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dominick/models/project_model.dart';
+import 'package:unicons/unicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/theme/app_color.dart';
-import '../../../../core/utils/helpers/parsing.dart';
 
 class MyProjectWidget extends StatelessWidget {
   const MyProjectWidget({
@@ -65,6 +66,7 @@ class MyProjectWidget extends StatelessWidget {
           _buildProjectBottomPart(
             width: cardWidht,
             context: context,
+            linkProject: projectModel.urlProject,
           ),
         ],
       ),
@@ -216,6 +218,7 @@ class MyProjectWidget extends StatelessWidget {
   Widget _buildProjectBottomPart({
     required double width,
     required BuildContext context,
+    required String linkProject,
   }) {
     final themeColor = Theme.of(context).extension<AppColors>()!;
     return SizedBox(
@@ -274,61 +277,70 @@ class MyProjectWidget extends StatelessWidget {
                 //     size: const Size(150, 60),
                 //   ),
                 // ),
-                Container(
-                  height: ResponsiveSize.number(
-                    context: context,
-                    mobile: 50,
-                    tablet: 70,
-                    desktop: 70,
-                    mobileLarge: 70,
-                  ),
-                  width: ResponsiveSize.number(
-                    context: context,
-                    mobile: 40,
-                    tablet: 60,
-                    desktop: 60,
-                    mobileLarge: 60,
-                  ),
-                  padding: EdgeInsets.all(
-                    ResponsiveSize.number(
+                InkWell(
+                  onTap: linkProject.isNotEmpty
+                      ? () async {
+                          if (!await launchUrl(Uri.parse(linkProject))) {
+                            throw Exception('Could not launch');
+                          }
+                        }
+                      : null,
+                  child: Container(
+                    height: ResponsiveSize.number(
                       context: context,
-                      mobile: 3,
-                      tablet: 5,
-                      desktop: 5,
-                      mobileLarge: 5,
+                      mobile: 50,
+                      tablet: 70,
+                      desktop: 70,
+                      mobileLarge: 70,
                     ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: themeColor.primaryColor,
-                    borderRadius: BorderRadius.circular(
+                    width: ResponsiveSize.number(
+                      context: context,
+                      mobile: 50,
+                      tablet: 70,
+                      desktop: 70,
+                      mobileLarge: 70,
+                    ),
+                    padding: EdgeInsets.all(
                       ResponsiveSize.number(
                         context: context,
-                        mobile: 8,
-                        tablet: 10,
-                        desktop: 10,
-                        mobileLarge: 10,
+                        mobile: 3,
+                        tablet: 5,
+                        desktop: 5,
+                        mobileLarge: 5,
                       ),
                     ),
-                  ),
-                  child: Container(
                     decoration: BoxDecoration(
-                      color: themeColor.secondaryColor,
+                      color: themeColor.primaryColor,
                       borderRadius: BorderRadius.circular(
                         ResponsiveSize.number(
                           context: context,
-                          mobile: 5,
+                          mobile: 8,
                           tablet: 10,
                           desktop: 10,
                           mobileLarge: 10,
                         ),
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        addZero(id + 1),
-                        style: TextStyle(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: themeColor.secondaryColor,
+                        borderRadius: BorderRadius.circular(
+                          ResponsiveSize.number(
+                            context: context,
+                            mobile: 5,
+                            tablet: 10,
+                            desktop: 10,
+                            mobileLarge: 10,
+                          ),
+                        ),
+                      ),
+                      child: Center(
+                        child: Icon(
+                          linkProject.isNotEmpty
+                              ? UniconsLine.link_alt
+                              : UniconsLine.link_broken,
                           color: themeColor.whiteColor,
-                          fontSize: ResponsiveSize.number(
+                          size: ResponsiveSize.number(
                             context: context,
                             mobile: 15,
                             tablet: 25,

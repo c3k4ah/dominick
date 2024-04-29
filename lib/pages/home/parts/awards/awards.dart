@@ -33,7 +33,7 @@ class AwardPart extends StatelessWidget {
               mobile: 0.8,
               tablet: 0.6,
               mobileLarge: 0.7,
-              desktop: 0.45,
+              desktop: 0.35,
             ),
             enlargeCenterPage: true,
             height: ResponsiveSize.number(

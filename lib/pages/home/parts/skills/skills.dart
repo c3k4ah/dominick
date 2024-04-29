@@ -36,7 +36,7 @@ class SkillsPart extends StatelessWidget {
         context: context,
         // small: 710,
         mobile: 610,
-        tablet: 550,
+        tablet: MediaQuery.sizeOf(context).height * .73,
         mobileLarge: 400,
         desktop: 630,
       ),

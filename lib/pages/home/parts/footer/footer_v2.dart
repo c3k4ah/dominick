@@ -158,7 +158,7 @@ class FooterPartV2 extends StatelessWidget {
                   image: AssetImage(
                     imageAsset.cekahLogo,
                   ),
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.contain,
                 ),
               ),
             ),

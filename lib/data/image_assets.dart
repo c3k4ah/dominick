@@ -28,6 +28,7 @@ class ImageAssets {
   String get gfs => '${directory}images/gfs.png';
   String get buildeo => '${directory}images/buildeo.png';
   String get avg => '${directory}images/avg.png';
+  String get portfolio => '${directory}images/portfolio.png';
   //icon
   String get team => '${directory}icon/team.svg';
   String get project => '${directory}icon/project.svg';

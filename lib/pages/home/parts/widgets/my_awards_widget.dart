@@ -60,7 +60,7 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Text(
-              ' ${palmares.type} (${palmares.date})',
+              palmares.type,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -78,27 +78,85 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: SizedBox(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: ResponsiveSize.number(
+                  context: context,
+                  mobile: 10,
+                  tablet: 20,
+                  mobileLarge: 15,
+                  desktop: 20,
+                ),
+              ),
               width: double.infinity,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    palmares.description,
-                    textAlign: TextAlign.justify,
-                    maxLines: ResponsiveSize.number(
-                      context: context,
-                      mobile: 3,
-                      tablet: 5,
-                      mobileLarge: 5,
-                      desktop: 7,
-                    ).toInt(),
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: themeColor.secondaryColor,
-                      fontSize: 15,
-                      fontFamily: 'Product Sans',
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5,
+                          ),
+                          child: Divider(
+                            color: themeColor.secondaryColor,
+                            height: 1,
+                          ),
+                        ),
+                        itemList(
+                          context: context,
+                          title: 'Place',
+                          content: '${palmares.rank}#',
+                        ),
+                        itemList(
+                          context: context,
+                          title: 'Date',
+                          content: palmares.date,
+                        ),
+                        itemList(
+                          context: context,
+                          title: 'Tech',
+                          content: palmares.price,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5,
+                          ),
+                          child: Divider(
+                            color: themeColor.secondaryColor,
+                            height: 1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Responsive(
+                    mobile: const SizedBox(),
+                    desktop: Text(
+                      palmares.description,
+                      textAlign: TextAlign.justify,
+                      maxLines: ResponsiveSize.number(
+                        context: context,
+                        mobile: 3,
+                        tablet: 3,
+                        mobileLarge: 3,
+                        desktop: 2,
+                      ).toInt(),
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: themeColor.secondaryColor,
+                        fontSize: ResponsiveSize.number(
+                          context: context,
+                          mobile: 12,
+                          tablet: 18,
+                          mobileLarge: 15,
+                          desktop: 20,
+                        ),
+                        fontFamily: 'Product Sans',
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -130,150 +188,42 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
           )
         ],
       ),
-      // child: Column(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     Container(
-      //       width: double.infinity,
-      //       padding: const EdgeInsets.symmetric(horizontal: 20),
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         children: [
-      //           Expanded(
-      //             flex: 3,
-      //             child: Text(
-      //               addZero(id + 1),
-      //               style: TextStyle(
-      //                 color: secondaryColor,
-      //                 fontSize: 40,
-      //                 fontWeight: FontWeight.normal,
-      //               ),
-      //             ),
-      //           ),
-      //           SizedBox(
-      //             height: 45,
-      //             width: 45,
-      //             child: MaterialButton(
-      //               hoverColor: Colors.transparent,
-      //               splashColor: Colors.transparent,
-      //               onPressed: () async {
-      //                 if (!await launchUrl(Uri.parse(palmares.urlImage))) {
-      //                   throw Exception('Could not launch');
-      //                 }
-      //               },
-      //               color: primaryColor,
-      //               elevation: 0,
-      //               shape: RoundedRectangleBorder(
-      //                 borderRadius: BorderRadius.circular(50),
-      //               ),
-      //               child: Icon(
-      //                 UniconsLine.link,
-      //                 color: whiteColor,
-      //                 size: 25,
-      //               ),
-      //             ),
-      //           )
-      //         ],
-      //       ),
-      //     ),
-      //     SizedBox(
-      //       child: Column(
-      //         mainAxisAlignment: MainAxisAlignment.start,
-      //         crossAxisAlignment: CrossAxisAlignment.start,
-      //         children: [
-      //           Padding(
-      //             padding: const EdgeInsets.symmetric(horizontal: 50),
-      //             child: Column(
-      //               children: [
-      //                 SizedBox(
-      //                   width: 300,
-      //                   child: Text(
-      //                     palmares.title,
-      //                     textAlign: TextAlign.center,
-      //                     overflow: TextOverflow.ellipsis,
-      //                     maxLines: 1,
-      //                     style: TextStyle(
-      //                       color: secondaryColor,
-      //                       fontSize: 30,
-      //                       fontWeight: FontWeight.normal,
-      //                     ),
-      //                   ),
-      //                 ),
-      //                 ListTile(
-      //                   leading: Icon(
-      //                     UniconsLine.trophy,
-      //                     color: secondaryColor,
-      //                   ),
-      //                   trailing: Text(
-      //                     "${palmares.rank}#",
-      //                     textAlign: TextAlign.left,
-      //                     style: TextStyle(
-      //                       color: secondaryColor,
-      //                       fontSize: 20,
-      //                       fontWeight: FontWeight.normal,
-      //                     ),
-      //                   ),
-      //                 ),
-      //                 ListTile(
-      //                   leading: Icon(
-      //                     UniconsLine.info_circle,
-      //                     color: secondaryColor,
-      //                   ),
-      //                   trailing: Text(
-      //                     palmares.price,
-      //                     style: TextStyle(
-      //                       color: secondaryColor,
-      //                       fontSize: 20,
-      //                       fontWeight: FontWeight.normal,
-      //                     ),
-      //                   ),
-      //                 ),
-      //                 SizedBox(
-      //                   width: 300,
-      //                   child: Text(
-      //                     palmares.type,
-      //                     textAlign: TextAlign.center,
-      //                     overflow: TextOverflow.ellipsis,
-      //                     style: TextStyle(
-      //                       color: secondaryColor,
-      //                       fontSize: 30,
-      //                       fontWeight: FontWeight.normal,
-      //                     ),
-      //                   ),
-      //                 ),
-      //               ],
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //     ),
-      //     Expanded(
-      //       child: Padding(
-      //         padding: const EdgeInsets.all(8.0),
-      //         child: Text(
-      //           palmares.description,
-      //           textAlign: TextAlign.center,
-      //           maxLines: 5,
-      //           overflow: TextOverflow.ellipsis,
-      //           style: TextStyle(
-      //             color: secondaryColor,
-      //             fontSize: 15,
-      //             fontFamily: 'Product Sans',
-      //             fontWeight: FontWeight.bold,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //     Text(
-      //       palmares.date,
-      //       style: TextStyle(
-      //         color: secondaryColor,
-      //         fontSize: 40,
-      //         fontWeight: FontWeight.normal,
-      //       ),
-      //     ),
-      //   ],
-      // ),
+    );
+  }
+
+  Widget itemList({
+    required BuildContext context,
+    required String title,
+    required String content,
+  }) {
+    final themeColor = Theme.of(context).extension<AppColors>()!;
+    double textSize = ResponsiveSize.number(
+      context: context,
+      mobile: 18,
+      tablet: 30,
+      mobileLarge: 25,
+      desktop: 30,
+    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '$title : ',
+          style: TextStyle(
+            color: themeColor.secondaryColor,
+            fontSize: textSize,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        Text(
+          content,
+          style: TextStyle(
+            color: themeColor.secondaryColor,
+            fontSize: textSize,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+      ],
     );
   }
 }
