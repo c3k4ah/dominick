@@ -170,19 +170,22 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
               hoverColor: Colors.transparent,
               splashColor: Colors.transparent,
               onPressed: () async {
-                if (!await launchUrl(Uri.parse(palmares.urlImage))) {
+                if (!await launchUrl(Uri.parse(palmares.urlPost))) {
                   throw Exception('Could not launch');
                 }
               },
               color: themeColor.primaryColor,
               elevation: 0,
+              padding: EdgeInsets.zero,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Icon(
-                UniconsLine.link,
-                color: themeColor.whiteColor,
-                size: 25,
+              child: Center(
+                child: Icon(
+                  UniconsLine.link,
+                  color: themeColor.whiteColor,
+                  size: 25,
+                ),
               ),
             ),
           )
