@@ -8,15 +8,13 @@ import '../../../../core/theme/app_color.dart';
 import '../../../../models/time_line_model.dart';
 
 class MyAwardsCarSwipeWidget extends StatelessWidget {
-  final int id;
-
+  final bool isInitial;
   final TimeLineContentModel palmares;
-  final Size size;
+
   const MyAwardsCarSwipeWidget({
     Key? key,
-    required this.size,
-    required this.id,
     required this.palmares,
+    this.isInitial = false,
   }) : super(key: key);
 
   @override
@@ -39,7 +37,7 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
       ),
     );
     return Container(
-      width: size.width,
+      width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: themeColor.whiteColor,
@@ -141,8 +139,8 @@ class MyAwardsCarSwipeWidget extends StatelessWidget {
                         context: context,
                         mobile: 3,
                         tablet: 3,
-                        mobileLarge: 3,
-                        desktop: 2,
+                        mobileLarge: isInitial ? 3 : 2,
+                        desktop: isInitial ? 3 : 2,
                       ).toInt(),
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(

@@ -17,18 +17,18 @@ class ImageAssets {
   String get iteams => '${directory}logo/iteams.png';
   String get freelance => '${directory}logo/freelance.png';
   //images
-  String get covertPhoto1 => '${directory}images/croquis_cover.png';
+  String get covertPhoto1 => '${directory}images/croquis_cover.webp';
   String get cekahLogo => '${directory}images/cekah.png';
-  String get chefProject => '${directory}images/cher_project.jpg';
-  String get designerProject => '${directory}images/designer_project.jpeg';
-  String get devProject => '${directory}images/dev_project.jpg';
-  String get dekoa => '${directory}images/dekoa.png';
-  String get mozika => '${directory}images/mozika.png';
-  String get rakitra => '${directory}images/rakitra.png';
-  String get gfs => '${directory}images/gfs.png';
-  String get buildeo => '${directory}images/buildeo.png';
-  String get avg => '${directory}images/avg.png';
-  String get portfolio => '${directory}images/portfolio.png';
+  String get chefProject => '${directory}images/cher_project.webp';
+  String get designerProject => '${directory}images/designer_project.webp';
+  String get devProject => '${directory}images/dev_project.webp';
+  String get dekoa => '${directory}images/dekoa.webp';
+  String get mozika => '${directory}images/mozika.webp';
+  String get rakitra => '${directory}images/rakitra.webp';
+  String get gfs => '${directory}images/gfs.webp';
+  String get buildeo => '${directory}images/buildeo.webp';
+  String get avg => '${directory}images/avg.webp';
+  String get portfolio => '${directory}images/portfolio.webp';
   //icon
   String get team => '${directory}icon/team.svg';
   String get project => '${directory}icon/project.svg';

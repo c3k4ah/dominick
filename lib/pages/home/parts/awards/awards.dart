@@ -8,13 +8,19 @@ import '../../../../models/time_line_model.dart';
 import '../widgets/icon_and_title_widet.dart';
 import '../widgets/my_awards_widget.dart';
 
-class AwardPart extends StatelessWidget {
+class AwardPart extends StatefulWidget {
   // final Size size;
   const AwardPart({
     super.key,
     // required this.size,
   });
 
+  @override
+  State<AwardPart> createState() => _AwardPartState();
+}
+
+class _AwardPartState extends State<AwardPart> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final themeColor = Theme.of(context).extension<AppColors>()!;
@@ -49,15 +55,19 @@ class AwardPart extends StatelessWidget {
               indicatorBorderColor: Colors.transparent,
               indicatorRadius: 5,
             ),
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
           ),
           items: List.generate(
             palmaresList.length,
             (index) {
               TimeLineContentModel palmares = palmaresList[index];
               return MyAwardsCarSwipeWidget(
-                size: MediaQuery.sizeOf(context),
+                isInitial: index == _currentIndex,
                 palmares: palmares,
-                id: index,
               );
             },
           ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:theme_provider/theme_provider.dart';
 
 import 'core/theme/app_theme.dart';
 import 'pages/home/home.dart';

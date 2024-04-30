@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
 import 'package:scroll_vanisher/scroll_vanisher.dart';
-import 'package:theme_provider/theme_provider.dart';
+
 import 'package:unicons/unicons.dart';
 
 import '../../../../core/theme/app_color.dart';
@@ -77,30 +77,6 @@ class FloatingColorBtt extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  SpeedDialChild childDial({
-    required String title,
-    required Color color,
-    required String themeId,
-    required BuildContext context,
-  }) {
-    return SpeedDialChild(
-      label: title,
-      labelStyle: const TextStyle(
-        fontFamily: 'Product sans',
-        fontWeight: FontWeight.bold,
-      ),
-      backgroundColor: color,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
-      ),
-      elevation: 0,
-      child: const SizedBox(),
-      onTap: () {
-        ThemeProvider.controllerOf(context).setTheme(themeId);
-      },
     );
   }
 }
