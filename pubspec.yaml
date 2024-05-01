@@ -33,8 +33,8 @@ dependencies:
   # theme_provider: ^0.6.0
   # flutter_speed_dial: ^7.0.0
 
-dependency_overrides:
-  web: ^0.5.1
+# dependency_overrides:
+#   web: ^0.5.1
 
 dev_dependencies:
   flutter_test:
