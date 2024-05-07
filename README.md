@@ -4,7 +4,7 @@ Il s’agit d’un portfolio que j’ai créé avec <a href="https://flutter.dev
 
 ## Améliorations à faire
 
-Bien que ce portfolio représente mon travail actuel, il y a toujours place à l'amélioration. Voici quelques suggestions pour rendre ce portfolio encore meilleur :
+Bien que ce portfolio représente mon travail actuel, il y a toujours place à l'amélioration. 
 
 1. **Ajouter des démos interactives**: Intégrer des démos interactives ou des captures d'écran animées pour donner aux visiteurs une meilleure idée de mes projets.
 2. **Optimiser le design**: Améliorer l'aspect visuel du portfolio en utilisant des thèmes CSS personnalisés ou en adoptant une mise en page plus moderne.
