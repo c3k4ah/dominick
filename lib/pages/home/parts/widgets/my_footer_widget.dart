@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:dominick/core/utils/sizes/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/theme/app_color.dart';
 import '../../../../models/social_media_model.dart';
@@ -36,28 +37,35 @@ class MyFooterWidget extends StatelessWidget {
       mobileLarge: 10,
       desktop: 10,
     );
-    return Container(
-      key: Key(id.toString()),
-      height: bttsize,
-      width: bttsize,
-      margin: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: social.bgColor,
-        borderRadius: BorderRadius.circular(radius),
-        border: Border.all(
-          color: themeColor.whiteColor ?? Colors.white,
-          width: 2,
+    return InkWell(
+      onTap: () async {
+        if (!await launchUrl(Uri.parse(social.link))) {
+          throw Exception('Could not launch');
+        }
+      },
+      child: Container(
+        key: Key(id.toString()),
+        height: bttsize,
+        width: bttsize,
+        margin: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: social.bgColor,
+          borderRadius: BorderRadius.circular(radius),
+          border: Border.all(
+            color: themeColor.whiteColor ?? Colors.white,
+            width: 2,
+          ),
         ),
-      ),
-      child: Icon(
-        social.icon,
-        color: themeColor.whiteColor,
-        size: ResponsiveSize.number(
-          context: context,
-          mobile: 20,
-          tablet: 20,
-          mobileLarge: 22,
-          desktop: 22,
+        child: Icon(
+          social.icon,
+          color: themeColor.whiteColor,
+          size: ResponsiveSize.number(
+            context: context,
+            mobile: 20,
+            tablet: 20,
+            mobileLarge: 22,
+            desktop: 22,
+          ),
         ),
       ),
     );

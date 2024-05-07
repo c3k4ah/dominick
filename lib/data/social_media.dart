@@ -5,19 +5,19 @@ import 'package:unicons/unicons.dart';
 List<SMediaModel> reseauxListe = [
   SMediaModel(
     name: 'Github',
-    link: 'link',
+    link: 'https://github.com/c3k4ah',
     icon: UniconsLine.github,
     bgColor: Colors.black,
   ),
   SMediaModel(
     name: 'Facebook',
-    link: 'link',
+    link: 'https://www.facebook.com/Dominick.Cekah',
     icon: UniconsLine.facebook_f,
     bgColor: Colors.blue.shade700,
   ),
   SMediaModel(
     name: 'LinkedIn',
-    link: 'link',
+    link: 'https://www.linkedin.com/in/dominick-cekah/',
     icon: UniconsLine.linkedin,
     bgColor: Colors.blueAccent,
   ),

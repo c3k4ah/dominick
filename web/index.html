@@ -2,17 +2,7 @@
 <html>
 <head>
   <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
+    « Faites quelque chose de simple, de mémorisable, d'agréable à regarder et d'amusant à lire. »
   -->
   <base href="$FLUTTER_BASE_HREF">
 
@@ -21,8 +11,15 @@
   <meta name="description" content="Dominick's portfolio">
   <meta name="keywords" content="Dominick, grégoire, randriamanantena, portfolio, flutter, web, mobile, app, developer, madagascar, tananarive">
   <meta name="author" content="Dominick Randriamanantena Grégroire">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Portfolio de Dominick Randriamanantena Grégroire">
+  <meta property="og:description" content="Découvrez mes projets, compétences et réalisations dans le développement mobile flutter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dominick-rg.tech/">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/73609825?v=4">
+  <meta property="og:image:alt" content="Image représentant mon portfolio">
+  <meta property="og:site_name" content="Portfolio de Dominick Randriamanantena Grégroire">
 
-  
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +29,6 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-  
 
 
 
@@ -48,6 +44,7 @@
 
 </head>
 <body>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -55,13 +52,10 @@
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        // onEntrypointLoaded: function(engineInitializer) {
-        //   engineInitializer.initializeEngine().then(function(appRunner) {
-        //     appRunner.runApp();
-        //   });
-        // }
-        onEntrypointLoaded: async function(engineInitializer) {
-              await engineInitializer.autoStart();
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
         }
       });
     });
