@@ -8,7 +8,7 @@ List<ProjectModel> projectLIst = [
     description:
         "Il s'agit d'un portfolio que j'ai avec Flutter créé pour mettre en valeur mes compétences et mon expérience.",
     urlImage: imageAsset.portfolio,
-    urlProject: '',
+    urlProject: 'https://github.com/c3k4ah/dominick',
   ),
   ProjectModel(
     type: 'Mobile (Flutter)',
